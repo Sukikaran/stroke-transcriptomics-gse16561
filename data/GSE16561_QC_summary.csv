@@ -1,0 +1,11 @@
+"Metric","Value"
+"Original probes",24424
+"Original samples",63
+"Original missing values",24427
+"Missing value percentage",1.587
+"Probes retained after filtering",24424
+"Annotated probes",22641
+"Unique genes",17494
+"Control samples",24
+"Stroke samples",39
+"Final missing values",0

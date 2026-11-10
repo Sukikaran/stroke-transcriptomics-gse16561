@@ -1,0 +1,10 @@
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Ignore downloaded GEO source and cache files
+data/*.rds
+data/*.gz
+data/*.soft
+data/GSE16561_series_matrix.txt
