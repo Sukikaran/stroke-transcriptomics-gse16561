@@ -1492,6 +1492,144 @@ stopifnot(
 
 cat("\nLimma design and contrast setup completed successfully.\n")
 ```
+
+## 5.2 Limma Model Fitting and Empirical Bayes Analysis
+
+A linear model is fitted for each gene using the experimental design matrix. The Stroke versus Control contrast is then applied to estimate differences in gene expression between the two clinical groups.
+
+Empirical Bayes moderation is used to improve the statistical inference by moderating gene-wise variance estimates across the set of genes. Robust empirical Bayes moderation is applied to reduce the influence of genes with unusually variable expression.
+
+```{r limma-model-fitting}
+# Verify the experimental design and contrast
+stopifnot(
+  identical(colnames(expr_gene), rownames(design_matrix)),
+  nrow(design_matrix) == 63,
+  ncol(design_matrix) == 2,
+  nrow(contrast_matrix) == 2,
+  ncol(contrast_matrix) == 1,
+  colnames(contrast_matrix)[1] == "Stroke_vs_Control"
+)
+
+# Fit a linear model for each gene
+fit_initial <- limma::lmFit(
+  expr_gene,
+  design_matrix
+)
+
+# Apply the Stroke versus Control contrast
+fit_contrasted <- limma::contrasts.fit(
+  fit_initial,
+  contrast_matrix
+)
+
+# Apply robust empirical Bayes moderation
+fit_ebayes <- limma::eBayes(
+  fit_contrasted,
+  robust = TRUE
+)
+
+# Verify model results
+stopifnot(
+  nrow(fit_ebayes$coefficients) == nrow(expr_gene),
+  ncol(fit_ebayes$coefficients) == 1,
+  identical(
+    colnames(fit_ebayes$coefficients),
+    "Stroke_vs_Control"
+  ),
+  all(is.finite(fit_ebayes$coefficients)),
+  all(is.finite(fit_ebayes$p.value)),
+  all(fit_ebayes$p.value >= 0),
+  all(fit_ebayes$p.value <= 1)
+)
+
+# Display model information
+cat("Limma model fitting summary:\n")
+
+cat(
+  "Number of genes analysed:",
+  nrow(fit_ebayes$coefficients), "\n"
+)
+
+cat(
+  "Number of clinical samples:",
+  ncol(expr_gene), "\n"
+)
+
+cat(
+  "Comparison:",
+  colnames(fit_ebayes$coefficients), "\n"
+)
+
+cat(
+  "Median residual degrees of freedom:",
+  median(fit_ebayes$df.residual), "\n"
+)
+
+cat(
+  "Number of genes with valid p-values:",
+  sum(is.finite(fit_ebayes$p.value)), "\n"
+)
+
+cat("Robust empirical Bayes moderation: Applied\n")
+
+# Save the fitted model for subsequent analysis
+model_rds_file <- file.path(
+  data_dir,
+  "GSE16561_limma_ebayes_fit.rds"
+)
+
+saveRDS(
+  fit_ebayes,
+  model_rds_file
+)
+
+# Create a summary of the model fitting stage
+limma_model_summary <- data.frame(
+  Metric = c(
+    "Number of genes analysed",
+    "Number of clinical samples",
+    "Control samples",
+    "Stroke samples",
+    "Comparison",
+    "Statistical method",
+    "Empirical Bayes moderation",
+    "Robust moderation",
+    "Median residual degrees of freedom"
+  ),
+
+  Value = c(
+    nrow(fit_ebayes$coefficients),
+    ncol(expr_gene),
+    sum(metadata$Group == "Control"),
+    sum(metadata$Group == "Stroke"),
+    "Stroke versus Control",
+    "Limma linear model",
+    "Applied",
+    "Applied",
+    round(median(fit_ebayes$df.residual), 2)
+  )
+)
+
+# Export the model summary
+write.csv(
+  limma_model_summary,
+  file.path(data_dir, "GSE16561_limma_model_summary.csv"),
+  row.names = FALSE
+)
+
+# Verify generated output files
+limma_model_files <- c(
+  model_rds_file,
+  file.path(data_dir, "GSE16561_limma_model_summary.csv")
+)
+
+stopifnot(
+  all(file.exists(limma_model_files)),
+  all(file.info(limma_model_files)$size > 0)
+)
+
+cat("\nLimma model fitting completed successfully.\n")
+```
 # 6. Reproducibility Information
 
 The R session and package versions are recorded to support reproducibility of the analysis.

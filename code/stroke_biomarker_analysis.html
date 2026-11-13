@@ -516,6 +516,8 @@ Expression Analysis</a>
 <ul>
 <li><a href="#experimental-design-and-contrast-setup" id="toc-experimental-design-and-contrast-setup">5.1 Experimental Design
 and Contrast Setup</a></li>
+<li><a href="#limma-model-fitting-and-empirical-bayes-analysis" id="toc-limma-model-fitting-and-empirical-bayes-analysis">5.2 Limma
+Model Fitting and Empirical Bayes Analysis</a></li>
 </ul></li>
 <li><a href="#reproducibility-information" id="toc-reproducibility-information">6. Reproducibility
 Information</a></li>
@@ -1292,9 +1294,10 @@ cat(&quot;Cleaned data exported successfully.\n&quot;)</code></pre>
 )</code></pre>
 <pre><code>##  [1] &quot;GPL6883.annot.gz&quot;                    &quot;GSE16561_cleaned_data.rds&quot;          
 ##  [3] &quot;GSE16561_clinical_metadata.csv&quot;      &quot;GSE16561_EDA_summary.csv&quot;           
-##  [5] &quot;GSE16561_gene_expression_matrix.csv&quot; &quot;GSE16561_PCA_scores.csv&quot;            
-##  [7] &quot;GSE16561_QC_summary.csv&quot;             &quot;GSE16561_raw_eSet.rds&quot;              
-##  [9] &quot;GSE16561_sample_correlation.csv&quot;     &quot;GSE16561_series_matrix.txt&quot;</code></pre>
+##  [5] &quot;GSE16561_gene_expression_matrix.csv&quot; &quot;GSE16561_limma_contrast_matrix.csv&quot; 
+##  [7] &quot;GSE16561_limma_design_matrix.csv&quot;    &quot;GSE16561_PCA_scores.csv&quot;            
+##  [9] &quot;GSE16561_QC_summary.csv&quot;             &quot;GSE16561_raw_eSet.rds&quot;              
+## [11] &quot;GSE16561_sample_correlation.csv&quot;     &quot;GSE16561_series_matrix.txt&quot;</code></pre>
 </div>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level1">
@@ -2050,6 +2053,147 @@ stopifnot(
 cat(&quot;\nLimma design and contrast setup completed successfully.\n&quot;)</code></pre>
 <pre><code>## 
 ## Limma design and contrast setup completed successfully.</code></pre>
+</div>
+<div id="limma-model-fitting-and-empirical-bayes-analysis" class="section level2">
+<h2>5.2 Limma Model Fitting and Empirical Bayes Analysis</h2>
+<p>A linear model is fitted for each gene using the experimental design
+matrix. The Stroke versus Control contrast is then applied to estimate
+differences in gene expression between the two clinical groups.</p>
+<p>Empirical Bayes moderation is used to improve the statistical
+inference by moderating gene-wise variance estimates across the set of
+genes. Robust empirical Bayes moderation is applied to reduce the
+influence of genes with unusually variable expression.</p>
+<pre class="r"><code># Verify the experimental design and contrast
+stopifnot(
+  identical(colnames(expr_gene), rownames(design_matrix)),
+  nrow(design_matrix) == 63,
+  ncol(design_matrix) == 2,
+  nrow(contrast_matrix) == 2,
+  ncol(contrast_matrix) == 1,
+  colnames(contrast_matrix)[1] == &quot;Stroke_vs_Control&quot;
+)
+
+# Fit a linear model for each gene
+fit_initial &lt;- limma::lmFit(
+  expr_gene,
+  design_matrix
+)
+
+# Apply the Stroke versus Control contrast
+fit_contrasted &lt;- limma::contrasts.fit(
+  fit_initial,
+  contrast_matrix
+)
+
+# Apply robust empirical Bayes moderation
+fit_ebayes &lt;- limma::eBayes(
+  fit_contrasted,
+  robust = TRUE
+)
+
+# Verify model results
+stopifnot(
+  nrow(fit_ebayes$coefficients) == nrow(expr_gene),
+  ncol(fit_ebayes$coefficients) == 1,
+  identical(
+    colnames(fit_ebayes$coefficients),
+    &quot;Stroke_vs_Control&quot;
+  ),
+  all(is.finite(fit_ebayes$coefficients)),
+  all(is.finite(fit_ebayes$p.value)),
+  all(fit_ebayes$p.value &gt;= 0),
+  all(fit_ebayes$p.value &lt;= 1)
+)
+
+# Display model information
+cat(&quot;Limma model fitting summary:\n&quot;)</code></pre>
+<pre><code>## Limma model fitting summary:</code></pre>
+<pre class="r"><code>cat(
+  &quot;Number of genes analysed:&quot;,
+  nrow(fit_ebayes$coefficients), &quot;\n&quot;
+)</code></pre>
+<pre><code>## Number of genes analysed: 17494</code></pre>
+<pre class="r"><code>cat(
+  &quot;Number of clinical samples:&quot;,
+  ncol(expr_gene), &quot;\n&quot;
+)</code></pre>
+<pre><code>## Number of clinical samples: 63</code></pre>
+<pre class="r"><code>cat(
+  &quot;Comparison:&quot;,
+  colnames(fit_ebayes$coefficients), &quot;\n&quot;
+)</code></pre>
+<pre><code>## Comparison: Stroke_vs_Control</code></pre>
+<pre class="r"><code>cat(
+  &quot;Median residual degrees of freedom:&quot;,
+  median(fit_ebayes$df.residual), &quot;\n&quot;
+)</code></pre>
+<pre><code>## Median residual degrees of freedom: 61</code></pre>
+<pre class="r"><code>cat(
+  &quot;Number of genes with valid p-values:&quot;,
+  sum(is.finite(fit_ebayes$p.value)), &quot;\n&quot;
+)</code></pre>
+<pre><code>## Number of genes with valid p-values: 17494</code></pre>
+<pre class="r"><code>cat(&quot;Robust empirical Bayes moderation: Applied\n&quot;)</code></pre>
+<pre><code>## Robust empirical Bayes moderation: Applied</code></pre>
+<pre class="r"><code># Save the fitted model for subsequent analysis
+model_rds_file &lt;- file.path(
+  data_dir,
+  &quot;GSE16561_limma_ebayes_fit.rds&quot;
+)
+
+saveRDS(
+  fit_ebayes,
+  model_rds_file
+)
+
+# Create a summary of the model fitting stage
+limma_model_summary &lt;- data.frame(
+  Metric = c(
+    &quot;Number of genes analysed&quot;,
+    &quot;Number of clinical samples&quot;,
+    &quot;Control samples&quot;,
+    &quot;Stroke samples&quot;,
+    &quot;Comparison&quot;,
+    &quot;Statistical method&quot;,
+    &quot;Empirical Bayes moderation&quot;,
+    &quot;Robust moderation&quot;,
+    &quot;Median residual degrees of freedom&quot;
+  ),
+
+  Value = c(
+    nrow(fit_ebayes$coefficients),
+    ncol(expr_gene),
+    sum(metadata$Group == &quot;Control&quot;),
+    sum(metadata$Group == &quot;Stroke&quot;),
+    &quot;Stroke versus Control&quot;,
+    &quot;Limma linear model&quot;,
+    &quot;Applied&quot;,
+    &quot;Applied&quot;,
+    round(median(fit_ebayes$df.residual), 2)
+  )
+)
+
+# Export the model summary
+write.csv(
+  limma_model_summary,
+  file.path(data_dir, &quot;GSE16561_limma_model_summary.csv&quot;),
+  row.names = FALSE
+)
+
+# Verify generated output files
+limma_model_files &lt;- c(
+  model_rds_file,
+  file.path(data_dir, &quot;GSE16561_limma_model_summary.csv&quot;)
+)
+
+stopifnot(
+  all(file.exists(limma_model_files)),
+  all(file.info(limma_model_files)$size &gt; 0)
+)
+
+cat(&quot;\nLimma model fitting completed successfully.\n&quot;)</code></pre>
+<pre><code>## 
+## Limma model fitting completed successfully.</code></pre>
 </div>
 </div>
 <div id="reproducibility-information" class="section level1">
