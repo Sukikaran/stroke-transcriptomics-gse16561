@@ -2023,6 +2023,401 @@ cat(
 )
 
 ```
+## 5.5 Gene ID Annotation and Enrichment Background Preparation
+
+Gene identifier mapping is performed to convert the gene symbols obtained from the GPL6883 platform annotation into Entrez Gene IDs using the human gene annotation database.
+
+Entrez Gene IDs are used to connect the differentially expressed genes with biological functions and pathways during functional enrichment analysis.
+
+The significant differentially expressed genes are mapped separately from the complete set of tested genes. All genes with a unique Entrez Gene ID mapping are retained as the background gene set for subsequent enrichment analysis.
+
+```{r gene-id-mapping}
+
+# Install Bioconductor packages if they are missing
+annotation_packages <- c(
+  "AnnotationDbi",
+  "org.Hs.eg.db"
+)
+
+for (pkg in annotation_packages) {
+
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+
+    BiocManager::install(
+      pkg,
+      ask = FALSE,
+      update = FALSE
+    )
+
+  }
+
+}
+
+# Load human gene annotation database
+library(AnnotationDbi)
+library(org.Hs.eg.db)
+
+# Retrieve unique gene symbols from all tested genes
+gene_symbols <- unique(
+  as.character(deg_results$Gene_Symbol)
+)
+
+# Verify gene symbols
+stopifnot(
+  length(gene_symbols) > 0,
+  !anyNA(gene_symbols),
+  all(nzchar(gene_symbols))
+)
+
+cat("Total unique gene symbols:", length(gene_symbols), "\n")
+
+# Retrieve Entrez IDs and official gene names
+annotation_table <- AnnotationDbi::select(
+  x = org.Hs.eg.db::org.Hs.eg.db,
+  keys = gene_symbols,
+  columns = c("ENTREZID", "GENENAME"),
+  keytype = "SYMBOL"
+)
+
+# Remove duplicate annotation records
+annotation_table <- unique(annotation_table)
+
+# Create a mapping function
+map_single_gene <- function(symbol) {
+
+  # Find annotation records for the gene symbol
+  gene_rows <- annotation_table[
+    !is.na(annotation_table$SYMBOL) &
+      annotation_table$SYMBOL == symbol,
+    ,
+    drop = FALSE
+  ]
+
+  # Extract unique valid Entrez IDs
+  entrez_ids <- unique(
+    as.character(gene_rows$ENTREZID)
+  )
+
+  entrez_ids <- entrez_ids[
+    !is.na(entrez_ids) & nzchar(entrez_ids)
+  ]
+
+  # Extract official gene names
+  gene_names <- unique(
+    as.character(gene_rows$GENENAME)
+  )
+
+  gene_names <- gene_names[
+    !is.na(gene_names) & nzchar(gene_names)
+  ]
+
+  # Handle genes without an Entrez ID
+  if (length(entrez_ids) == 0) {
+
+    return(
+      data.frame(
+        Gene_Symbol = symbol,
+        Gene_Name = NA_character_,
+        ENTREZID = NA_character_,
+        Mapping_Status = "Unmapped",
+        stringsAsFactors = FALSE
+      )
+    )
+
+  }
+
+  # Exclude ambiguous one-to-many mappings
+  if (length(entrez_ids) > 1) {
+
+    return(
+      data.frame(
+        Gene_Symbol = symbol,
+        Gene_Name = NA_character_,
+        ENTREZID = NA_character_,
+        Mapping_Status = "Ambiguous",
+        stringsAsFactors = FALSE
+      )
+    )
+
+  }
+
+  # Return uniquely mapped gene information
+  data.frame(
+    Gene_Symbol = symbol,
+    Gene_Name = if (length(gene_names) == 1) {
+      gene_names[1]
+    } else {
+      NA_character_
+    },
+    ENTREZID = entrez_ids[1],
+    Mapping_Status = "Mapped",
+    stringsAsFactors = FALSE
+  )
+
+}
+
+# Map all tested gene symbols
+mapping_results <- lapply(
+  gene_symbols,
+  map_single_gene
+)
+
+gene_id_mapping <- do.call(
+  rbind,
+  mapping_results
+)
+
+rownames(gene_id_mapping) <- NULL
+
+# Verify gene identifier mapping
+stopifnot(
+  nrow(gene_id_mapping) == length(gene_symbols),
+  !anyDuplicated(gene_id_mapping$Gene_Symbol),
+  all(
+    gene_id_mapping$Mapping_Status %in%
+      c("Mapped", "Unmapped", "Ambiguous")
+  )
+)
+
+# Add gene identifiers to the complete DEG results
+mapping_index <- match(
+  deg_results$Gene_Symbol,
+  gene_id_mapping$Gene_Symbol
+)
+
+deg_annotated_results <- deg_results
+
+deg_annotated_results$Gene_Name <-
+  gene_id_mapping$Gene_Name[mapping_index]
+
+deg_annotated_results$ENTREZID <-
+  gene_id_mapping$ENTREZID[mapping_index]
+
+deg_annotated_results$Mapping_Status <-
+  gene_id_mapping$Mapping_Status[mapping_index]
+
+# Prepare background gene set from all tested genes
+background_entrez <- unique(
+  na.omit(gene_id_mapping$ENTREZID)
+)
+
+background_entrez <- sort(
+  as.character(background_entrez)
+)
+
+# Prepare significant Entrez gene identifiers
+significant_entrez <- unique(
+  na.omit(
+    deg_annotated_results$ENTREZID[
+      deg_annotated_results$adj.P.Val < fdr_threshold
+    ]
+  )
+)
+
+# Prepare upregulated Entrez gene identifiers
+upregulated_entrez <- unique(
+  na.omit(
+    deg_annotated_results$ENTREZID[
+      deg_annotated_results$Regulation ==
+        "Upregulated in Stroke"
+    ]
+  )
+)
+
+# Prepare downregulated Entrez gene identifiers
+downregulated_entrez <- unique(
+  na.omit(
+    deg_annotated_results$ENTREZID[
+      deg_annotated_results$Regulation ==
+        "Downregulated in Stroke"
+    ]
+  )
+)
+
+# Check the enrichment gene sets
+if (length(background_entrez) == 0) {
+  stop("No genes were successfully mapped to Entrez IDs.")
+}
+
+if (length(significant_entrez) == 0) {
+  stop("No significant DEGs have valid Entrez IDs.")
+}
+
+stopifnot(
+  !anyDuplicated(background_entrez),
+  !anyDuplicated(significant_entrez),
+  all(significant_entrez %in% background_entrez),
+  all(upregulated_entrez %in% background_entrez),
+  all(downregulated_entrez %in% background_entrez)
+)
+
+# Store gene sets for subsequent enrichment analysis
+enrichment_gene_sets <- list(
+  significant = significant_entrez,
+  upregulated = upregulated_entrez,
+  downregulated = downregulated_entrez,
+  universe = background_entrez
+)
+
+# Create an enrichment gene-set table
+enrichment_gene_sets_table <- deg_annotated_results[
+  ,
+  c(
+    "Gene_Symbol",
+    "Gene_Name",
+    "ENTREZID",
+    "Regulation",
+    "adj.P.Val",
+    "Mapping_Status"
+  )
+]
+
+enrichment_gene_sets_table$In_Enrichment_Background <-
+  !is.na(enrichment_gene_sets_table$ENTREZID)
+
+enrichment_gene_sets_table$In_Significant_DEG_Set <-
+  enrichment_gene_sets_table$Regulation != "Not significant" &
+  enrichment_gene_sets_table$Mapping_Status == "Mapped"
+
+# Display mapping summary
+cat("\nGene ID Mapping Summary\n")
+cat("-----------------------\n")
+
+cat(
+  "Total genes tested:",
+  nrow(gene_id_mapping), "\n"
+)
+
+cat(
+  "Successfully mapped genes:",
+  sum(gene_id_mapping$Mapping_Status == "Mapped"), "\n"
+)
+
+cat(
+  "Unmapped genes:",
+  sum(gene_id_mapping$Mapping_Status == "Unmapped"), "\n"
+)
+
+cat(
+  "Ambiguous mappings:",
+  sum(gene_id_mapping$Mapping_Status == "Ambiguous"), "\n"
+)
+
+cat(
+  "Unique Entrez IDs in background:",
+  length(background_entrez), "\n"
+)
+
+cat(
+  "Significant DEGs with Entrez IDs:",
+  length(significant_entrez), "\n"
+)
+
+cat(
+  "Upregulated genes with Entrez IDs:",
+  length(upregulated_entrez), "\n"
+)
+
+cat(
+  "Downregulated genes with Entrez IDs:",
+  length(downregulated_entrez), "\n"
+)
+
+# Create mapping summary table
+mapping_summary <- data.frame(
+  Metric = c(
+    "Total genes tested",
+    "Successfully mapped genes",
+    "Unmapped genes",
+    "Ambiguous mappings",
+    "Unique Entrez IDs in background",
+    "Significant DEGs with Entrez IDs",
+    "Upregulated genes with Entrez IDs",
+    "Downregulated genes with Entrez IDs"
+  ),
+
+  Value = as.character(c(
+    nrow(gene_id_mapping),
+    sum(gene_id_mapping$Mapping_Status == "Mapped"),
+    sum(gene_id_mapping$Mapping_Status == "Unmapped"),
+    sum(gene_id_mapping$Mapping_Status == "Ambiguous"),
+    length(background_entrez),
+    length(significant_entrez),
+    length(upregulated_entrez),
+    length(downregulated_entrez)
+  )),
+
+  stringsAsFactors = FALSE
+)
+
+# Export gene identifier mapping
+write.csv(
+  gene_id_mapping,
+  file.path(
+    data_dir,
+    "GSE16561_gene_id_mapping.csv"
+  ),
+  row.names = FALSE
+)
+
+# Export annotated differential expression results
+write.csv(
+  deg_annotated_results,
+  file.path(
+    data_dir,
+    "GSE16561_annotated_DEG_results.csv"
+  ),
+  row.names = FALSE
+)
+
+# Export enrichment gene-set information
+write.csv(
+  enrichment_gene_sets_table,
+  file.path(
+    data_dir,
+    "GSE16561_enrichment_gene_sets.csv"
+  ),
+  row.names = FALSE
+)
+
+# Export mapping summary
+write.csv(
+  mapping_summary,
+  file.path(
+    data_dir,
+    "GSE16561_enrichment_mapping_summary.csv"
+  ),
+  row.names = FALSE
+)
+
+# Save gene sets for subsequent analysis
+saveRDS(
+  enrichment_gene_sets,
+  file.path(
+    data_dir,
+    "GSE16561_enrichment_gene_sets.rds"
+  )
+)
+
+# Verify all output files
+mapping_output_files <- c(
+  file.path(data_dir, "GSE16561_gene_id_mapping.csv"),
+  file.path(data_dir, "GSE16561_annotated_DEG_results.csv"),
+  file.path(data_dir, "GSE16561_enrichment_gene_sets.csv"),
+  file.path(data_dir, "GSE16561_enrichment_mapping_summary.csv"),
+  file.path(data_dir, "GSE16561_enrichment_gene_sets.rds")
+)
+
+stopifnot(
+  all(file.exists(mapping_output_files)),
+  all(file.info(mapping_output_files)$size > 0)
+)
+
+cat("\nAll gene annotation output files verified.\n")
+
+cat("\nGene ID annotation completed successfully.\n")
+
+```
 ## 6. Reproducibility Information
 
 The R session and package versions are recorded to support reproducibility of the analysis.
