@@ -1630,7 +1630,210 @@ stopifnot(
 
 cat("\nLimma model fitting completed successfully.\n")
 ```
-# 6. Reproducibility Information
+## 5.3 Differentially Expressed Gene Identification
+
+Differential expression analysis is performed to identify genes with significantly different expression levels between the Stroke and Control groups.
+
+The results are extracted from the fitted Limma model. The Benjamini-Hochberg method is used to adjust p-values and control the false discovery rate (FDR) when testing multiple genes.
+
+Genes with an adjusted p-value below 0.05 are considered statistically significant. Positive log-fold change (logFC) values indicate higher expression in the Stroke group, while negative values indicate lower expression in the Stroke group compared with the Control group.
+
+```{r deg-identification}
+
+# Define the false discovery rate significance threshold
+fdr_threshold <- 0.05
+
+# Extract differential expression results for all genes
+deg_results <- limma::topTable(
+  fit_ebayes,
+  coef = "Stroke_vs_Control",
+  number = Inf,
+  adjust.method = "BH",
+  sort.by = "P",
+  p.value = 1
+)
+
+# Add gene symbols as an explicit column
+deg_results$Gene_Symbol <- rownames(deg_results)
+
+# Arrange the result columns
+deg_results <- deg_results[
+  ,
+  c(
+    "Gene_Symbol",
+    "logFC",
+    "AveExpr",
+    "t",
+    "P.Value",
+    "adj.P.Val",
+    "B"
+  )
+]
+
+# Verify the differential expression results
+stopifnot(
+  nrow(deg_results) == nrow(expr_gene),
+  !anyDuplicated(deg_results$Gene_Symbol),
+  all(is.finite(deg_results$P.Value)),
+  all(is.finite(deg_results$adj.P.Val)),
+  all(deg_results$P.Value >= 0 & deg_results$P.Value <= 1),
+  all(deg_results$adj.P.Val >= 0 & deg_results$adj.P.Val <= 1)
+)
+
+# Identify statistically significant genes
+is_significant <- deg_results$adj.P.Val < fdr_threshold
+
+# Classify the direction of differential expression
+deg_results$Regulation <- ifelse(
+  !is_significant,
+  "Not significant",
+  ifelse(
+    deg_results$logFC > 0,
+    "Upregulated in Stroke",
+    ifelse(
+      deg_results$logFC < 0,
+      "Downregulated in Stroke",
+      "Significant (zero logFC)"
+    )
+  )
+)
+
+# Extract significant differentially expressed genes
+significant_degs <- deg_results[
+  is_significant,
+  ,
+  drop = FALSE
+]
+
+# Extract significant upregulated genes
+upregulated_degs <- deg_results[
+  deg_results$Regulation == "Upregulated in Stroke",
+  ,
+  drop = FALSE
+]
+
+# Extract significant downregulated genes
+downregulated_degs <- deg_results[
+  deg_results$Regulation == "Downregulated in Stroke",
+  ,
+  drop = FALSE
+]
+
+# Display differential expression summary
+cat("Differential Expression Analysis Summary\n")
+cat("-----------------------------------------\n")
+
+cat("Total genes tested:", nrow(deg_results), "\n")
+
+cat("FDR significance threshold:", fdr_threshold, "\n")
+
+cat("Significant DEGs:", nrow(significant_degs), "\n")
+
+cat("Upregulated genes:", nrow(upregulated_degs), "\n")
+
+cat("Downregulated genes:", nrow(downregulated_degs), "\n")
+
+cat(
+  "Genes not significant:",
+  sum(!is_significant),
+  "\n"
+)
+
+# Display the top 10 genes ranked by p-value
+cat("\nTop 10 genes ranked by p-value:\n")
+
+print(
+  head(deg_results, 10),
+  row.names = FALSE
+)
+
+# Export all differential expression results
+write.csv(
+  deg_results,
+  file.path(
+    data_dir,
+    "GSE16561_differential_expression_all_genes.csv"
+  ),
+  row.names = FALSE
+)
+
+# Export significant differentially expressed genes
+write.csv(
+  significant_degs,
+  file.path(
+    data_dir,
+    "GSE16561_significant_DEGs.csv"
+  ),
+  row.names = FALSE
+)
+
+# Create a summary table
+deg_summary <- data.frame(
+  Metric = c(
+    "Total genes tested",
+    "FDR significance threshold",
+    "Significant differentially expressed genes",
+    "Upregulated genes in Stroke",
+    "Downregulated genes in Stroke",
+    "Genes not significant",
+    "Minimum adjusted p-value"
+  ),
+
+  Value = c(
+    as.character(nrow(deg_results)),
+    as.character(fdr_threshold),
+    as.character(nrow(significant_degs)),
+    as.character(nrow(upregulated_degs)),
+    as.character(nrow(downregulated_degs)),
+    as.character(sum(!is_significant)),
+    format(
+      min(deg_results$adj.P.Val),
+      scientific = TRUE,
+      digits = 4
+    )
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+# Export the DEG summary
+write.csv(
+  deg_summary,
+  file.path(
+    data_dir,
+    "GSE16561_DEG_summary.csv"
+  ),
+  row.names = FALSE
+)
+
+# Verify all output files
+deg_output_files <- c(
+  file.path(
+    data_dir,
+    "GSE16561_differential_expression_all_genes.csv"
+  ),
+  file.path(
+    data_dir,
+    "GSE16561_significant_DEGs.csv"
+  ),
+  file.path(
+    data_dir,
+    "GSE16561_DEG_summary.csv"
+  )
+)
+
+stopifnot(
+  all(file.exists(deg_output_files)),
+  all(file.info(deg_output_files)$size > 0)
+)
+
+cat("\nAll differential expression output files verified.\n")
+
+cat("\nDifferential expression analysis completed successfully.\n")
+
+```
+
+## 6. Reproducibility Information
 
 The R session and package versions are recorded to support reproducibility of the analysis.
 
@@ -1639,4 +1842,3 @@ The R session and package versions are recorded to support reproducibility of th
 sessionInfo()
 
 ```
-

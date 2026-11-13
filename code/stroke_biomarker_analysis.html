@@ -518,9 +518,11 @@ Expression Analysis</a>
 and Contrast Setup</a></li>
 <li><a href="#limma-model-fitting-and-empirical-bayes-analysis" id="toc-limma-model-fitting-and-empirical-bayes-analysis">5.2 Limma
 Model Fitting and Empirical Bayes Analysis</a></li>
-</ul></li>
+<li><a href="#differentially-expressed-gene-identification" id="toc-differentially-expressed-gene-identification">5.3 Differentially
+Expressed Gene Identification</a></li>
 <li><a href="#reproducibility-information" id="toc-reproducibility-information">6. Reproducibility
 Information</a></li>
+</ul></li>
 </ul>
 </div>
 
@@ -1295,9 +1297,10 @@ cat(&quot;Cleaned data exported successfully.\n&quot;)</code></pre>
 <pre><code>##  [1] &quot;GPL6883.annot.gz&quot;                    &quot;GSE16561_cleaned_data.rds&quot;          
 ##  [3] &quot;GSE16561_clinical_metadata.csv&quot;      &quot;GSE16561_EDA_summary.csv&quot;           
 ##  [5] &quot;GSE16561_gene_expression_matrix.csv&quot; &quot;GSE16561_limma_contrast_matrix.csv&quot; 
-##  [7] &quot;GSE16561_limma_design_matrix.csv&quot;    &quot;GSE16561_PCA_scores.csv&quot;            
-##  [9] &quot;GSE16561_QC_summary.csv&quot;             &quot;GSE16561_raw_eSet.rds&quot;              
-## [11] &quot;GSE16561_sample_correlation.csv&quot;     &quot;GSE16561_series_matrix.txt&quot;</code></pre>
+##  [7] &quot;GSE16561_limma_design_matrix.csv&quot;    &quot;GSE16561_limma_ebayes_fit.rds&quot;      
+##  [9] &quot;GSE16561_limma_model_summary.csv&quot;    &quot;GSE16561_PCA_scores.csv&quot;            
+## [11] &quot;GSE16561_QC_summary.csv&quot;             &quot;GSE16561_raw_eSet.rds&quot;              
+## [13] &quot;GSE16561_sample_correlation.csv&quot;     &quot;GSE16561_series_matrix.txt&quot;</code></pre>
 </div>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level1">
@@ -2195,9 +2198,238 @@ cat(&quot;\nLimma model fitting completed successfully.\n&quot;)</code></pre>
 <pre><code>## 
 ## Limma model fitting completed successfully.</code></pre>
 </div>
+<div id="differentially-expressed-gene-identification" class="section level2">
+<h2>5.3 Differentially Expressed Gene Identification</h2>
+<p>Differential expression analysis is performed to identify genes with
+significantly different expression levels between the Stroke and Control
+groups.</p>
+<p>The results are extracted from the fitted Limma model. The
+Benjamini-Hochberg method is used to adjust p-values and control the
+false discovery rate (FDR) when testing multiple genes.</p>
+<p>Genes with an adjusted p-value below 0.05 are considered
+statistically significant. Positive log-fold change (logFC) values
+indicate higher expression in the Stroke group, while negative values
+indicate lower expression in the Stroke group compared with the Control
+group.</p>
+<pre class="r"><code># Define the false discovery rate significance threshold
+fdr_threshold &lt;- 0.05
+
+# Extract differential expression results for all genes
+deg_results &lt;- limma::topTable(
+  fit_ebayes,
+  coef = &quot;Stroke_vs_Control&quot;,
+  number = Inf,
+  adjust.method = &quot;BH&quot;,
+  sort.by = &quot;P&quot;,
+  p.value = 1
+)
+
+# Add gene symbols as an explicit column
+deg_results$Gene_Symbol &lt;- rownames(deg_results)
+
+# Arrange the result columns
+deg_results &lt;- deg_results[
+  ,
+  c(
+    &quot;Gene_Symbol&quot;,
+    &quot;logFC&quot;,
+    &quot;AveExpr&quot;,
+    &quot;t&quot;,
+    &quot;P.Value&quot;,
+    &quot;adj.P.Val&quot;,
+    &quot;B&quot;
+  )
+]
+
+# Verify the differential expression results
+stopifnot(
+  nrow(deg_results) == nrow(expr_gene),
+  !anyDuplicated(deg_results$Gene_Symbol),
+  all(is.finite(deg_results$P.Value)),
+  all(is.finite(deg_results$adj.P.Val)),
+  all(deg_results$P.Value &gt;= 0 &amp; deg_results$P.Value &lt;= 1),
+  all(deg_results$adj.P.Val &gt;= 0 &amp; deg_results$adj.P.Val &lt;= 1)
+)
+
+# Identify statistically significant genes
+is_significant &lt;- deg_results$adj.P.Val &lt; fdr_threshold
+
+# Classify the direction of differential expression
+deg_results$Regulation &lt;- ifelse(
+  !is_significant,
+  &quot;Not significant&quot;,
+  ifelse(
+    deg_results$logFC &gt; 0,
+    &quot;Upregulated in Stroke&quot;,
+    ifelse(
+      deg_results$logFC &lt; 0,
+      &quot;Downregulated in Stroke&quot;,
+      &quot;Significant (zero logFC)&quot;
+    )
+  )
+)
+
+# Extract significant differentially expressed genes
+significant_degs &lt;- deg_results[
+  is_significant,
+  ,
+  drop = FALSE
+]
+
+# Extract significant upregulated genes
+upregulated_degs &lt;- deg_results[
+  deg_results$Regulation == &quot;Upregulated in Stroke&quot;,
+  ,
+  drop = FALSE
+]
+
+# Extract significant downregulated genes
+downregulated_degs &lt;- deg_results[
+  deg_results$Regulation == &quot;Downregulated in Stroke&quot;,
+  ,
+  drop = FALSE
+]
+
+# Display differential expression summary
+cat(&quot;Differential Expression Analysis Summary\n&quot;)</code></pre>
+<pre><code>## Differential Expression Analysis Summary</code></pre>
+<pre class="r"><code>cat(&quot;-----------------------------------------\n&quot;)</code></pre>
+<pre><code>## -----------------------------------------</code></pre>
+<pre class="r"><code>cat(&quot;Total genes tested:&quot;, nrow(deg_results), &quot;\n&quot;)</code></pre>
+<pre><code>## Total genes tested: 17494</code></pre>
+<pre class="r"><code>cat(&quot;FDR significance threshold:&quot;, fdr_threshold, &quot;\n&quot;)</code></pre>
+<pre><code>## FDR significance threshold: 0.05</code></pre>
+<pre class="r"><code>cat(&quot;Significant DEGs:&quot;, nrow(significant_degs), &quot;\n&quot;)</code></pre>
+<pre><code>## Significant DEGs: 2779</code></pre>
+<pre class="r"><code>cat(&quot;Upregulated genes:&quot;, nrow(upregulated_degs), &quot;\n&quot;)</code></pre>
+<pre><code>## Upregulated genes: 1443</code></pre>
+<pre class="r"><code>cat(&quot;Downregulated genes:&quot;, nrow(downregulated_degs), &quot;\n&quot;)</code></pre>
+<pre><code>## Downregulated genes: 1336</code></pre>
+<pre class="r"><code>cat(
+  &quot;Genes not significant:&quot;,
+  sum(!is_significant),
+  &quot;\n&quot;
+)</code></pre>
+<pre><code>## Genes not significant: 14715</code></pre>
+<pre class="r"><code># Display the top 10 genes ranked by p-value
+cat(&quot;\nTop 10 genes ranked by p-value:\n&quot;)</code></pre>
+<pre><code>## 
+## Top 10 genes ranked by p-value:</code></pre>
+<pre class="r"><code>print(
+  head(deg_results, 10),
+  row.names = FALSE
+)</code></pre>
+<pre><code>##  Gene_Symbol     logFC     AveExpr        t      P.Value    adj.P.Val        B
+##       ANTXR2 0.8183454  0.01647849 9.907879 5.801782e-15 1.014964e-10 23.51135
+##        LAMP2 0.8415481 -0.06205778 9.605735 2.050237e-14 1.375301e-10 22.31083
+##         CTSS 0.8660816 -0.00308030 9.572309 2.358467e-14 1.375301e-10 22.17755
+##         RGS2 0.9803996 -0.06045947 9.344645 6.134092e-14 2.287467e-10 21.26743
+##       PLXDC2 0.7666450  0.03368622 9.329489 6.537861e-14 2.287467e-10 21.20670
+##        DOCK8 0.8562834 -0.02348355 8.609753 1.366776e-12 3.847474e-09 18.30716
+##         MTPN 0.6174207 -0.05988198 8.581668 1.539517e-12 3.847474e-09 18.19352
+##         STK3 0.6542748  0.03462895 8.501408 2.163411e-12 4.730840e-09 17.86861
+##       MARCKS 0.9161692  0.03539847 8.387213 3.511247e-12 6.825085e-09 17.40600
+##        C5AR1 0.9455924  0.09718594 8.248956 6.312542e-12 1.090155e-08 16.84553
+##             Regulation
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke
+##  Upregulated in Stroke</code></pre>
+<pre class="r"><code># Export all differential expression results
+write.csv(
+  deg_results,
+  file.path(
+    data_dir,
+    &quot;GSE16561_differential_expression_all_genes.csv&quot;
+  ),
+  row.names = FALSE
+)
+
+# Export significant differentially expressed genes
+write.csv(
+  significant_degs,
+  file.path(
+    data_dir,
+    &quot;GSE16561_significant_DEGs.csv&quot;
+  ),
+  row.names = FALSE
+)
+
+# Create a summary table
+deg_summary &lt;- data.frame(
+  Metric = c(
+    &quot;Total genes tested&quot;,
+    &quot;FDR significance threshold&quot;,
+    &quot;Significant differentially expressed genes&quot;,
+    &quot;Upregulated genes in Stroke&quot;,
+    &quot;Downregulated genes in Stroke&quot;,
+    &quot;Genes not significant&quot;,
+    &quot;Minimum adjusted p-value&quot;
+  ),
+
+  Value = c(
+    as.character(nrow(deg_results)),
+    as.character(fdr_threshold),
+    as.character(nrow(significant_degs)),
+    as.character(nrow(upregulated_degs)),
+    as.character(nrow(downregulated_degs)),
+    as.character(sum(!is_significant)),
+    format(
+      min(deg_results$adj.P.Val),
+      scientific = TRUE,
+      digits = 4
+    )
+  ),
+
+  stringsAsFactors = FALSE
+)
+
+# Export the DEG summary
+write.csv(
+  deg_summary,
+  file.path(
+    data_dir,
+    &quot;GSE16561_DEG_summary.csv&quot;
+  ),
+  row.names = FALSE
+)
+
+# Verify all output files
+deg_output_files &lt;- c(
+  file.path(
+    data_dir,
+    &quot;GSE16561_differential_expression_all_genes.csv&quot;
+  ),
+  file.path(
+    data_dir,
+    &quot;GSE16561_significant_DEGs.csv&quot;
+  ),
+  file.path(
+    data_dir,
+    &quot;GSE16561_DEG_summary.csv&quot;
+  )
+)
+
+stopifnot(
+  all(file.exists(deg_output_files)),
+  all(file.info(deg_output_files)$size &gt; 0)
+)
+
+cat(&quot;\nAll differential expression output files verified.\n&quot;)</code></pre>
+<pre><code>## 
+## All differential expression output files verified.</code></pre>
+<pre class="r"><code>cat(&quot;\nDifferential expression analysis completed successfully.\n&quot;)</code></pre>
+<pre><code>## 
+## Differential expression analysis completed successfully.</code></pre>
 </div>
-<div id="reproducibility-information" class="section level1">
-<h1>6. Reproducibility Information</h1>
+<div id="reproducibility-information" class="section level2">
+<h2>6. Reproducibility Information</h2>
 <p>The R session and package versions are recorded to support
 reproducibility of the analysis.</p>
 <pre class="r"><code>sessionInfo()</code></pre>
@@ -2263,6 +2495,7 @@ reproducibility of the analysis.</p>
 ## [69] jsonlite_1.8.9              R6_2.6.1                   
 ## [71] systemfonts_1.3.2           MatrixGenerics_1.18.1      
 ## [73] zlibbioc_1.52.0</code></pre>
+</div>
 </div>
 
 

@@ -1,0 +1,8 @@
+"Metric","Value"
+"Total genes tested","17494"
+"FDR significance threshold","0.05"
+"Significant differentially expressed genes","2779"
+"Upregulated genes in Stroke","1443"
+"Downregulated genes in Stroke","1336"
+"Genes not significant","14715"
+"Minimum adjusted p-value","1.015e-10"
