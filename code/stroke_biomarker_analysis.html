@@ -508,8 +508,16 @@ Analysis (PCA)</a></li>
 Correlation Analysis</a></li>
 <li><a href="#exploratory-data-analysis-summary" id="toc-exploratory-data-analysis-summary">4.6 Exploratory Data Analysis
 Summary</a></li>
+<li><a href="#interpretation-of-exploratory-data-analysis" id="toc-interpretation-of-exploratory-data-analysis">4.7 Interpretation
+of Exploratory Data Analysis</a></li>
 </ul></li>
-<li><a href="#reproducibility-information" id="toc-reproducibility-information">5. Reproducibility
+<li><a href="#differential-gene-expression-analysis" id="toc-differential-gene-expression-analysis">5. Differential Gene
+Expression Analysis</a>
+<ul>
+<li><a href="#experimental-design-and-contrast-setup" id="toc-experimental-design-and-contrast-setup">5.1 Experimental Design
+and Contrast Setup</a></li>
+</ul></li>
+<li><a href="#reproducibility-information" id="toc-reproducibility-information">6. Reproducibility
 Information</a></li>
 </ul>
 </div>
@@ -1905,9 +1913,147 @@ if (
 cat(&quot;All EDA output files verified successfully.\n&quot;)</code></pre>
 <pre><code>## All EDA output files verified successfully.</code></pre>
 </div>
+<div id="interpretation-of-exploratory-data-analysis" class="section level2">
+<h2>4.7 Interpretation of Exploratory Data Analysis</h2>
+<p>The exploratory analysis provided an overview of gene expression
+patterns across the 63 clinical samples.</p>
+<p>The boxplots showed variation in gene expression distributions
+between individual samples. However, both clinical groups displayed
+overlapping expression ranges.</p>
+<p>The density plots showed broadly overlapping expression distributions
+between the Control and Stroke groups. This suggests that the overall
+expression distributions alone do not clearly distinguish the two
+groups.</p>
+<p>The PCA analysis, performed using the 500 most variable genes, showed
+that PC1 explained 48.12% of the total variance, while PC2 explained
+15.06%. Together, these components explained 63.18% of the variance.
+However, the PCA plot showed overlap between the two clinical groups
+rather than complete separation.</p>
+<p>The sample-to-sample correlation heatmap revealed several clusters of
+samples. Control and Stroke samples were distributed across different
+clusters, indicating that the clustering did not correspond perfectly to
+clinical group membership. Pairwise correlations also showed
+considerable variation, ranging from -0.7218 to 0.8515.</p>
+<p>Overall, the exploratory analysis identified variation among samples
+but did not provide clear separation between the clinical groups using
+these visualisation methods. Further statistical analysis is therefore
+required to identify genes that are significantly differentially
+expressed between Stroke and Control samples.</p>
+</div>
+</div>
+<div id="differential-gene-expression-analysis" class="section level1">
+<h1>5. Differential Gene Expression Analysis</h1>
+<p>Differential gene expression analysis is performed to identify genes
+with different expression levels between patients with acute ischemic
+stroke and healthy control samples.</p>
+<p>The Limma package is used to perform the statistical analysis of the
+gene expression matrix. The analysis begins by defining the experimental
+design and the comparison between the Stroke and Control groups.</p>
+<div id="experimental-design-and-contrast-setup" class="section level2">
+<h2>5.1 Experimental Design and Contrast Setup</h2>
+<p>The experimental design is created using the clinical group
+information. Control samples are treated as the reference group, and
+Stroke samples are compared against this reference to identify
+differences in gene expression.</p>
+<pre class="r"><code># Set Control as the reference group
+metadata$Group &lt;- factor(
+  metadata$Group,
+  levels = c(&quot;Control&quot;, &quot;Stroke&quot;)
+)
+
+# Verify sample alignment and group information
+stopifnot(
+  ncol(expr_gene) == nrow(metadata),
+  identical(colnames(expr_gene), metadata$Sample_ID),
+  !anyNA(metadata$Group),
+  !anyNA(expr_gene),
+  sum(metadata$Group == &quot;Control&quot;) == 24,
+  sum(metadata$Group == &quot;Stroke&quot;) == 39
+)
+
+# Create the experimental design matrix
+design_matrix &lt;- model.matrix(
+  ~ Group,
+  data = metadata
+)
+
+# Assign sample IDs to the design matrix rows
+rownames(design_matrix) &lt;- metadata$Sample_ID
+
+# Display design matrix information
+cat(&quot;Design matrix dimensions:\n&quot;)</code></pre>
+<pre><code>## Design matrix dimensions:</code></pre>
+<pre class="r"><code>print(dim(design_matrix))</code></pre>
+<pre><code>## [1] 63  2</code></pre>
+<pre class="r"><code>cat(&quot;\nDesign matrix columns:\n&quot;)</code></pre>
+<pre><code>## 
+## Design matrix columns:</code></pre>
+<pre class="r"><code>print(colnames(design_matrix))</code></pre>
+<pre><code>## [1] &quot;(Intercept)&quot; &quot;GroupStroke&quot;</code></pre>
+<pre class="r"><code>cat(&quot;\nFirst six rows of the design matrix:\n&quot;)</code></pre>
+<pre><code>## 
+## First six rows of the design matrix:</code></pre>
+<pre class="r"><code>print(head(design_matrix))</code></pre>
+<pre><code>##           (Intercept) GroupStroke
+## GSM416528           1           1
+## GSM416529           1           1
+## GSM416530           1           1
+## GSM416531           1           1
+## GSM416532           1           1
+## GSM416533           1           1</code></pre>
+<pre class="r"><code># Define the Stroke versus Control comparison
+contrast_matrix &lt;- limma::makeContrasts(
+  Stroke_vs_Control = GroupStroke,
+  levels = design_matrix
+)
+
+# Display the contrast matrix
+cat(&quot;\nContrast matrix:\n&quot;)</code></pre>
+<pre><code>## 
+## Contrast matrix:</code></pre>
+<pre class="r"><code>print(contrast_matrix)</code></pre>
+<pre><code>##              Contrasts
+## Levels        Stroke_vs_Control
+##   Intercept                   0
+##   GroupStroke                 1</code></pre>
+<pre class="r"><code># Export the design matrix
+design_export &lt;- data.frame(
+  Sample_ID = rownames(design_matrix),
+  design_matrix,
+  check.names = FALSE
+)
+
+write.csv(
+  design_export,
+  file.path(data_dir, &quot;GSE16561_limma_design_matrix.csv&quot;),
+  row.names = FALSE
+)
+
+# Export the contrast matrix
+write.csv(
+  contrast_matrix,
+  file.path(data_dir, &quot;GSE16561_limma_contrast_matrix.csv&quot;),
+  row.names = TRUE
+)
+
+# Verify the generated files
+limma_setup_files &lt;- c(
+  file.path(data_dir, &quot;GSE16561_limma_design_matrix.csv&quot;),
+  file.path(data_dir, &quot;GSE16561_limma_contrast_matrix.csv&quot;)
+)
+
+stopifnot(
+  all(file.exists(limma_setup_files)),
+  all(file.info(limma_setup_files)$size &gt; 0)
+)
+
+cat(&quot;\nLimma design and contrast setup completed successfully.\n&quot;)</code></pre>
+<pre><code>## 
+## Limma design and contrast setup completed successfully.</code></pre>
+</div>
 </div>
 <div id="reproducibility-information" class="section level1">
-<h1>5. Reproducibility Information</h1>
+<h1>6. Reproducibility Information</h1>
 <p>The R session and package versions are recorded to support
 reproducibility of the analysis.</p>
 <pre class="r"><code>sessionInfo()</code></pre>

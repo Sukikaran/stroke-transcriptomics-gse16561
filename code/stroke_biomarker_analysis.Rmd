@@ -1388,7 +1388,111 @@ cat("All EDA output files verified successfully.\n")
 
 ```
 
-# 5. Reproducibility Information
+
+## 4.7 Interpretation of Exploratory Data Analysis
+
+The exploratory analysis provided an overview of gene expression patterns across the 63 clinical samples.
+
+The boxplots showed variation in gene expression distributions between individual samples. However, both clinical groups displayed overlapping expression ranges.
+
+The density plots showed broadly overlapping expression distributions between the Control and Stroke groups. This suggests that the overall expression distributions alone do not clearly distinguish the two groups.
+
+The PCA analysis, performed using the 500 most variable genes, showed that PC1 explained 48.12% of the total variance, while PC2 explained 15.06%. Together, these components explained 63.18% of the variance. However, the PCA plot showed overlap between the two clinical groups rather than complete separation.
+
+The sample-to-sample correlation heatmap revealed several clusters of samples. Control and Stroke samples were distributed across different clusters, indicating that the clustering did not correspond perfectly to clinical group membership. Pairwise correlations also showed considerable variation, ranging from -0.7218 to 0.8515.
+
+Overall, the exploratory analysis identified variation among samples but did not provide clear separation between the clinical groups using these visualisation methods. Further statistical analysis is therefore required to identify genes that are significantly differentially expressed between Stroke and Control samples.
+
+# 5. Differential Gene Expression Analysis
+
+Differential gene expression analysis is performed to identify genes with different expression levels between patients with acute ischemic stroke and healthy control samples.
+
+The Limma package is used to perform the statistical analysis of the gene expression matrix. The analysis begins by defining the experimental design and the comparison between the Stroke and Control groups.
+
+## 5.1 Experimental Design and Contrast Setup
+
+The experimental design is created using the clinical group information. Control samples are treated as the reference group, and Stroke samples are compared against this reference to identify differences in gene expression.
+
+```{r limma-design-setup}
+# Set Control as the reference group
+metadata$Group <- factor(
+  metadata$Group,
+  levels = c("Control", "Stroke")
+)
+
+# Verify sample alignment and group information
+stopifnot(
+  ncol(expr_gene) == nrow(metadata),
+  identical(colnames(expr_gene), metadata$Sample_ID),
+  !anyNA(metadata$Group),
+  !anyNA(expr_gene),
+  sum(metadata$Group == "Control") == 24,
+  sum(metadata$Group == "Stroke") == 39
+)
+
+# Create the experimental design matrix
+design_matrix <- model.matrix(
+  ~ Group,
+  data = metadata
+)
+
+# Assign sample IDs to the design matrix rows
+rownames(design_matrix) <- metadata$Sample_ID
+
+# Display design matrix information
+cat("Design matrix dimensions:\n")
+print(dim(design_matrix))
+
+cat("\nDesign matrix columns:\n")
+print(colnames(design_matrix))
+
+cat("\nFirst six rows of the design matrix:\n")
+print(head(design_matrix))
+
+# Define the Stroke versus Control comparison
+contrast_matrix <- limma::makeContrasts(
+  Stroke_vs_Control = GroupStroke,
+  levels = design_matrix
+)
+
+# Display the contrast matrix
+cat("\nContrast matrix:\n")
+print(contrast_matrix)
+
+# Export the design matrix
+design_export <- data.frame(
+  Sample_ID = rownames(design_matrix),
+  design_matrix,
+  check.names = FALSE
+)
+
+write.csv(
+  design_export,
+  file.path(data_dir, "GSE16561_limma_design_matrix.csv"),
+  row.names = FALSE
+)
+
+# Export the contrast matrix
+write.csv(
+  contrast_matrix,
+  file.path(data_dir, "GSE16561_limma_contrast_matrix.csv"),
+  row.names = TRUE
+)
+
+# Verify the generated files
+limma_setup_files <- c(
+  file.path(data_dir, "GSE16561_limma_design_matrix.csv"),
+  file.path(data_dir, "GSE16561_limma_contrast_matrix.csv")
+)
+
+stopifnot(
+  all(file.exists(limma_setup_files)),
+  all(file.info(limma_setup_files)$size > 0)
+)
+
+cat("\nLimma design and contrast setup completed successfully.\n")
+```
+# 6. Reproducibility Information
 
 The R session and package versions are recorded to support reproducibility of the analysis.
 
