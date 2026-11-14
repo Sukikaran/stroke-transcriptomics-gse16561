@@ -1,0 +1,374 @@
+"Pathway","N","DE","P.DE","KEGG_ID","Term","Analysis","Input_Genes","FDR","Significant"
+"Glycolysis / Gluconeogenesis",63,4,0.714855517152334,"hsa00010","Glycolysis / Gluconeogenesis","Downregulated genes",1267,1,FALSE
+"Citrate cycle (TCA cycle)",30,1,0.906730971776311,"hsa00020","Citrate cycle (TCA cycle)","Downregulated genes",1267,1,FALSE
+"Pentose phosphate pathway",30,3,0.401275432844706,"hsa00030","Pentose phosphate pathway","Downregulated genes",1267,1,FALSE
+"Pentose and glucuronate interconversions",31,2,0.693795914849024,"hsa00040","Pentose and glucuronate interconversions","Downregulated genes",1267,1,FALSE
+"Fructose and mannose metabolism",34,3,0.483165140283302,"hsa00051","Fructose and mannose metabolism","Downregulated genes",1267,1,FALSE
+"Galactose metabolism",30,2,0.67627164896656,"hsa00052","Galactose metabolism","Downregulated genes",1267,1,FALSE
+"Ascorbate and aldarate metabolism",28,0,1,"hsa00053","Ascorbate and aldarate metabolism","Downregulated genes",1267,1,FALSE
+"Fatty acid biosynthesis",17,3,0.13411283938986,"hsa00061","Fatty acid biosynthesis","Downregulated genes",1267,0.769601370652579,FALSE
+"Fatty acid elongation",28,4,0.159498440663047,"hsa00062","Fatty acid elongation","Downregulated genes",1267,0.837928427708685,FALSE
+"Fatty acid degradation",42,3,0.628276014512856,"hsa00071","Fatty acid degradation","Downregulated genes",1267,1,FALSE
+"Steroid biosynthesis",19,2,0.429038067896976,"hsa00100","Steroid biosynthesis","Downregulated genes",1267,1,FALSE
+"Primary bile acid biosynthesis",16,0,1,"hsa00120","Primary bile acid biosynthesis","Downregulated genes",1267,1,FALSE
+"Ubiquinone and other terpenoid-quinone biosynthesis",11,2,0.201399987177661,"hsa00130","Ubiquinone and other terpenoid-quinone biosynthesis","Downregulated genes",1267,0.97561292489958,FALSE
+"Steroid hormone biosynthesis",60,2,0.948457450602091,"hsa00140","Steroid hormone biosynthesis","Downregulated genes",1267,1,FALSE
+"Oxidative phosphorylation",99,21,1.37228249189091e-05,"hsa00190","Oxidative phosphorylation","Downregulated genes",1267,0.00102372273895062,TRUE
+"Arginine biosynthesis",22,2,0.50622082579717,"hsa00220","Arginine biosynthesis","Downregulated genes",1267,1,FALSE
+"Purine metabolism",118,23,2.34021225283553e-05,"hsa00230","Purine metabolism","Downregulated genes",1267,0.00124699881472522,TRUE
+"Caffeine metabolism",6,0,1,"hsa00232","Caffeine metabolism","Downregulated genes",1267,1,FALSE
+"Pyrimidine metabolism",57,10,0.0100134122472513,"hsa00240","Pyrimidine metabolism","Downregulated genes",1267,0.155625115342697,FALSE
+"Alanine, aspartate and glutamate metabolism",34,4,0.256363286772764,"hsa00250","Alanine, aspartate and glutamate metabolism","Downregulated genes",1267,1,FALSE
+"Glycine, serine and threonine metabolism",38,2,0.795460729178372,"hsa00260","Glycine, serine and threonine metabolism","Downregulated genes",1267,1,FALSE
+"Cysteine and methionine metabolism",50,11,0.00110146178424998,"hsa00270","Cysteine and methionine metabolism","Downregulated genes",1267,0.0262792605580687,TRUE
+"Valine, leucine and isoleucine degradation",47,7,0.0628070929530092,"hsa00280","Valine, leucine and isoleucine degradation","Downregulated genes",1267,0.503168755379112,FALSE
+"Valine, leucine and isoleucine biosynthesis",4,1,0.2709738254379,"hsa00290","Valine, leucine and isoleucine biosynthesis","Downregulated genes",1267,1,FALSE
+"Lysine degradation",56,5,0.422600016990964,"hsa00310","Lysine degradation","Downregulated genes",1267,1,FALSE
+"Arginine and proline metabolism",48,4,0.50013525318397,"hsa00330","Arginine and proline metabolism","Downregulated genes",1267,1,FALSE
+"Histidine metabolism",21,0,1,"hsa00340","Histidine metabolism","Downregulated genes",1267,1,FALSE
+"Tyrosine metabolism",35,2,0.756173452845742,"hsa00350","Tyrosine metabolism","Downregulated genes",1267,1,FALSE
+"Phenylalanine metabolism",16,2,0.345933878115653,"hsa00360","Phenylalanine metabolism","Downregulated genes",1267,1,FALSE
+"Tryptophan metabolism",41,1,0.960961743188573,"hsa00380","Tryptophan metabolism","Downregulated genes",1267,1,FALSE
+"Phenylalanine, tyrosine and tryptophan biosynthesis",6,1,0.377553780033562,"hsa00400","Phenylalanine, tyrosine and tryptophan biosynthesis","Downregulated genes",1267,1,FALSE
+"beta-Alanine metabolism",30,1,0.906730971776311,"hsa00410","beta-Alanine metabolism","Downregulated genes",1267,1,FALSE
+"Taurine and hypotaurine metabolism",15,0,1,"hsa00430","Taurine and hypotaurine metabolism","Downregulated genes",1267,1,FALSE
+"Phosphonate and phosphinate metabolism",5,0,1,"hsa00440","Phosphonate and phosphinate metabolism","Downregulated genes",1267,1,FALSE
+"Selenocompound metabolism",14,1,0.669287217931668,"hsa00450","Selenocompound metabolism","Downregulated genes",1267,1,FALSE
+"D-Amino acid metabolism",5,1,0.326366698791434,"hsa00470","D-Amino acid metabolism","Downregulated genes",1267,1,FALSE
+"Glutathione metabolism",55,3,0.798711344853182,"hsa00480","Glutathione metabolism","Downregulated genes",1267,1,FALSE
+"Starch and sucrose metabolism",33,0,1,"hsa00500","Starch and sucrose metabolism","Downregulated genes",1267,1,FALSE
+"N-Glycan biosynthesis",52,10,0.00517146640036822,"hsa00510","N-Glycan biosynthesis","Downregulated genes",1267,0.0904306929641487,FALSE
+"Other glycan degradation",15,0,1,"hsa00511","Other glycan degradation","Downregulated genes",1267,1,FALSE
+"Mucin type O-glycan biosynthesis",32,1,0.920386886147169,"hsa00512","Mucin type O-glycan biosynthesis","Downregulated genes",1267,1,FALSE
+"Various types of N-glycan biosynthesis",40,7,0.0293424481822397,"hsa00513","Various types of N-glycan biosynthesis","Downregulated genes",1267,0.31270666205644,FALSE
+"Other types of O-glycan biosynthesis",45,5,0.254588028079884,"hsa00514","Other types of O-glycan biosynthesis","Downregulated genes",1267,1,FALSE
+"Mannose type O-glycan biosynthesis",21,1,0.809883890353155,"hsa00515","Mannose type O-glycan biosynthesis","Downregulated genes",1267,1,FALSE
+"Amino sugar and nucleotide sugar metabolism",36,0,1,"hsa00520","Amino sugar and nucleotide sugar metabolism","Downregulated genes",1267,1,FALSE
+"Neomycin, kanamycin and gentamicin biosynthesis",5,0,1,"hsa00524","Neomycin, kanamycin and gentamicin biosynthesis","Downregulated genes",1267,1,FALSE
+"Glycosaminoglycan degradation",18,0,1,"hsa00531","Glycosaminoglycan degradation","Downregulated genes",1267,1,FALSE
+"Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate",21,5,0.0183107566898247,"hsa00532","Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate","Downregulated genes",1267,0.227663741510153,FALSE
+"Glycosaminoglycan biosynthesis - keratan sulfate",14,0,1,"hsa00533","Glycosaminoglycan biosynthesis - keratan sulfate","Downregulated genes",1267,1,FALSE
+"Glycosaminoglycan biosynthesis - heparan sulfate / heparin",24,3,0.273462728683675,"hsa00534","Glycosaminoglycan biosynthesis - heparan sulfate / heparin","Downregulated genes",1267,1,FALSE
+"Biosynthesis of various nucleotide sugars",18,1,0.758968334285137,"hsa00541","Biosynthesis of various nucleotide sugars","Downregulated genes",1267,1,FALSE
+"Glycerolipid metabolism",62,4,0.702932636576144,"hsa00561","Glycerolipid metabolism","Downregulated genes",1267,1,FALSE
+"Inositol phosphate metabolism",76,5,0.694121374202874,"hsa00562","Inositol phosphate metabolism","Downregulated genes",1267,1,FALSE
+"Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",28,4,0.159498440663047,"hsa00563","Glycosylphosphatidylinositol (GPI)-anchor biosynthesis","Downregulated genes",1267,0.837928427708685,FALSE
+"Glycerophospholipid metabolism",94,6,0.727990400059534,"hsa00564","Glycerophospholipid metabolism","Downregulated genes",1267,1,FALSE
+"Ether lipid metabolism",43,2,0.848577981675688,"hsa00565","Ether lipid metabolism","Downregulated genes",1267,1,FALSE
+"Arachidonic acid metabolism",54,4,0.59484806661486,"hsa00590","Arachidonic acid metabolism","Downregulated genes",1267,1,FALSE
+"Linoleic acid metabolism",25,1,0.861457837787017,"hsa00591","Linoleic acid metabolism","Downregulated genes",1267,1,FALSE
+"alpha-Linolenic acid metabolism",21,1,0.809883890353155,"hsa00592","alpha-Linolenic acid metabolism","Downregulated genes",1267,1,FALSE
+"Sphingolipid metabolism",53,0,1,"hsa00600","Sphingolipid metabolism","Downregulated genes",1267,1,FALSE
+"Glycosphingolipid biosynthesis - lacto and neolacto series",27,0,1,"hsa00601","Glycosphingolipid biosynthesis - lacto and neolacto series","Downregulated genes",1267,1,FALSE
+"Glycosphingolipid biosynthesis - globo and isoglobo series",15,0,1,"hsa00603","Glycosphingolipid biosynthesis - globo and isoglobo series","Downregulated genes",1267,1,FALSE
+"Glycosphingolipid biosynthesis - ganglio series",15,2,0.317281017611952,"hsa00604","Glycosphingolipid biosynthesis - ganglio series","Downregulated genes",1267,1,FALSE
+"Pyruvate metabolism",48,8,0.0269026279020389,"hsa00620","Pyruvate metabolism","Downregulated genes",1267,0.295137653160603,FALSE
+"Glyoxylate and dicarboxylate metabolism",30,5,0.0732136406634106,"hsa00630","Glyoxylate and dicarboxylate metabolism","Downregulated genes",1267,0.54772069174465,FALSE
+"Propanoate metabolism",31,5,0.0820912664715311,"hsa00640","Propanoate metabolism","Downregulated genes",1267,0.54772069174465,FALSE
+"Butanoate metabolism",24,2,0.553757375745275,"hsa00650","Butanoate metabolism","Downregulated genes",1267,1,FALSE
+"C5-Branched dibasic acid metabolism",1,1,0.0759637867977695,"hsa00660","C5-Branched dibasic acid metabolism","Downregulated genes",1267,0.54772069174465,FALSE
+"One carbon pool by folate",33,4,0.239370537746101,"hsa00670","One carbon pool by folate","Downregulated genes",1267,1,FALSE
+"Thiamine metabolism",14,2,0.288341485849841,"hsa00730","Thiamine metabolism","Downregulated genes",1267,1,FALSE
+"Riboflavin metabolism",8,1,0.468562766960854,"hsa00740","Riboflavin metabolism","Downregulated genes",1267,1,FALSE
+"Vitamin B6 metabolism",6,2,0.0704312925807902,"hsa00750","Vitamin B6 metabolism","Downregulated genes",1267,0.547309836096557,FALSE
+"Nicotinate and nicotinamide metabolism",34,4,0.256363286772764,"hsa00760","Nicotinate and nicotinamide metabolism","Downregulated genes",1267,1,FALSE
+"Pantothenate and CoA biosynthesis",21,1,0.809883890353155,"hsa00770","Pantothenate and CoA biosynthesis","Downregulated genes",1267,1,FALSE
+"Biotin metabolism",3,0,1,"hsa00780","Biotin metabolism","Downregulated genes",1267,1,FALSE
+"Lipoic acid metabolism",18,1,0.758968334285137,"hsa00785","Lipoic acid metabolism","Downregulated genes",1267,1,FALSE
+"Folate biosynthesis",26,4,0.130806492904458,"hsa00790","Folate biosynthesis","Downregulated genes",1267,0.762356591458795,FALSE
+"Retinol metabolism",64,1,0.993693787295776,"hsa00830","Retinol metabolism","Downregulated genes",1267,1,FALSE
+"Porphyrin metabolism",40,4,0.361626895222212,"hsa00860","Porphyrin metabolism","Downregulated genes",1267,1,FALSE
+"Terpenoid backbone biosynthesis",21,3,0.210954236714905,"hsa00900","Terpenoid backbone biosynthesis","Downregulated genes",1267,1,FALSE
+"Nitrogen metabolism",17,0,1,"hsa00910","Nitrogen metabolism","Downregulated genes",1267,1,FALSE
+"Sulfur metabolism",8,0,1,"hsa00920","Sulfur metabolism","Downregulated genes",1267,1,FALSE
+"Aminoacyl-tRNA biosynthesis",24,2,0.553757375745275,"hsa00970","Aminoacyl-tRNA biosynthesis","Downregulated genes",1267,1,FALSE
+"Metabolism of xenobiotics by cytochrome P450",72,2,0.976779013993689,"hsa00980","Metabolism of xenobiotics by cytochrome P450","Downregulated genes",1267,1,FALSE
+"Drug metabolism - cytochrome P450",67,1,0.995029312325088,"hsa00982","Drug metabolism - cytochrome P450","Downregulated genes",1267,1,FALSE
+"Drug metabolism - other enzymes",78,8,0.239455651251398,"hsa00983","Drug metabolism - other enzymes","Downregulated genes",1267,1,FALSE
+"Biosynthesis of unsaturated fatty acids",27,4,0.144873432082383,"hsa01040","Biosynthesis of unsaturated fatty acids","Downregulated genes",1267,0.794673384804836,FALSE
+"Metabolic pathways",1444,147,0.000116083430190828,"hsa01100","Metabolic pathways","Downregulated genes",1267,0.00541238993264734,TRUE
+"Carbon metabolism",112,10,0.34515256326098,"hsa01200","Carbon metabolism","Downregulated genes",1267,1,FALSE
+"2-Oxocarboxylic acid metabolism",32,2,0.710528353668839,"hsa01210","2-Oxocarboxylic acid metabolism","Downregulated genes",1267,1,FALSE
+"Fatty acid metabolism",56,6,0.25042964240573,"hsa01212","Fatty acid metabolism","Downregulated genes",1267,1,FALSE
+"Biosynthesis of amino acids",69,7,0.268897723495794,"hsa01230","Biosynthesis of amino acids","Downregulated genes",1267,1,FALSE
+"Nucleotide metabolism",79,18,2.004209031009e-05,"hsa01232","Nucleotide metabolism","Downregulated genes",1267,0.00124594994761059,TRUE
+"Biosynthesis of cofactors",142,19,0.0111262646496955,"hsa01240","Biosynthesis of cofactors","Downregulated genes",1267,0.166003868573457,FALSE
+"Biosynthesis of nucleotide sugars",35,1,0.937217409672351,"hsa01250","Biosynthesis of nucleotide sugars","Downregulated genes",1267,1,FALSE
+"Sulfur cycle",2,0,1,"hsa01320","Sulfur cycle","Downregulated genes",1267,1,FALSE
+"EGFR tyrosine kinase inhibitor resistance",75,2,0.981042959292124,"hsa01521","EGFR tyrosine kinase inhibitor resistance","Downregulated genes",1267,1,FALSE
+"Endocrine resistance",94,1,0.999417397738451,"hsa01522","Endocrine resistance","Downregulated genes",1267,1,FALSE
+"Antifolate resistance",27,3,0.337544035630817,"hsa01523","Antifolate resistance","Downregulated genes",1267,1,FALSE
+"Platinum drug resistance",71,4,0.797679798138167,"hsa01524","Platinum drug resistance","Downregulated genes",1267,1,FALSE
+"ABC transporters",41,0,1,"hsa02010","ABC transporters","Downregulated genes",1267,1,FALSE
+"Ribosome biogenesis in eukaryotes",71,18,4.04953524505828e-06,"hsa03008","Ribosome biogenesis in eukaryotes","Downregulated genes",1267,0.000377619161601685,TRUE
+"Ribosome",167,52,2.80481077999477e-19,"hsa03010","Ribosome","Downregulated genes",1267,1.04619442093805e-16,TRUE
+"Nucleocytoplasmic transport",98,17,0.00106485310146938,"hsa03013","Nucleocytoplasmic transport","Downregulated genes",1267,0.0262792605580687,TRUE
+"mRNA surveillance pathway",90,10,0.144376708516475,"hsa03015","mRNA surveillance pathway","Downregulated genes",1267,0.794673384804836,FALSE
+"RNA degradation",68,15,0.000142753853058272,"hsa03018","RNA degradation","Downregulated genes",1267,0.00591635413230393,TRUE
+"RNA polymerase",27,8,0.000651318513938379,"hsa03020","RNA polymerase","Downregulated genes",1267,0.0202451504749179,TRUE
+"Basal transcription factors",39,7,0.0258447985612969,"hsa03022","Basal transcription factors","Downregulated genes",1267,0.292124541314053,FALSE
+"DNA replication",35,7,0.0146967959278784,"hsa03030","DNA replication","Downregulated genes",1267,0.195782317182094,FALSE
+"Spliceosome",138,29,4.17006931908447e-07,"hsa03040","Spliceosome","Downregulated genes",1267,5.18478618672836e-05,TRUE
+"Proteasome",43,2,0.848577981675688,"hsa03050","Proteasome","Downregulated genes",1267,1,FALSE
+"Protein export",28,3,0.358909507026949,"hsa03060","Protein export","Downregulated genes",1267,1,FALSE
+"ATP-dependent chromatin remodeling",81,16,0.000336415347052172,"hsa03082","ATP-dependent chromatin remodeling","Downregulated genes",1267,0.012548292445046,TRUE
+"Polycomb repressive complex",73,6,0.482686035254883,"hsa03083","Polycomb repressive complex","Downregulated genes",1267,1,FALSE
+"Viral life cycle - HIV-1",61,7,0.178706681430528,"hsa03250","Viral life cycle - HIV-1","Downregulated genes",1267,0.888767895647828,FALSE
+"Virion - Human immunodeficiency virus",5,0,1,"hsa03260","Virion - Human immunodeficiency virus","Downregulated genes",1267,1,FALSE
+"Virion - Flavivirus and Alphavirus",5,0,1,"hsa03264","Virion - Flavivirus and Alphavirus","Downregulated genes",1267,1,FALSE
+"Virion - Ebolavirus, Lyssavirus and Morbillivirus",11,1,0.580761532516798,"hsa03265","Virion - Ebolavirus, Lyssavirus and Morbillivirus","Downregulated genes",1267,1,FALSE
+"Virion - Herpesvirus",9,0,1,"hsa03266","Virion - Herpesvirus","Downregulated genes",1267,1,FALSE
+"Virion - Adenovirus",3,0,1,"hsa03267","Virion - Adenovirus","Downregulated genes",1267,1,FALSE
+"Virion - Rotavirus",2,0,1,"hsa03271","Virion - Rotavirus","Downregulated genes",1267,1,FALSE
+"Virion - Hepatitis viruses",43,4,0.414565131617028,"hsa03272","Virion - Hepatitis viruses","Downregulated genes",1267,1,FALSE
+"Virion - Lassa virus and SFTS virus",17,0,1,"hsa03273","Virion - Lassa virus and SFTS virus","Downregulated genes",1267,1,FALSE
+"PPAR signaling pathway",73,0,1,"hsa03320","PPAR signaling pathway","Downregulated genes",1267,1,FALSE
+"Base excision repair",41,6,0.0874781207660947,"hsa03410","Base excision repair","Downregulated genes",1267,0.564107650218597,FALSE
+"Nucleotide excision repair",57,11,0.00333904207758565,"hsa03420","Nucleotide excision repair","Downregulated genes",1267,0.0622731347469724,FALSE
+"Mismatch repair",22,4,0.0809581664445488,"hsa03430","Mismatch repair","Downregulated genes",1267,0.54772069174465,FALSE
+"Homologous recombination",92,12,0.0453904509864177,"hsa03440","Homologous recombination","Downregulated genes",1267,0.444477211961102,FALSE
+"Non-homologous end-joining",12,0,1,"hsa03450","Non-homologous end-joining","Downregulated genes",1267,1,FALSE
+"Fanconi anemia pathway",50,7,0.0822315247659528,"hsa03460","Fanconi anemia pathway","Downregulated genes",1267,0.54772069174465,FALSE
+"MAPK signaling pathway",286,16,0.924743439242859,"hsa04010","MAPK signaling pathway","Downregulated genes",1267,1,FALSE
+"ErbB signaling pathway",82,2,0.988246665730823,"hsa04012","ErbB signaling pathway","Downregulated genes",1267,1,FALSE
+"Ras signaling pathway",221,13,0.865645822594644,"hsa04014","Ras signaling pathway","Downregulated genes",1267,1,FALSE
+"Rap1 signaling pathway",201,9,0.972807385486289,"hsa04015","Rap1 signaling pathway","Downregulated genes",1267,1,FALSE
+"Calcium signaling pathway",242,12,0.960767568609174,"hsa04020","Calcium signaling pathway","Downregulated genes",1267,1,FALSE
+"cGMP-PKG signaling pathway",158,4,0.998330691379581,"hsa04022","cGMP-PKG signaling pathway","Downregulated genes",1267,1,FALSE
+"cAMP signaling pathway",218,4,0.999965593355493,"hsa04024","cAMP signaling pathway","Downregulated genes",1267,1,FALSE
+"Cytokine-cytokine receptor interaction",285,22,0.501108311801923,"hsa04060","Cytokine-cytokine receptor interaction","Downregulated genes",1267,1,FALSE
+"Viral protein interaction with cytokine and cytokine receptor",94,10,0.175561257869408,"hsa04061","Viral protein interaction with cytokine and cytokine receptor","Downregulated genes",1267,0.884923637639045,FALSE
+"Chemokine signaling pathway",184,7,0.988486575603204,"hsa04062","Chemokine signaling pathway","Downregulated genes",1267,1,FALSE
+"NF-kappa B signaling pathway",97,12,0.063401961133561,"hsa04064","NF-kappa B signaling pathway","Downregulated genes",1267,0.503168755379112,FALSE
+"HIF-1 signaling pathway",104,5,0.904267083699747,"hsa04066","HIF-1 signaling pathway","Downregulated genes",1267,1,FALSE
+"FoxO signaling pathway",125,10,0.480328722379336,"hsa04068","FoxO signaling pathway","Downregulated genes",1267,1,FALSE
+"Phosphatidylinositol signaling system",93,6,0.718422017452493,"hsa04070","Phosphatidylinositol signaling system","Downregulated genes",1267,1,FALSE
+"Sphingolipid signaling pathway",119,7,0.80850475659426,"hsa04071","Sphingolipid signaling pathway","Downregulated genes",1267,1,FALSE
+"Phospholipase D signaling pathway",138,5,0.982388517494425,"hsa04072","Phospholipase D signaling pathway","Downregulated genes",1267,1,FALSE
+"Neuroactive ligand-receptor interaction",351,8,0.999996886691956,"hsa04080","Neuroactive ligand-receptor interaction","Downregulated genes",1267,1,FALSE
+"Hormone signaling",213,3,0.999992286391459,"hsa04081","Hormone signaling","Downregulated genes",1267,1,FALSE
+"Neuroactive ligand signaling",190,4,0.99978184394298,"hsa04082","Neuroactive ligand signaling","Downregulated genes",1267,1,FALSE
+"Cell cycle",155,12,0.516335079982765,"hsa04110","Cell cycle","Downregulated genes",1267,1,FALSE
+"Oocyte meiosis",122,5,0.959714282173104,"hsa04114","Oocyte meiosis","Downregulated genes",1267,1,FALSE
+"p53 signaling pathway",74,8,0.198192723450852,"hsa04115","p53 signaling pathway","Downregulated genes",1267,0.972709024304841,FALSE
+"Ubiquitin mediated proteolysis",135,7,0.8954503915659,"hsa04120","Ubiquitin mediated proteolysis","Downregulated genes",1267,1,FALSE
+"Sulfur relay system",8,1,0.468562766960854,"hsa04122","Sulfur relay system","Downregulated genes",1267,1,FALSE
+"SNARE interactions in vesicular transport",32,3,0.442809332551802,"hsa04130","SNARE interactions in vesicular transport","Downregulated genes",1267,1,FALSE
+"Autophagy - other",31,2,0.693795914849024,"hsa04136","Autophagy - other","Downregulated genes",1267,1,FALSE
+"Mitophagy - animal",97,8,0.458267627573464,"hsa04137","Mitophagy - animal","Downregulated genes",1267,1,FALSE
+"Autophagy - animal",158,4,0.998330691379581,"hsa04140","Autophagy - animal","Downregulated genes",1267,1,FALSE
+"Protein processing in endoplasmic reticulum",153,18,0.0421359696394885,"hsa04141","Protein processing in endoplasmic reticulum","Downregulated genes",1267,0.424776126365655,FALSE
+"Lysosome biogenesis",241,11,0.978675064443781,"hsa04142","Lysosome biogenesis","Downregulated genes",1267,1,FALSE
+"Endocytosis",233,12,0.9455485586797,"hsa04144","Endocytosis","Downregulated genes",1267,1,FALSE
+"Phagocytosis",242,10,0.990270368765433,"hsa04145","Phagocytosis","Downregulated genes",1267,1,FALSE
+"Peroxisome",79,12,0.0156749064077064,"hsa04146","Peroxisome","Downregulated genes",1267,0.201611727243947,FALSE
+"Efferocytosis",155,5,0.993033869565917,"hsa04148","Efferocytosis","Downregulated genes",1267,1,FALSE
+"mTOR signaling pathway",146,7,0.933554470684721,"hsa04150","mTOR signaling pathway","Downregulated genes",1267,1,FALSE
+"PI3K-Akt signaling pathway",347,19,0.951777990759159,"hsa04151","PI3K-Akt signaling pathway","Downregulated genes",1267,1,FALSE
+"AMPK signaling pathway",119,7,0.80850475659426,"hsa04152","AMPK signaling pathway","Downregulated genes",1267,1,FALSE
+"Integrated stress response (ISR) signaling pathway",48,5,0.29945782712982,"hsa04156","Integrated stress response (ISR) signaling pathway","Downregulated genes",1267,1,FALSE
+"Apoptosis",128,11,0.380762530745848,"hsa04210","Apoptosis","Downregulated genes",1267,1,FALSE
+"Longevity regulating pathway",87,2,0.991676411430763,"hsa04211","Longevity regulating pathway","Downregulated genes",1267,1,FALSE
+"Longevity regulating pathway - multiple species",60,4,0.678017653913362,"hsa04213","Longevity regulating pathway - multiple species","Downregulated genes",1267,1,FALSE
+"Apoptosis - multiple species",30,2,0.67627164896656,"hsa04215","Apoptosis - multiple species","Downregulated genes",1267,1,FALSE
+"Ferroptosis",39,0,1,"hsa04216","Ferroptosis","Downregulated genes",1267,1,FALSE
+"Necroptosis",125,10,0.480328722379336,"hsa04217","Necroptosis","Downregulated genes",1267,1,FALSE
+"Cellular senescence",150,10,0.711353696606007,"hsa04218","Cellular senescence","Downregulated genes",1267,1,FALSE
+"Cardiac muscle contraction",80,4,0.866420091460418,"hsa04260","Cardiac muscle contraction","Downregulated genes",1267,1,FALSE
+"Adrenergic signaling in cardiomyocytes",151,4,0.997429192371079,"hsa04261","Adrenergic signaling in cardiomyocytes","Downregulated genes",1267,1,FALSE
+"Vascular smooth muscle contraction",124,5,0.963573530664619,"hsa04270","Vascular smooth muscle contraction","Downregulated genes",1267,1,FALSE
+"Wnt signaling pathway",170,8,0.950905265416143,"hsa04310","Wnt signaling pathway","Downregulated genes",1267,1,FALSE
+"Notch signaling pathway",58,4,0.651681670680246,"hsa04330","Notch signaling pathway","Downregulated genes",1267,1,FALSE
+"Hedgehog signaling pathway",53,1,0.984914476856357,"hsa04340","Hedgehog signaling pathway","Downregulated genes",1267,1,FALSE
+"TGF-beta signaling pathway",107,7,0.712784573850065,"hsa04350","TGF-beta signaling pathway","Downregulated genes",1267,1,FALSE
+"Axon guidance",178,10,0.877094037108126,"hsa04360","Axon guidance","Downregulated genes",1267,1,FALSE
+"VEGF signaling pathway",55,4,0.609563392457807,"hsa04370","VEGF signaling pathway","Downregulated genes",1267,1,FALSE
+"Apelin signaling pathway",131,4,0.991455119576285,"hsa04371","Apelin signaling pathway","Downregulated genes",1267,1,FALSE
+"Osteoclast differentiation",129,5,0.971780823940557,"hsa04380","Osteoclast differentiation","Downregulated genes",1267,1,FALSE
+"Cornified envelope formation",201,6,0.998344079384139,"hsa04382","Cornified envelope formation","Downregulated genes",1267,1,FALSE
+"Hippo signaling pathway",153,5,0.992212951701613,"hsa04390","Hippo signaling pathway","Downregulated genes",1267,1,FALSE
+"Hippo signaling pathway - multiple species",28,1,0.890734841712852,"hsa04392","Hippo signaling pathway - multiple species","Downregulated genes",1267,1,FALSE
+"Focal adhesion",192,7,0.992280284676998,"hsa04510","Focal adhesion","Downregulated genes",1267,1,FALSE
+"ECM-receptor interaction",82,2,0.988246665730823,"hsa04512","ECM-receptor interaction","Downregulated genes",1267,1,FALSE
+"Cell adhesion molecule (CAM) interaction",146,15,0.142994522976269,"hsa04514","Cell adhesion molecule (CAM) interaction","Downregulated genes",1267,0.794673384804836,FALSE
+"IgSF CAM signaling",284,17,0.876701931056808,"hsa04517","IgSF CAM signaling","Downregulated genes",1267,1,FALSE
+"Integrin signaling",147,6,0.971285337143108,"hsa04518","Integrin signaling","Downregulated genes",1267,1,FALSE
+"Cadherin signaling",382,9,0.99999813127317,"hsa04519","Cadherin signaling","Downregulated genes",1267,1,FALSE
+"Adherens junction",88,4,0.909654676010713,"hsa04520","Adherens junction","Downregulated genes",1267,1,FALSE
+"Tight junction",154,6,0.979656445092906,"hsa04530","Tight junction","Downregulated genes",1267,1,FALSE
+"Gap junction",83,3,0.956606164196756,"hsa04540","Gap junction","Downregulated genes",1267,1,FALSE
+"Signaling pathways regulating pluripotency of stem cells",134,5,0.97824378163889,"hsa04550","Signaling pathways regulating pluripotency of stem cells","Downregulated genes",1267,1,FALSE
+"Complement and coagulation cascades",83,1,0.998604027698495,"hsa04610","Complement and coagulation cascades","Downregulated genes",1267,1,FALSE
+"Platelet activation",116,4,0.979743877088428,"hsa04611","Platelet activation","Downregulated genes",1267,1,FALSE
+"Antigen processing and presentation",73,9,0.100595790796966,"hsa04612","Antigen processing and presentation","Downregulated genes",1267,0.62537049945447,FALSE
+"Neutrophil extracellular trap formation",105,4,0.962802304833034,"hsa04613","Neutrophil extracellular trap formation","Downregulated genes",1267,1,FALSE
+"Renin-angiotensin system",23,0,1,"hsa04614","Renin-angiotensin system","Downregulated genes",1267,1,FALSE
+"Toll-like receptor signaling pathway",102,3,0.986216889232896,"hsa04620","Toll-like receptor signaling pathway","Downregulated genes",1267,1,FALSE
+"NOD-like receptor signaling pathway",174,8,0.958547104526467,"hsa04621","NOD-like receptor signaling pathway","Downregulated genes",1267,1,FALSE
+"RIG-I-like receptor signaling pathway",68,5,0.596282219618585,"hsa04622","RIG-I-like receptor signaling pathway","Downregulated genes",1267,1,FALSE
+"Cytosolic DNA-sensing pathway",72,9,0.0941853616322928,"hsa04623","Cytosolic DNA-sensing pathway","Downregulated genes",1267,0.595443048963478,FALSE
+"C-type lectin receptor signaling pathway",103,5,0.899788697116854,"hsa04625","C-type lectin receptor signaling pathway","Downregulated genes",1267,1,FALSE
+"JAK-STAT signaling pathway",163,10,0.801222312832382,"hsa04630","JAK-STAT signaling pathway","Downregulated genes",1267,1,FALSE
+"Hematopoietic cell lineage",91,17,0.00044281035240789,"hsa04640","Hematopoietic cell lineage","Downregulated genes",1267,0.0150152964952857,TRUE
+"Natural killer cell mediated cytotoxicity",124,14,0.0877164710795673,"hsa04650","Natural killer cell mediated cytotoxicity","Downregulated genes",1267,0.564107650218597,FALSE
+"IL-17 signaling pathway",88,5,0.807938228327855,"hsa04657","IL-17 signaling pathway","Downregulated genes",1267,1,FALSE
+"Th1 and Th2 cell differentiation",90,16,0.00112726050651233,"hsa04658","Th1 and Th2 cell differentiation","Downregulated genes",1267,0.0262792605580687,TRUE
+"Th17 cell differentiation",106,16,0.00618703386706956,"hsa04659","Th17 cell differentiation","Downregulated genes",1267,0.100337549235519,FALSE
+"T cell receptor signaling pathway",115,18,0.00256438012901521,"hsa04660","T cell receptor signaling pathway","Downregulated genes",1267,0.053139654895704,FALSE
+"B cell receptor signaling pathway",79,10,0.0753706839532018,"hsa04662","B cell receptor signaling pathway","Downregulated genes",1267,0.54772069174465,FALSE
+"Fc epsilon RI signaling pathway",63,6,0.344795791592217,"hsa04664","Fc epsilon RI signaling pathway","Downregulated genes",1267,1,FALSE
+"Fc gamma R-mediated phagosome formation",92,6,0.708623069872289,"hsa04666","Fc gamma R-mediated phagosome formation","Downregulated genes",1267,1,FALSE
+"TNF signaling pathway",113,4,0.976036952706304,"hsa04668","TNF signaling pathway","Downregulated genes",1267,1,FALSE
+"Leukocyte transendothelial migration",108,6,0.838227035674666,"hsa04670","Leukocyte transendothelial migration","Downregulated genes",1267,1,FALSE
+"Intestinal immune network for IgA production",44,7,0.0464734886500884,"hsa04672","Intestinal immune network for IgA production","Downregulated genes",1267,0.444477211961102,FALSE
+"Circadian rhythm",31,2,0.693795914849024,"hsa04710","Circadian rhythm","Downregulated genes",1267,1,FALSE
+"Circadian entrainment",94,3,0.977482936560511,"hsa04713","Circadian entrainment","Downregulated genes",1267,1,FALSE
+"Thermogenesis",192,23,0.0198303379310069,"hsa04714","Thermogenesis","Downregulated genes",1267,0.238603743492438,FALSE
+"Long-term potentiation",65,3,0.880415389466517,"hsa04720","Long-term potentiation","Downregulated genes",1267,1,FALSE
+"Synaptic vesicle cycle",76,3,0.934995292612095,"hsa04721","Synaptic vesicle cycle","Downregulated genes",1267,1,FALSE
+"Neurotrophin signaling pathway",114,3,0.9935179122924,"hsa04722","Neurotrophin signaling pathway","Downregulated genes",1267,1,FALSE
+"Retrograde endocannabinoid signaling",134,17,0.0253178169030458,"hsa04723","Retrograde endocannabinoid signaling","Downregulated genes",1267,0.292124541314053,FALSE
+"Glutamatergic synapse",111,8,0.613616683963152,"hsa04724","Glutamatergic synapse","Downregulated genes",1267,1,FALSE
+"Cholinergic synapse",111,4,0.973220889893741,"hsa04725","Cholinergic synapse","Downregulated genes",1267,1,FALSE
+"Serotonergic synapse",111,5,0.930994014737582,"hsa04726","Serotonergic synapse","Downregulated genes",1267,1,FALSE
+"GABAergic synapse",87,4,0.905031201116038,"hsa04727","GABAergic synapse","Downregulated genes",1267,1,FALSE
+"Dopaminergic synapse",131,5,0.974554953071466,"hsa04728","Dopaminergic synapse","Downregulated genes",1267,1,FALSE
+"Long-term depression",54,3,0.788394183813434,"hsa04730","Long-term depression","Downregulated genes",1267,1,FALSE
+"Olfactory transduction",394,2,0.999999999999296,"hsa04740","Olfactory transduction","Downregulated genes",1267,1,FALSE
+"Taste transduction",81,1,0.998363750537221,"hsa04742","Taste transduction","Downregulated genes",1267,1,FALSE
+"Phototransduction",28,1,0.890734841712852,"hsa04744","Phototransduction","Downregulated genes",1267,1,FALSE
+"Inflammatory mediator regulation of TRP channels",95,8,0.434801184286724,"hsa04750","Inflammatory mediator regulation of TRP channels","Downregulated genes",1267,1,FALSE
+"Regulation of actin cytoskeleton",217,6,0.999337420832284,"hsa04810","Regulation of actin cytoskeleton","Downregulated genes",1267,1,FALSE
+"Motor proteins",170,7,0.97736963446017,"hsa04814","Motor proteins","Downregulated genes",1267,1,FALSE
+"Cytoskeleton in muscle cells",220,7,0.998218689989458,"hsa04820","Cytoskeleton in muscle cells","Downregulated genes",1267,1,FALSE
+"Neuroendocrine signaling pathway of hypothalamus-pituitary axis",341,16,0.988569034368267,"hsa04900","Neuroendocrine signaling pathway of hypothalamus-pituitary axis","Downregulated genes",1267,1,FALSE
+"Insulin signaling pathway",134,4,0.992839706123481,"hsa04910","Insulin signaling pathway","Downregulated genes",1267,1,FALSE
+"Insulin secretion",83,3,0.956606164196756,"hsa04911","Insulin secretion","Downregulated genes",1267,1,FALSE
+"GnRH signaling pathway",89,4,0.914076945235581,"hsa04912","GnRH signaling pathway","Downregulated genes",1267,1,FALSE
+"Ovarian steroidogenesis",48,3,0.717013641622802,"hsa04913","Ovarian steroidogenesis","Downregulated genes",1267,1,FALSE
+"Progesterone-mediated oocyte maturation",92,5,0.837414784224772,"hsa04914","Progesterone-mediated oocyte maturation","Downregulated genes",1267,1,FALSE
+"Estrogen signaling pathway",132,5,0.975844831624499,"hsa04915","Estrogen signaling pathway","Downregulated genes",1267,1,FALSE
+"Melanogenesis",99,2,0.996401396869513,"hsa04916","Melanogenesis","Downregulated genes",1267,1,FALSE
+"Prolactin signaling pathway",68,3,0.898382117690039,"hsa04917","Prolactin signaling pathway","Downregulated genes",1267,1,FALSE
+"Thyroid hormone synthesis",75,4,0.831177020364242,"hsa04918","Thyroid hormone synthesis","Downregulated genes",1267,1,FALSE
+"Thyroid hormone signaling pathway",119,9,0.555453377572969,"hsa04919","Thyroid hormone signaling pathway","Downregulated genes",1267,1,FALSE
+"Adipocytokine signaling pathway",68,5,0.596282219618585,"hsa04920","Adipocytokine signaling pathway","Downregulated genes",1267,1,FALSE
+"Oxytocin signaling pathway",146,9,0.787682352233747,"hsa04921","Oxytocin signaling pathway","Downregulated genes",1267,1,FALSE
+"Glucagon signaling pathway",102,7,0.664613289121206,"hsa04922","Glucagon signaling pathway","Downregulated genes",1267,1,FALSE
+"Regulation of lipolysis in adipocytes",55,0,1,"hsa04923","Regulation of lipolysis in adipocytes","Downregulated genes",1267,1,FALSE
+"Renin secretion",67,4,0.759014167545145,"hsa04924","Renin secretion","Downregulated genes",1267,1,FALSE
+"Aldosterone synthesis and secretion",98,5,0.874577318971407,"hsa04925","Aldosterone synthesis and secretion","Downregulated genes",1267,1,FALSE
+"Relaxin signaling pathway",124,3,0.99659200482051,"hsa04926","Relaxin signaling pathway","Downregulated genes",1267,1,FALSE
+"Cortisol synthesis and secretion",65,2,0.962916888363477,"hsa04927","Cortisol synthesis and secretion","Downregulated genes",1267,1,FALSE
+"Parathyroid hormone synthesis, secretion and action",113,3,0.993092132430458,"hsa04928","Parathyroid hormone synthesis, secretion and action","Downregulated genes",1267,1,FALSE
+"GnRH secretion",63,3,0.866916106361646,"hsa04929","GnRH secretion","Downregulated genes",1267,1,FALSE
+"Type II diabetes mellitus",46,2,0.874092479040311,"hsa04930","Type II diabetes mellitus","Downregulated genes",1267,1,FALSE
+"Insulin resistance",104,6,0.811116642775569,"hsa04931","Insulin resistance","Downregulated genes",1267,1,FALSE
+"Non-alcoholic fatty liver disease",142,20,0.0053337137941321,"hsa04932","Non-alcoholic fatty liver disease","Downregulated genes",1267,0.0904306929641487,FALSE
+"AGE-RAGE signaling pathway in diabetic complications",98,6,0.763958886515959,"hsa04933","AGE-RAGE signaling pathway in diabetic complications","Downregulated genes",1267,1,FALSE
+"Cushing syndrome",152,8,0.899018430617988,"hsa04934","Cushing syndrome","Downregulated genes",1267,1,FALSE
+"Growth hormone synthesis, secretion and action",117,4,0.980854305928774,"hsa04935","Growth hormone synthesis, secretion and action","Downregulated genes",1267,1,FALSE
+"Alcoholic liver disease",135,9,0.705677550164368,"hsa04936","Alcoholic liver disease","Downregulated genes",1267,1,FALSE
+"Type I diabetes mellitus",40,6,0.0795270388623527,"hsa04940","Type I diabetes mellitus","Downregulated genes",1267,0.54772069174465,FALSE
+"Maturity onset diabetes of the young",26,0,1,"hsa04950","Maturity onset diabetes of the young","Downregulated genes",1267,1,FALSE
+"Aldosterone-regulated sodium reabsorption",36,3,0.522069388989561,"hsa04960","Aldosterone-regulated sodium reabsorption","Downregulated genes",1267,1,FALSE
+"Endocrine and other factor-regulated calcium reabsorption",52,2,0.91363053878575,"hsa04961","Endocrine and other factor-regulated calcium reabsorption","Downregulated genes",1267,1,FALSE
+"Vasopressin-regulated water reabsorption",44,1,0.969218699185424,"hsa04962","Vasopressin-regulated water reabsorption","Downregulated genes",1267,1,FALSE
+"Proximal tubule bicarbonate reclamation",23,3,0.252344867520971,"hsa04964","Proximal tubule bicarbonate reclamation","Downregulated genes",1267,1,FALSE
+"Collecting duct acid secretion",26,2,0.597958198775595,"hsa04966","Collecting duct acid secretion","Downregulated genes",1267,1,FALSE
+"Salivary secretion",85,3,0.961416194511693,"hsa04970","Salivary secretion","Downregulated genes",1267,1,FALSE
+"Gastric acid secretion",75,3,0.931197763545648,"hsa04971","Gastric acid secretion","Downregulated genes",1267,1,FALSE
+"Pancreatic secretion",99,4,0.948720231742115,"hsa04972","Pancreatic secretion","Downregulated genes",1267,1,FALSE
+"Carbohydrate digestion and absorption",43,2,0.848577981675688,"hsa04973","Carbohydrate digestion and absorption","Downregulated genes",1267,1,FALSE
+"Protein digestion and absorption",97,2,0.995857760019723,"hsa04974","Protein digestion and absorption","Downregulated genes",1267,1,FALSE
+"Fat digestion and absorption",42,1,0.96393454468996,"hsa04975","Fat digestion and absorption","Downregulated genes",1267,1,FALSE
+"Bile secretion",86,1,0.998899977658163,"hsa04976","Bile secretion","Downregulated genes",1267,1,FALSE
+"Vitamin digestion and absorption",23,0,1,"hsa04977","Vitamin digestion and absorption","Downregulated genes",1267,1,FALSE
+"Mineral absorption",55,3,0.798711344853182,"hsa04978","Mineral absorption","Downregulated genes",1267,1,FALSE
+"Cholesterol metabolism",52,1,0.983670117623089,"hsa04979","Cholesterol metabolism","Downregulated genes",1267,1,FALSE
+"Cobalamin transport and metabolism",16,3,0.116710994086046,"hsa04980","Cobalamin transport and metabolism","Downregulated genes",1267,0.702148399904758,FALSE
+"Folate transport and metabolism",24,1,0.850050707586611,"hsa04981","Folate transport and metabolism","Downregulated genes",1267,1,FALSE
+"Alzheimer disease",339,30,0.215409902455435,"hsa05010","Alzheimer disease","Downregulated genes",1267,1,FALSE
+"Parkinson disease",226,27,0.0127978748684234,"hsa05012","Parkinson disease","Downregulated genes",1267,0.183600281766228,FALSE
+"Amyotrophic lateral sclerosis",313,40,0.00082432206168247,"hsa05014","Amyotrophic lateral sclerosis","Downregulated genes",1267,0.0236517022313509,TRUE
+"Huntington disease",256,33,0.00195562617479774,"hsa05016","Huntington disease","Downregulated genes",1267,0.0429087390117387,TRUE
+"Spinocerebellar ataxia",131,10,0.541156267714324,"hsa05017","Spinocerebellar ataxia","Downregulated genes",1267,1,FALSE
+"Prion disease",233,30,0.00310885826039222,"hsa05020","Prion disease","Downregulated genes",1267,0.0610317963750683,FALSE
+"Pathways of neurodegeneration - multiple diseases",419,41,0.0565730140790924,"hsa05022","Pathways of neurodegeneration - multiple diseases","Downregulated genes",1267,0.490971249260706,FALSE
+"Cocaine addiction",48,0,1,"hsa05030","Cocaine addiction","Downregulated genes",1267,1,FALSE
+"Amphetamine addiction",69,3,0.903807847301227,"hsa05031","Amphetamine addiction","Downregulated genes",1267,1,FALSE
+"Morphine addiction",89,4,0.914076945235581,"hsa05032","Morphine addiction","Downregulated genes",1267,1,FALSE
+"Nicotine addiction",39,0,1,"hsa05033","Nicotine addiction","Downregulated genes",1267,1,FALSE
+"Alcoholism",105,3,0.988564001483344,"hsa05034","Alcoholism","Downregulated genes",1267,1,FALSE
+"Bacterial invasion of epithelial cells",67,1,0.995029312325088,"hsa05100","Bacterial invasion of epithelial cells","Downregulated genes",1267,1,FALSE
+"Vibrio cholerae infection",49,4,0.516618584492171,"hsa05110","Vibrio cholerae infection","Downregulated genes",1267,1,FALSE
+"Epithelial cell signaling in Helicobacter pylori infection",68,4,0.769184914290555,"hsa05120","Epithelial cell signaling in Helicobacter pylori infection","Downregulated genes",1267,1,FALSE
+"Pathogenic Escherichia coli infection",185,12,0.755920000788062,"hsa05130","Pathogenic Escherichia coli infection","Downregulated genes",1267,1,FALSE
+"Shigellosis",211,12,0.885545229302109,"hsa05131","Shigellosis","Downregulated genes",1267,1,FALSE
+"Salmonella infection",238,15,0.809281783966907,"hsa05132","Salmonella infection","Downregulated genes",1267,1,FALSE
+"Pertussis",74,2,0.979713754072218,"hsa05133","Pertussis","Downregulated genes",1267,1,FALSE
+"Legionellosis",53,5,0.376346274886983,"hsa05134","Legionellosis","Downregulated genes",1267,1,FALSE
+"Yersinia infection",129,7,0.867763216664834,"hsa05135","Yersinia infection","Downregulated genes",1267,1,FALSE
+"Leishmaniasis",71,4,0.797679798138167,"hsa05140","Leishmaniasis","Downregulated genes",1267,1,FALSE
+"Chagas disease",101,7,0.654410883887038,"hsa05142","Chagas disease","Downregulated genes",1267,1,FALSE
+"African trypanosomiasis",34,3,0.483165140283302,"hsa05143","African trypanosomiasis","Downregulated genes",1267,1,FALSE
+"Malaria",47,4,0.483412134346125,"hsa05144","Malaria","Downregulated genes",1267,1,FALSE
+"Toxoplasmosis",106,9,0.414943022037207,"hsa05145","Toxoplasmosis","Downregulated genes",1267,1,FALSE
+"Amoebiasis",99,4,0.948720231742115,"hsa05146","Amoebiasis","Downregulated genes",1267,1,FALSE
+"Staphylococcus aureus infection",88,4,0.909654676010713,"hsa05150","Staphylococcus aureus infection","Downregulated genes",1267,1,FALSE
+"Tuberculosis",176,10,0.868574361622831,"hsa05152","Tuberculosis","Downregulated genes",1267,1,FALSE
+"Hepatitis C",147,10,0.68735331963745,"hsa05160","Hepatitis C","Downregulated genes",1267,1,FALSE
+"Hepatitis B",156,8,0.913453840169618,"hsa05161","Hepatitis B","Downregulated genes",1267,1,FALSE
+"Measles",128,15,0.0613665405664246,"hsa05162","Measles","Downregulated genes",1267,0.503168755379112,FALSE
+"Human cytomegalovirus infection",218,13,0.85322566241271,"hsa05163","Human cytomegalovirus infection","Downregulated genes",1267,1,FALSE
+"Influenza A",159,15,0.227088978889101,"hsa05164","Influenza A","Downregulated genes",1267,1,FALSE
+"Human papillomavirus infection",317,18,0.9254961447578,"hsa05165","Human papillomavirus infection","Downregulated genes",1267,1,FALSE
+"Human T-cell leukemia virus 1 infection",213,23,0.0553641850706921,"hsa05166","Human T-cell leukemia virus 1 infection","Downregulated genes",1267,0.490971249260706,FALSE
+"Kaposi sarcoma-associated herpesvirus infection",189,10,0.916255690197374,"hsa05167","Kaposi sarcoma-associated herpesvirus infection","Downregulated genes",1267,1,FALSE
+"Herpes simplex virus 1 infection",169,13,0.523110094597149,"hsa05168","Herpes simplex virus 1 infection","Downregulated genes",1267,1,FALSE
+"Epstein-Barr virus infection",196,19,0.162870020479854,"hsa05169","Epstein-Barr virus infection","Downregulated genes",1267,0.843757189430356,FALSE
+"Human immunodeficiency virus 1 infection",201,15,0.567433820203129,"hsa05170","Human immunodeficiency virus 1 infection","Downregulated genes",1267,1,FALSE
+"Coronavirus disease",218,26,0.0146647938719466,"hsa05171","Coronavirus disease","Downregulated genes",1267,0.195782317182094,FALSE
+"Pathways in cancer",516,28,0.97986965574395,"hsa05200","Pathways in cancer","Downregulated genes",1267,1,FALSE
+"Transcriptional misregulation in cancer",174,8,0.958547104526467,"hsa05202","Transcriptional misregulation in cancer","Downregulated genes",1267,1,FALSE
+"Viral carcinogenesis",163,12,0.588131957900218,"hsa05203","Viral carcinogenesis","Downregulated genes",1267,1,FALSE
+"Chemical carcinogenesis - DNA adducts",64,1,0.993693787295776,"hsa05204","Chemical carcinogenesis - DNA adducts","Downregulated genes",1267,1,FALSE
+"Proteoglycans in cancer",196,7,0.993700415003136,"hsa05205","Proteoglycans in cancer","Downregulated genes",1267,1,FALSE
+"MicroRNAs in cancer",157,10,0.762622879985201,"hsa05206","MicroRNAs in cancer","Downregulated genes",1267,1,FALSE
+"Chemical carcinogenesis - receptor activation",192,7,0.992280284676998,"hsa05207","Chemical carcinogenesis - receptor activation","Downregulated genes",1267,1,FALSE
+"Chemical carcinogenesis - reactive oxygen species",187,19,0.11896268693574,"hsa05208","Chemical carcinogenesis - reactive oxygen species","Downregulated genes",1267,0.704334638524303,FALSE
+"Colorectal cancer",85,5,0.783153844350092,"hsa05210","Colorectal cancer","Downregulated genes",1267,1,FALSE
+"Renal cell carcinoma",65,0,1,"hsa05211","Renal cell carcinoma","Downregulated genes",1267,1,FALSE
+"Pancreatic cancer",76,3,0.934995292612095,"hsa05212","Pancreatic cancer","Downregulated genes",1267,1,FALSE
+"Endometrial cancer",57,3,0.818082506644592,"hsa05213","Endometrial cancer","Downregulated genes",1267,1,FALSE
+"Glioma",73,5,0.659442329996828,"hsa05214","Glioma","Downregulated genes",1267,1,FALSE
+"Prostate cancer",100,3,0.984402208374957,"hsa05215","Prostate cancer","Downregulated genes",1267,1,FALSE
+"Thyroid cancer",36,1,0.94199664194495,"hsa05216","Thyroid cancer","Downregulated genes",1267,1,FALSE
+"Basal cell carcinoma",62,2,0.954792415999942,"hsa05217","Basal cell carcinoma","Downregulated genes",1267,1,FALSE
+"Melanoma",71,3,0.913880198801704,"hsa05218","Melanoma","Downregulated genes",1267,1,FALSE
+"Bladder cancer",40,2,0.818439578328858,"hsa05219","Bladder cancer","Downregulated genes",1267,1,FALSE
+"Chronic myeloid leukemia",73,4,0.81505001508756,"hsa05220","Chronic myeloid leukemia","Downregulated genes",1267,1,FALSE
+"Acute myeloid leukemia",66,1,0.994618921260047,"hsa05221","Acute myeloid leukemia","Downregulated genes",1267,1,FALSE
+"Small cell lung cancer",90,6,0.688336694811762,"hsa05222","Small cell lung cancer","Downregulated genes",1267,1,FALSE
+"Non-small cell lung cancer",71,8,0.169347657731648,"hsa05223","Non-small cell lung cancer","Downregulated genes",1267,0.865296936080885,FALSE
+"Breast cancer",143,5,0.986529450125401,"hsa05224","Breast cancer","Downregulated genes",1267,1,FALSE
+"Hepatocellular carcinoma",161,9,0.87067885827996,"hsa05225","Hepatocellular carcinoma","Downregulated genes",1267,1,FALSE
+"Gastric cancer",144,6,0.966806955661589,"hsa05226","Gastric cancer","Downregulated genes",1267,1,FALSE
+"Central carbon metabolism in cancer",68,3,0.898382117690039,"hsa05230","Central carbon metabolism in cancer","Downregulated genes",1267,1,FALSE
+"Choline metabolism in cancer",94,3,0.977482936560511,"hsa05231","Choline metabolism in cancer","Downregulated genes",1267,1,FALSE
+"PD-L1 expression and PD-1 checkpoint pathway in cancer",85,11,0.0564471352640129,"hsa05235","PD-L1 expression and PD-1 checkpoint pathway in cancer","Downregulated genes",1267,0.490971249260706,FALSE
+"Asthma",28,5,0.0571233805983979,"hsa05310","Asthma","Downregulated genes",1267,0.490971249260706,FALSE
+"Autoimmune thyroid disease",49,5,0.314697775966714,"hsa05320","Autoimmune thyroid disease","Downregulated genes",1267,1,FALSE
+"Inflammatory bowel disease",64,8,0.110490788622185,"hsa05321","Inflammatory bowel disease","Downregulated genes",1267,0.675624002558607,FALSE
+"Systemic lupus erythematosus",50,7,0.0822315247659528,"hsa05322","Systemic lupus erythematosus","Downregulated genes",1267,0.54772069174465,FALSE
+"Rheumatoid arthritis",88,9,0.223770552405711,"hsa05323","Rheumatoid arthritis","Downregulated genes",1267,1,FALSE
+"Allograft rejection",34,6,0.0407714426324497,"hsa05330","Allograft rejection","Downregulated genes",1267,0.422437447275104,FALSE
+"Graft-versus-host disease",38,5,0.158529991559802,"hsa05332","Graft-versus-host disease","Downregulated genes",1267,0.837928427708685,FALSE
+"Primary immunodeficiency",36,14,1.5347053055398e-07,"hsa05340","Primary immunodeficiency","Downregulated genes",1267,2.86222539483172e-05,TRUE
+"Hypertrophic cardiomyopathy",95,6,0.737327952360151,"hsa05410","Hypertrophic cardiomyopathy","Downregulated genes",1267,1,FALSE
+"Arrhythmogenic right ventricular cardiomyopathy",83,4,0.8843804389474,"hsa05412","Arrhythmogenic right ventricular cardiomyopathy","Downregulated genes",1267,1,FALSE
+"Dilated cardiomyopathy",100,5,0.885247259187279,"hsa05414","Dilated cardiomyopathy","Downregulated genes",1267,1,FALSE
+"Diabetic cardiomyopathy",170,19,0.0579161795374559,"hsa05415","Diabetic cardiomyopathy","Downregulated genes",1267,0.490971249260706,FALSE
+"Viral myocarditis",65,6,0.372517075072454,"hsa05416","Viral myocarditis","Downregulated genes",1267,1,FALSE
+"Lipid and atherosclerosis",209,14,0.726327428002865,"hsa05417","Lipid and atherosclerosis","Downregulated genes",1267,1,FALSE
+"Fluid shear stress and atherosclerosis",137,3,0.998546563289515,"hsa05418","Fluid shear stress and atherosclerosis","Downregulated genes",1267,1,FALSE

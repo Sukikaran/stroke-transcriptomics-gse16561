@@ -2418,6 +2418,610 @@ cat("\nAll gene annotation output files verified.\n")
 cat("\nGene ID annotation completed successfully.\n")
 
 ```
+
+# 5.6 Functional and Pathway Enrichment Analysis
+
+Functional enrichment analysis is performed to investigate the biological
+processes, molecular functions, cellular components and pathways associated
+with differentially expressed genes in acute ischemic stroke.
+
+Gene Ontology (GO) enrichment is performed for Biological Process (BP),
+Molecular Function (MF) and Cellular Component (CC). Biological Process
+enrichment is also performed separately for upregulated and downregulated
+genes.
+
+KEGG pathway enrichment is performed for all significant genes and for
+the upregulated and downregulated gene sets separately.
+
+The analysis uses Entrez Gene IDs and the mapped background gene set
+prepared in Section 5.5. Benjamini-Hochberg adjustment is used to control
+the false discovery rate.
+
+```{r functional-enrichment-analysis, fig.width=10, fig.height=7}
+
+
+# Check required packages
+stopifnot(
+  requireNamespace("limma", quietly = TRUE),
+  requireNamespace("org.Hs.eg.db", quietly = TRUE),
+  requireNamespace("ggplot2", quietly = TRUE)
+)
+
+# Verify gene sets from Section 5.5
+stopifnot(
+  exists("background_entrez"),
+  exists("significant_entrez"),
+  exists("upregulated_entrez"),
+  exists("downregulated_entrez")
+)
+
+# Prepare unique Entrez gene IDs
+background_entrez <- unique(na.omit(as.character(background_entrez)))
+significant_entrez <- unique(na.omit(as.character(significant_entrez)))
+upregulated_entrez <- unique(na.omit(as.character(upregulated_entrez)))
+downregulated_entrez <- unique(na.omit(as.character(downregulated_entrez)))
+
+# Verify gene sets
+stopifnot(
+  length(background_entrez) > 0,
+  length(significant_entrez) > 0,
+  all(significant_entrez %in% background_entrez),
+  all(upregulated_entrez %in% background_entrez),
+  all(downregulated_entrez %in% background_entrez)
+)
+
+# Set FDR threshold
+enrichment_fdr_threshold <- 0.05
+
+# Function to perform GO enrichment
+run_go_enrichment <- function(gene_ids, analysis_name) {
+
+  result <- limma::goana(
+    de = gene_ids,
+    universe = background_entrez,
+    species = "Hs"
+  )
+
+  result <- as.data.frame(result)
+
+  if (nrow(result) == 0) {
+    return(result)
+  }
+
+  # Preserve GO identifiers
+  result$GO_ID <- rownames(result)
+
+  result$Analysis <- analysis_name
+
+  result$Input_Genes <- length(gene_ids)
+
+  # Adjust p-values separately for each GO ontology
+  result$FDR <- NA_real_
+
+  for (ontology in unique(result$Ont)) {
+
+    selected <- result$Ont == ontology
+
+    result$FDR[selected] <- p.adjust(
+      result$P.DE[selected],
+      method = "BH"
+    )
+
+  }
+
+  result$Significant <- (
+    !is.na(result$FDR) &
+      result$FDR < enrichment_fdr_threshold
+  )
+
+  rownames(result) <- NULL
+
+  result
+}
+
+# Perform GO analysis for all significant genes
+go_all <- run_go_enrichment(
+  significant_entrez,
+  "All significant DEGs"
+)
+
+# Perform GO analysis for upregulated genes
+go_up <- run_go_enrichment(
+  upregulated_entrez,
+  "Upregulated genes"
+)
+
+# Perform GO analysis for downregulated genes
+go_down <- run_go_enrichment(
+  downregulated_entrez,
+  "Downregulated genes"
+)
+
+# Separate GO ontologies
+go_bp_all <- subset(go_all, Ont == "BP")
+go_mf_all <- subset(go_all, Ont == "MF")
+go_cc_all <- subset(go_all, Ont == "CC")
+
+go_bp_upregulated <- subset(go_up, Ont == "BP")
+go_bp_downregulated <- subset(go_down, Ont == "BP")
+
+cat("\nGO enrichment analysis completed.\n")
+
+# Function to perform KEGG enrichment
+run_kegg_enrichment <- function(gene_ids, analysis_name) {
+
+  tryCatch({
+
+    result <- limma::kegga(
+      de = gene_ids,
+      universe = background_entrez,
+      species.KEGG = "hsa"
+    )
+
+    result <- as.data.frame(result)
+
+    if (nrow(result) > 0) {
+
+      result$KEGG_ID <- rownames(result)
+
+      # Standardise pathway description column
+      result$Term <- result$Pathway
+
+      result$Analysis <- analysis_name
+
+      result$Input_Genes <- length(gene_ids)
+
+      result$FDR <- p.adjust(
+        result$P.DE,
+        method = "BH"
+      )
+
+      result$Significant <- (
+        !is.na(result$FDR) &
+          result$FDR < enrichment_fdr_threshold
+      )
+
+      rownames(result) <- NULL
+
+    }
+
+    list(
+      table = result,
+      status = "Completed"
+    )
+
+  }, error = function(e) {
+
+    cat(
+      "\nKEGG analysis unavailable for",
+      analysis_name,
+      ":",
+      conditionMessage(e),
+      "\n"
+    )
+
+    list(
+      table = data.frame(),
+      status = paste(
+        "Unavailable:",
+        conditionMessage(e)
+      )
+    )
+
+  })
+
+}
+
+# Perform KEGG enrichment analyses
+kegg_all_result <- run_kegg_enrichment(
+  significant_entrez,
+  "All significant DEGs"
+)
+
+kegg_up_result <- run_kegg_enrichment(
+  upregulated_entrez,
+  "Upregulated genes"
+)
+
+kegg_down_result <- run_kegg_enrichment(
+  downregulated_entrez,
+  "Downregulated genes"
+)
+
+# Collect enrichment tables
+enrichment_results <- list(
+
+  GO_BP_All = go_bp_all,
+
+  GO_MF_All = go_mf_all,
+
+  GO_CC_All = go_cc_all,
+
+  GO_BP_Upregulated = go_bp_upregulated,
+
+  GO_BP_Downregulated = go_bp_downregulated,
+
+  KEGG_All = kegg_all_result$table,
+
+  KEGG_Upregulated = kegg_up_result$table,
+
+  KEGG_Downregulated = kegg_down_result$table
+
+)
+
+# Record KEGG analysis statuses
+kegg_status <- c(
+  KEGG_All = kegg_all_result$status,
+  KEGG_Upregulated = kegg_up_result$status,
+  KEGG_Downregulated = kegg_down_result$status
+)
+
+# Define output CSV filenames
+enrichment_csv_files <- setNames(
+
+  file.path(
+    data_dir,
+    paste0(
+      "GSE16561_",
+      tolower(names(enrichment_results)),
+      "_enrichment.csv"
+    )
+  ),
+
+  names(enrichment_results)
+
+)
+
+# Export enrichment tables
+for (result_name in names(enrichment_results)) {
+
+  result_table <- enrichment_results[[result_name]]
+
+  if (ncol(result_table) == 0) {
+
+    result_table <- data.frame(
+      Note = "No results were returned. Check the analysis status."
+    )
+
+  }
+
+  write.csv(
+    result_table,
+    enrichment_csv_files[[result_name]],
+    row.names = FALSE
+  )
+
+}
+
+# Create enrichment summary
+enrichment_summary <- do.call(
+
+  rbind,
+
+  lapply(
+    names(enrichment_results),
+
+    function(result_name) {
+
+      result_table <- enrichment_results[[result_name]]
+
+      returned_terms <- nrow(result_table)
+
+      significant_terms <- if (
+        returned_terms > 0 &&
+        "FDR" %in% names(result_table)
+      ) {
+
+        sum(
+          !is.na(result_table$FDR) &
+            result_table$FDR < enrichment_fdr_threshold
+        )
+
+      } else {
+        0
+      }
+
+      status <- if (
+        grepl("^KEGG", result_name)
+      ) {
+
+        unname(kegg_status[result_name])
+
+      } else {
+
+        "Completed"
+
+      }
+
+      data.frame(
+
+        Analysis = result_name,
+
+        Returned_Terms = returned_terms,
+
+        Significant_Terms_FDR_0.05 = significant_terms,
+
+        Status = status,
+
+        stringsAsFactors = FALSE
+
+      )
+
+    }
+
+  )
+
+)
+
+# Export summary
+enrichment_summary_file <- file.path(
+  data_dir,
+  "GSE16561_enrichment_summary.csv"
+)
+
+write.csv(
+  enrichment_summary,
+  enrichment_summary_file,
+  row.names = FALSE
+)
+
+# Function to generate enrichment dot plots
+create_enrichment_plot <- function(
+  result_table,
+  plot_title,
+  output_file
+) {
+
+  significant_terms <- data.frame()
+
+  if (
+    nrow(result_table) > 0 &&
+    all(c("FDR", "Term", "DE", "Input_Genes") %in%
+        names(result_table))
+  ) {
+
+    significant_terms <- result_table[
+      !is.na(result_table$FDR) &
+        result_table$FDR < enrichment_fdr_threshold,
+      ,
+      drop = FALSE
+    ]
+
+  }
+
+  # Create plot when significant terms are available
+  if (nrow(significant_terms) > 0) {
+
+    significant_terms$GeneRatio <- (
+      significant_terms$DE /
+        significant_terms$Input_Genes
+    )
+
+    significant_terms <- significant_terms[
+      order(significant_terms$FDR),
+      ,
+      drop = FALSE
+    ]
+
+    significant_terms <- head(
+      significant_terms,
+      15
+    )
+
+    enrichment_plot <- ggplot2::ggplot(
+
+      significant_terms,
+
+      ggplot2::aes(
+        x = GeneRatio,
+        y = reorder(Term, GeneRatio)
+      )
+
+    ) +
+
+      ggplot2::geom_point(
+
+        ggplot2::aes(
+          size = DE,
+          color = FDR
+        ),
+
+        alpha = 0.85
+
+      ) +
+
+      ggplot2::scale_color_gradient(
+        low = "#D7191C",
+        high = "#2C7BB6"
+      ) +
+
+      ggplot2::labs(
+        title = plot_title,
+        x = "Gene Ratio",
+        y = NULL,
+        color = "Adjusted p-value",
+        size = "Gene Count"
+      ) +
+
+      ggplot2::theme_minimal(base_size = 11) +
+
+      ggplot2::theme(
+        plot.title = ggplot2::element_text(
+          face = "bold"
+        ),
+        plot.background = ggplot2::element_rect(
+          fill = "white",
+          colour = NA
+        ),
+        panel.background = ggplot2::element_rect(
+          fill = "white",
+          colour = NA
+        )
+      )
+
+  } else {
+
+    # Display a message when no terms pass the FDR threshold
+    enrichment_plot <- ggplot2::ggplot() +
+
+      ggplot2::annotate(
+        "text",
+        x = 0,
+        y = 0,
+        label = "No significantly enriched terms (FDR < 0.05)."
+      ) +
+
+      ggplot2::xlim(-1, 1) +
+
+      ggplot2::ylim(-1, 1) +
+
+      ggplot2::labs(title = plot_title) +
+
+      ggplot2::theme_void() +
+
+      ggplot2::theme(
+        plot.title = ggplot2::element_text(
+          face = "bold",
+          hjust = 0.5
+        ),
+        plot.background = ggplot2::element_rect(
+          fill = "white",
+          colour = NA
+        )
+      )
+
+  }
+
+  # Save plot
+  ggplot2::ggsave(
+    filename = output_file,
+    plot = enrichment_plot,
+    width = 10,
+    height = 7,
+    dpi = 300,
+    bg = "white"
+  )
+
+  enrichment_plot
+
+}
+
+# Define output figure files
+enrichment_plot_files <- c(
+
+  GO_BP_All = file.path(
+    figure_dir,
+    "fig6_GO_BP_all_DEGs.png"
+  ),
+
+  GO_MF_All = file.path(
+    figure_dir,
+    "fig7_GO_MF_all_DEGs.png"
+  ),
+
+  GO_CC_All = file.path(
+    figure_dir,
+    "fig8_GO_CC_all_DEGs.png"
+  ),
+
+  GO_BP_Upregulated = file.path(
+    figure_dir,
+    "fig9_GO_BP_upregulated_DEGs.png"
+  ),
+
+  GO_BP_Downregulated = file.path(
+    figure_dir,
+    "fig10_GO_BP_downregulated_DEGs.png"
+  ),
+
+  KEGG_All = file.path(
+    figure_dir,
+    "fig11_KEGG_all_DEGs.png"
+  ),
+
+  KEGG_Upregulated = file.path(
+    figure_dir,
+    "fig12_KEGG_upregulated_DEGs.png"
+  ),
+
+  KEGG_Downregulated = file.path(
+    figure_dir,
+    "fig13_KEGG_downregulated_DEGs.png"
+  )
+
+)
+
+# Generate enrichment figures
+enrichment_plots <- list()
+
+for (result_name in names(enrichment_plot_files)) {
+
+  enrichment_plots[[result_name]] <- create_enrichment_plot(
+
+    result_table = enrichment_results[[result_name]],
+
+    plot_title = paste(
+      "Enrichment Analysis:",
+      gsub("_", " ", result_name)
+    ),
+
+    output_file = enrichment_plot_files[[result_name]]
+
+  )
+
+  print(enrichment_plots[[result_name]])
+
+}
+
+# Save results for reproducibility
+enrichment_rds_file <- file.path(
+  data_dir,
+  "GSE16561_functional_enrichment_results.rds"
+)
+
+saveRDS(
+  enrichment_results,
+  enrichment_rds_file
+)
+
+# Verify all output files
+enrichment_required_files <- c(
+
+  enrichment_csv_files,
+
+  enrichment_summary_file,
+
+  enrichment_plot_files,
+
+  enrichment_rds_file
+
+)
+
+stopifnot(
+  all(file.exists(enrichment_required_files)),
+  all(file.info(enrichment_required_files)$size > 0)
+)
+
+# Display summary
+cat("\nFunctional Enrichment Summary\n")
+cat("-----------------------------\n")
+
+print(
+  enrichment_summary,
+  row.names = FALSE
+)
+
+cat("\nMapped background genes:", length(background_entrez), "\n")
+
+cat("Significant genes analysed:", length(significant_entrez), "\n")
+
+cat("Upregulated genes analysed:", length(upregulated_entrez), "\n")
+
+cat("Downregulated genes analysed:", length(downregulated_entrez), "\n")
+
+cat("\nAll enrichment output files verified.\n")
+```
+
 ## 6. Reproducibility Information
 
 The R session and package versions are recorded to support reproducibility of the analysis.

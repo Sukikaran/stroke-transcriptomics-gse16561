@@ -1,0 +1,374 @@
+"Pathway","N","DE","P.DE","KEGG_ID","Term","Analysis","Input_Genes","FDR","Significant"
+"Glycolysis / Gluconeogenesis",63,7,0.259741033221338,"hsa00010","Glycolysis / Gluconeogenesis","Upregulated genes",1373,0.479620818770095,FALSE
+"Citrate cycle (TCA cycle)",30,2,0.719785665221731,"hsa00020","Citrate cycle (TCA cycle)","Upregulated genes",1373,0.930753332374337,FALSE
+"Pentose phosphate pathway",30,4,0.230719219492088,"hsa00030","Pentose phosphate pathway","Upregulated genes",1373,0.443599324074995,FALSE
+"Pentose and glucuronate interconversions",31,2,0.736629981350496,"hsa00040","Pentose and glucuronate interconversions","Upregulated genes",1373,0.944202690871942,FALSE
+"Fructose and mannose metabolism",34,4,0.305628014909148,"hsa00051","Fructose and mannose metabolism","Upregulated genes",1373,0.532706773650058,FALSE
+"Galactose metabolism",30,9,0.000492996485778969,"hsa00052","Galactose metabolism","Upregulated genes",1373,0.00266503897384863,TRUE
+"Ascorbate and aldarate metabolism",28,1,0.909950006363208,"hsa00053","Ascorbate and aldarate metabolism","Upregulated genes",1373,1,FALSE
+"Fatty acid biosynthesis",17,2,0.413903009191749,"hsa00061","Fatty acid biosynthesis","Upregulated genes",1373,0.65696094650435,FALSE
+"Fatty acid elongation",28,4,0.195160944779544,"hsa00062","Fatty acid elongation","Upregulated genes",1373,0.393486661636593,FALSE
+"Fatty acid degradation",42,5,0.261785830767349,"hsa00071","Fatty acid degradation","Upregulated genes",1373,0.481015344217837,FALSE
+"Steroid biosynthesis",19,2,0.471396639788575,"hsa00100","Steroid biosynthesis","Upregulated genes",1373,0.718223612094933,FALSE
+"Primary bile acid biosynthesis",16,1,0.747194373486633,"hsa00120","Primary bile acid biosynthesis","Upregulated genes",1373,0.954464045583952,FALSE
+"Ubiquinone and other terpenoid-quinone biosynthesis",11,0,1,"hsa00130","Ubiquinone and other terpenoid-quinone biosynthesis","Upregulated genes",1373,1,FALSE
+"Steroid hormone biosynthesis",60,2,0.96337791944649,"hsa00140","Steroid hormone biosynthesis","Upregulated genes",1373,1,FALSE
+"Oxidative phosphorylation",99,9,0.429183404418411,"hsa00190","Oxidative phosphorylation","Upregulated genes",1373,0.672627772470871,FALSE
+"Arginine biosynthesis",22,2,0.550905839176403,"hsa00220","Arginine biosynthesis","Upregulated genes",1373,0.787309877443672,FALSE
+"Purine metabolism",118,6,0.930493529998861,"hsa00230","Purine metabolism","Upregulated genes",1373,1,FALSE
+"Caffeine metabolism",6,0,1,"hsa00232","Caffeine metabolism","Upregulated genes",1373,1,FALSE
+"Pyrimidine metabolism",57,8,0.0937860755386044,"hsa00240","Pyrimidine metabolism","Upregulated genes",1373,0.220013875320122,FALSE
+"Alanine, aspartate and glutamate metabolism",34,1,0.946271387124287,"hsa00250","Alanine, aspartate and glutamate metabolism","Upregulated genes",1373,1,FALSE
+"Glycine, serine and threonine metabolism",38,1,0.961924990913305,"hsa00260","Glycine, serine and threonine metabolism","Upregulated genes",1373,1,FALSE
+"Cysteine and methionine metabolism",50,5,0.394690225594831,"hsa00270","Cysteine and methionine metabolism","Upregulated genes",1373,0.63254664744024,FALSE
+"Valine, leucine and isoleucine degradation",47,3,0.754944648080425,"hsa00280","Valine, leucine and isoleucine degradation","Upregulated genes",1373,0.96107287963822,FALSE
+"Valine, leucine and isoleucine biosynthesis",4,1,0.29082603290939,"hsa00290","Valine, leucine and isoleucine biosynthesis","Upregulated genes",1373,0.522941629812688,FALSE
+"Lysine degradation",56,3,0.850511490764086,"hsa00310","Lysine degradation","Upregulated genes",1373,1,FALSE
+"Arginine and proline metabolism",48,4,0.565327710738455,"hsa00330","Arginine and proline metabolism","Upregulated genes",1373,0.795725419265826,FALSE
+"Histidine metabolism",21,3,0.24696178640249,"hsa00340","Histidine metabolism","Upregulated genes",1373,0.465236092566307,FALSE
+"Tyrosine metabolism",35,0,1,"hsa00350","Tyrosine metabolism","Upregulated genes",1373,1,FALSE
+"Phenylalanine metabolism",16,0,1,"hsa00360","Phenylalanine metabolism","Upregulated genes",1373,1,FALSE
+"Tryptophan metabolism",41,4,0.439754032403569,"hsa00380","Tryptophan metabolism","Upregulated genes",1373,0.686310686554523,FALSE
+"Phenylalanine, tyrosine and tryptophan biosynthesis",6,0,1,"hsa00400","Phenylalanine, tyrosine and tryptophan biosynthesis","Upregulated genes",1373,1,FALSE
+"beta-Alanine metabolism",30,3,0.45362551475679,"hsa00410","beta-Alanine metabolism","Upregulated genes",1373,0.699183128116871,FALSE
+"Taurine and hypotaurine metabolism",15,0,1,"hsa00430","Taurine and hypotaurine metabolism","Upregulated genes",1373,1,FALSE
+"Phosphonate and phosphinate metabolism",5,0,1,"hsa00440","Phosphonate and phosphinate metabolism","Upregulated genes",1373,1,FALSE
+"Selenocompound metabolism",14,1,0.699758215417972,"hsa00450","Selenocompound metabolism","Upregulated genes",1373,0.917459906731165,FALSE
+"D-Amino acid metabolism",5,0,1,"hsa00470","D-Amino acid metabolism","Upregulated genes",1373,1,FALSE
+"Glutathione metabolism",55,8,0.0796175970825118,"hsa00480","Glutathione metabolism","Upregulated genes",1373,0.19159589491469,FALSE
+"Starch and sucrose metabolism",33,9,0.00106121253613803,"hsa00500","Starch and sucrose metabolism","Upregulated genes",1373,0.00520831942078268,TRUE
+"N-Glycan biosynthesis",52,4,0.629678731460157,"hsa00510","N-Glycan biosynthesis","Upregulated genes",1373,0.85407333394414,FALSE
+"Other glycan degradation",15,2,0.353448729475234,"hsa00511","Other glycan degradation","Upregulated genes",1373,0.583346796877267,FALSE
+"Mucin type O-glycan biosynthesis",32,4,0.267699215085696,"hsa00512","Mucin type O-glycan biosynthesis","Upregulated genes",1373,0.489469643269434,FALSE
+"Various types of N-glycan biosynthesis",40,5,0.230139697106717,"hsa00513","Various types of N-glycan biosynthesis","Upregulated genes",1373,0.443599324074995,FALSE
+"Other types of O-glycan biosynthesis",45,2,0.894814926159933,"hsa00514","Other types of O-glycan biosynthesis","Upregulated genes",1373,1,FALSE
+"Mannose type O-glycan biosynthesis",21,1,0.835549657492702,"hsa00515","Mannose type O-glycan biosynthesis","Upregulated genes",1373,1,FALSE
+"Amino sugar and nucleotide sugar metabolism",36,5,0.170790310331893,"hsa00520","Amino sugar and nucleotide sugar metabolism","Upregulated genes",1373,0.355892657842436,FALSE
+"Neomycin, kanamycin and gentamicin biosynthesis",5,2,0.0572558123839547,"hsa00524","Neomycin, kanamycin and gentamicin biosynthesis","Upregulated genes",1373,0.148308458466772,FALSE
+"Glycosaminoglycan degradation",18,6,0.0024044983099803,"hsa00531","Glycosaminoglycan degradation","Upregulated genes",1373,0.0105515043485018,TRUE
+"Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate",21,5,0.0250854800314362,"hsa00532","Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate","Upregulated genes",1373,0.0731006566541069,FALSE
+"Glycosaminoglycan biosynthesis - keratan sulfate",14,1,0.699758215417972,"hsa00533","Glycosaminoglycan biosynthesis - keratan sulfate","Upregulated genes",1373,0.917459906731165,FALSE
+"Glycosaminoglycan biosynthesis - heparan sulfate / heparin",24,3,0.316255805843709,"hsa00534","Glycosaminoglycan biosynthesis - heparan sulfate / heparin","Upregulated genes",1373,0.543610210044716,FALSE
+"Biosynthesis of various nucleotide sugars",18,5,0.0129721653512662,"hsa00541","Biosynthesis of various nucleotide sugars","Upregulated genes",1373,0.0420749363132373,TRUE
+"Glycerolipid metabolism",62,7,0.246904475269019,"hsa00561","Glycerolipid metabolism","Upregulated genes",1373,0.465236092566307,FALSE
+"Inositol phosphate metabolism",76,12,0.0208817112158152,"hsa00562","Inositol phosphate metabolism","Upregulated genes",1373,0.0618164943134846,FALSE
+"Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",28,1,0.909950006363208,"hsa00563","Glycosylphosphatidylinositol (GPI)-anchor biosynthesis","Upregulated genes",1373,1,FALSE
+"Glycerophospholipid metabolism",94,11,0.149235550329785,"hsa00564","Glycerophospholipid metabolism","Upregulated genes",1373,0.323632908564012,FALSE
+"Ether lipid metabolism",43,2,0.8795052327343,"hsa00565","Ether lipid metabolism","Upregulated genes",1373,1,FALSE
+"Arachidonic acid metabolism",54,3,0.832616535411197,"hsa00590","Arachidonic acid metabolism","Upregulated genes",1373,1,FALSE
+"Linoleic acid metabolism",25,0,1,"hsa00591","Linoleic acid metabolism","Upregulated genes",1373,1,FALSE
+"alpha-Linolenic acid metabolism",21,1,0.835549657492702,"hsa00592","alpha-Linolenic acid metabolism","Upregulated genes",1373,1,FALSE
+"Sphingolipid metabolism",53,8,0.0668088722524903,"hsa00600","Sphingolipid metabolism","Upregulated genes",1373,0.168376414528236,FALSE
+"Glycosphingolipid biosynthesis - lacto and neolacto series",27,3,0.385839388842026,"hsa00601","Glycosphingolipid biosynthesis - lacto and neolacto series","Upregulated genes",1373,0.625730834948156,FALSE
+"Glycosphingolipid biosynthesis - globo and isoglobo series",15,2,0.353448729475234,"hsa00603","Glycosphingolipid biosynthesis - globo and isoglobo series","Upregulated genes",1373,0.583346796877267,FALSE
+"Glycosphingolipid biosynthesis - ganglio series",15,3,0.120432015269338,"hsa00604","Glycosphingolipid biosynthesis - ganglio series","Upregulated genes",1373,0.275589826352533,FALSE
+"Pyruvate metabolism",48,3,0.767585777236556,"hsa00620","Pyruvate metabolism","Upregulated genes",1373,0.973841819419168,FALSE
+"Glyoxylate and dicarboxylate metabolism",30,0,1,"hsa00630","Glyoxylate and dicarboxylate metabolism","Upregulated genes",1373,1,FALSE
+"Propanoate metabolism",31,2,0.736629981350496,"hsa00640","Propanoate metabolism","Upregulated genes",1373,0.944202690871942,FALSE
+"Butanoate metabolism",24,0,1,"hsa00650","Butanoate metabolism","Upregulated genes",1373,1,FALSE
+"C5-Branched dibasic acid metabolism",1,0,1,"hsa00660","C5-Branched dibasic acid metabolism","Upregulated genes",1373,1,FALSE
+"One carbon pool by folate",33,3,0.518091223837186,"hsa00670","One carbon pool by folate","Upregulated genes",1373,0.757835398004982,FALSE
+"Thiamine metabolism",14,0,1,"hsa00730","Thiamine metabolism","Upregulated genes",1373,1,FALSE
+"Riboflavin metabolism",8,0,1,"hsa00740","Riboflavin metabolism","Upregulated genes",1373,1,FALSE
+"Vitamin B6 metabolism",6,0,1,"hsa00750","Vitamin B6 metabolism","Upregulated genes",1373,1,FALSE
+"Nicotinate and nicotinamide metabolism",34,4,0.305628014909148,"hsa00760","Nicotinate and nicotinamide metabolism","Upregulated genes",1373,0.532706773650058,FALSE
+"Pantothenate and CoA biosynthesis",21,6,0.00567614699941122,"hsa00770","Pantothenate and CoA biosynthesis","Upregulated genes",1373,0.0209624042651523,TRUE
+"Biotin metabolism",3,0,1,"hsa00780","Biotin metabolism","Upregulated genes",1373,1,FALSE
+"Lipoic acid metabolism",18,1,0.78714052968018,"hsa00785","Lipoic acid metabolism","Upregulated genes",1373,0.988563695524266,FALSE
+"Folate biosynthesis",26,0,1,"hsa00790","Folate biosynthesis","Upregulated genes",1373,1,FALSE
+"Retinol metabolism",64,1,0.995949137911555,"hsa00830","Retinol metabolism","Upregulated genes",1373,1,FALSE
+"Porphyrin metabolism",40,0,1,"hsa00860","Porphyrin metabolism","Upregulated genes",1373,1,FALSE
+"Terpenoid backbone biosynthesis",21,3,0.24696178640249,"hsa00900","Terpenoid backbone biosynthesis","Upregulated genes",1373,0.465236092566307,FALSE
+"Nitrogen metabolism",17,3,0.159711400375652,"hsa00910","Nitrogen metabolism","Upregulated genes",1373,0.340413441943532,FALSE
+"Sulfur metabolism",8,1,0.497115579242651,"hsa00920","Sulfur metabolism","Upregulated genes",1373,0.735809964513924,FALSE
+"Aminoacyl-tRNA biosynthesis",24,1,0.872955604280146,"hsa00970","Aminoacyl-tRNA biosynthesis","Upregulated genes",1373,1,FALSE
+"Metabolism of xenobiotics by cytochrome P450",72,2,0.984786703463069,"hsa00980","Metabolism of xenobiotics by cytochrome P450","Upregulated genes",1373,1,FALSE
+"Drug metabolism - cytochrome P450",67,1,0.996872731081716,"hsa00982","Drug metabolism - cytochrome P450","Upregulated genes",1373,1,FALSE
+"Drug metabolism - other enzymes",78,6,0.628917921876606,"hsa00983","Drug metabolism - other enzymes","Upregulated genes",1373,0.85407333394414,FALSE
+"Biosynthesis of unsaturated fatty acids",27,3,0.385839388842026,"hsa01040","Biosynthesis of unsaturated fatty acids","Upregulated genes",1373,0.625730834948156,FALSE
+"Metabolic pathways",1444,129,0.167065269788687,"hsa01100","Metabolic pathways","Upregulated genes",1373,0.352064099611189,FALSE
+"Carbon metabolism",112,10,0.442769196996328,"hsa01200","Carbon metabolism","Upregulated genes",1373,0.68813712699846,FALSE
+"2-Oxocarboxylic acid metabolism",32,3,0.497044170968657,"hsa01210","2-Oxocarboxylic acid metabolism","Upregulated genes",1373,0.735809964513924,FALSE
+"Fatty acid metabolism",56,7,0.174803319867928,"hsa01212","Fatty acid metabolism","Upregulated genes",1373,0.36223132394854,FALSE
+"Biosynthesis of amino acids",69,7,0.339972324420667,"hsa01230","Biosynthesis of amino acids","Upregulated genes",1373,0.576407622767767,FALSE
+"Nucleotide metabolism",79,8,0.324216666457194,"hsa01232","Nucleotide metabolism","Upregulated genes",1373,0.554737690773089,FALSE
+"Biosynthesis of cofactors",142,5,0.992711438929502,"hsa01240","Biosynthesis of cofactors","Upregulated genes",1373,1,FALSE
+"Biosynthesis of nucleotide sugars",35,5,0.156986737170067,"hsa01250","Biosynthesis of nucleotide sugars","Upregulated genes",1373,0.336660278284935,FALSE
+"Sulfur cycle",2,0,1,"hsa01320","Sulfur cycle","Upregulated genes",1373,1,FALSE
+"EGFR tyrosine kinase inhibitor resistance",75,14,0.00293514120421505,"hsa01521","EGFR tyrosine kinase inhibitor resistance","Upregulated genes",1373,0.0125839961973818,TRUE
+"Endocrine resistance",94,12,0.0842395338428605,"hsa01522","Endocrine resistance","Upregulated genes",1373,0.198869279261943,FALSE
+"Antifolate resistance",27,4,0.17806701280954,"hsa01523","Antifolate resistance","Upregulated genes",1373,0.365640246698705,FALSE
+"Platinum drug resistance",71,7,0.367482835250185,"hsa01524","Platinum drug resistance","Upregulated genes",1373,0.603837434133563,FALSE
+"ABC transporters",41,2,0.862158442666643,"hsa02010","ABC transporters","Upregulated genes",1373,1,FALSE
+"Ribosome biogenesis in eukaryotes",71,1,0.997785430674765,"hsa03008","Ribosome biogenesis in eukaryotes","Upregulated genes",1373,1,FALSE
+"Ribosome",167,0,1,"hsa03010","Ribosome","Upregulated genes",1373,1,FALSE
+"Nucleocytoplasmic transport",98,7,0.706190846715085,"hsa03013","Nucleocytoplasmic transport","Upregulated genes",1373,0.917802041201138,FALSE
+"mRNA surveillance pathway",90,8,0.464642028899676,"hsa03015","mRNA surveillance pathway","Upregulated genes",1373,0.713215953825428,FALSE
+"RNA degradation",68,3,0.926547668549105,"hsa03018","RNA degradation","Upregulated genes",1373,1,FALSE
+"RNA polymerase",27,1,0.901857942663796,"hsa03020","RNA polymerase","Upregulated genes",1373,1,FALSE
+"Basal transcription factors",39,0,1,"hsa03022","Basal transcription factors","Upregulated genes",1373,1,FALSE
+"DNA replication",35,0,1,"hsa03030","DNA replication","Upregulated genes",1373,1,FALSE
+"Spliceosome",138,9,0.811031454896832,"hsa03040","Spliceosome","Upregulated genes",1373,1,FALSE
+"Proteasome",43,3,0.698797212228514,"hsa03050","Proteasome","Upregulated genes",1373,0.917459906731165,FALSE
+"Protein export",28,0,1,"hsa03060","Protein export","Upregulated genes",1373,1,FALSE
+"ATP-dependent chromatin remodeling",81,8,0.349521377456332,"hsa03082","ATP-dependent chromatin remodeling","Upregulated genes",1373,0.583346796877267,FALSE
+"Polycomb repressive complex",73,9,0.14422998635911,"hsa03083","Polycomb repressive complex","Upregulated genes",1373,0.314606929309638,FALSE
+"Viral life cycle - HIV-1",61,9,0.0607488487052629,"hsa03250","Viral life cycle - HIV-1","Upregulated genes",1373,0.155260011336076,FALSE
+"Virion - Human immunodeficiency virus",5,0,1,"hsa03260","Virion - Human immunodeficiency virus","Upregulated genes",1373,1,FALSE
+"Virion - Flavivirus and Alphavirus",5,0,1,"hsa03264","Virion - Flavivirus and Alphavirus","Upregulated genes",1373,1,FALSE
+"Virion - Ebolavirus, Lyssavirus and Morbillivirus",11,1,0.611420234572003,"hsa03265","Virion - Ebolavirus, Lyssavirus and Morbillivirus","Upregulated genes",1373,0.843291516087691,FALSE
+"Virion - Herpesvirus",9,4,0.0041115154562661,"hsa03266","Virion - Herpesvirus","Upregulated genes",1373,0.0159749506790339,TRUE
+"Virion - Adenovirus",3,0,1,"hsa03267","Virion - Adenovirus","Upregulated genes",1373,1,FALSE
+"Virion - Rotavirus",2,0,1,"hsa03271","Virion - Rotavirus","Upregulated genes",1373,1,FALSE
+"Virion - Hepatitis viruses",43,5,0.277971719002638,"hsa03272","Virion - Hepatitis viruses","Upregulated genes",1373,0.505772932624313,FALSE
+"Virion - Lassa virus and SFTS virus",17,2,0.413903009191749,"hsa03273","Virion - Lassa virus and SFTS virus","Upregulated genes",1373,0.65696094650435,FALSE
+"PPAR signaling pathway",73,9,0.14422998635911,"hsa03320","PPAR signaling pathway","Upregulated genes",1373,0.314606929309638,FALSE
+"Base excision repair",41,1,0.970593647001062,"hsa03410","Base excision repair","Upregulated genes",1373,1,FALSE
+"Nucleotide excision repair",57,4,0.701008239727566,"hsa03420","Nucleotide excision repair","Upregulated genes",1373,0.917459906731165,FALSE
+"Mismatch repair",22,0,1,"hsa03430","Mismatch repair","Upregulated genes",1373,1,FALSE
+"Homologous recombination",92,4,0.951076270518319,"hsa03440","Homologous recombination","Upregulated genes",1373,1,FALSE
+"Non-homologous end-joining",12,1,0.643428874956731,"hsa03450","Non-homologous end-joining","Upregulated genes",1373,0.868610978997445,FALSE
+"Fanconi anemia pathway",50,1,0.986456908450364,"hsa03460","Fanconi anemia pathway","Upregulated genes",1373,1,FALSE
+"MAPK signaling pathway",286,48,1.5782068536016e-06,"hsa04010","MAPK signaling pathway","Upregulated genes",1373,1.96223718797799e-05,TRUE
+"ErbB signaling pathway",82,14,0.00672424043701266,"hsa04012","ErbB signaling pathway","Upregulated genes",1373,0.0243508901262691,TRUE
+"Ras signaling pathway",221,33,0.00060063873305363,"hsa04014","Ras signaling pathway","Upregulated genes",1373,0.00306901708806855,TRUE
+"Rap1 signaling pathway",201,28,0.00416913534736591,"hsa04015","Rap1 signaling pathway","Upregulated genes",1373,0.0160318297378091,TRUE
+"Calcium signaling pathway",242,17,0.786718645050478,"hsa04020","Calcium signaling pathway","Upregulated genes",1373,0.988563695524266,FALSE
+"cGMP-PKG signaling pathway",158,19,0.0607720151610378,"hsa04022","cGMP-PKG signaling pathway","Upregulated genes",1373,0.155260011336076,FALSE
+"cAMP signaling pathway",218,21,0.256624578146874,"hsa04024","cAMP signaling pathway","Upregulated genes",1373,0.478604838243921,FALSE
+"Cytokine-cytokine receptor interaction",285,34,0.018261908399414,"hsa04060","Cytokine-cytokine receptor interaction","Upregulated genes",1373,0.0558335396146017,FALSE
+"Viral protein interaction with cytokine and cytokine receptor",94,16,0.00404444206152069,"hsa04061","Viral protein interaction with cytokine and cytokine receptor","Upregulated genes",1373,0.0159749506790339,TRUE
+"Chemokine signaling pathway",184,41,3.01380201416449e-09,"hsa04062","Chemokine signaling pathway","Upregulated genes",1373,9.36790126069461e-08,TRUE
+"NF-kappa B signaling pathway",97,24,7.49818389122387e-07,"hsa04064","NF-kappa B signaling pathway","Upregulated genes",1373,1.03586021904685e-05,TRUE
+"HIF-1 signaling pathway",104,20,0.000279754928799801,"hsa04066","HIF-1 signaling pathway","Upregulated genes",1373,0.00171063259741518,TRUE
+"FoxO signaling pathway",125,22,0.000522205035464694,"hsa04068","FoxO signaling pathway","Upregulated genes",1373,0.00275692363632004,TRUE
+"Phosphatidylinositol signaling system",93,15,0.00873275274344088,"hsa04070","Phosphatidylinositol signaling system","Upregulated genes",1373,0.0301603404935504,TRUE
+"Sphingolipid signaling pathway",119,24,3.22930763490795e-05,"hsa04071","Sphingolipid signaling pathway","Upregulated genes",1373,0.000250944114129306,TRUE
+"Phospholipase D signaling pathway",138,15,0.163321822871433,"hsa04072","Phospholipase D signaling pathway","Upregulated genes",1373,0.346130908699117,FALSE
+"Neuroactive ligand-receptor interaction",351,18,0.991035261232648,"hsa04080","Neuroactive ligand-receptor interaction","Upregulated genes",1373,1,FALSE
+"Hormone signaling",213,19,0.391918946861077,"hsa04081","Hormone signaling","Upregulated genes",1373,0.63254664744024,FALSE
+"Neuroactive ligand signaling",190,12,0.866484348860114,"hsa04082","Neuroactive ligand signaling","Upregulated genes",1373,1,FALSE
+"Cell cycle",155,15,0.294417539572827,"hsa04110","Cell cycle","Upregulated genes",1373,0.522941629812688,FALSE
+"Oocyte meiosis",122,13,0.203578157300671,"hsa04114","Oocyte meiosis","Upregulated genes",1373,0.406067661353745,FALSE
+"p53 signaling pathway",74,12,0.0171674730050908,"hsa04115","p53 signaling pathway","Upregulated genes",1373,0.0538106506798225,FALSE
+"Ubiquitin mediated proteolysis",135,14,0.22066779259998,"hsa04120","Ubiquitin mediated proteolysis","Upregulated genes",1373,0.433205719156804,FALSE
+"Sulfur relay system",8,1,0.497115579242651,"hsa04122","Sulfur relay system","Upregulated genes",1373,0.735809964513924,FALSE
+"SNARE interactions in vesicular transport",32,8,0.00362930023377758,"hsa04130","SNARE interactions in vesicular transport","Upregulated genes",1373,0.0148761427164729,TRUE
+"Autophagy - other",31,3,0.47554308135463,"hsa04136","Autophagy - other","Upregulated genes",1373,0.718223612094933,FALSE
+"Mitophagy - animal",97,20,0.000103791700789948,"hsa04137","Mitophagy - animal","Upregulated genes",1373,0.00069132686419019,TRUE
+"Autophagy - animal",158,38,1.16820877962513e-09,"hsa04140","Autophagy - animal","Upregulated genes",1373,3.96128977091067e-08,TRUE
+"Protein processing in endoplasmic reticulum",153,22,0.00715079506749177,"hsa04141","Protein processing in endoplasmic reticulum","Upregulated genes",1373,0.0254023481921374,TRUE
+"Lysosome biogenesis",241,56,6.47277628461567e-13,"hsa04142","Lysosome biogenesis","Upregulated genes",1373,6.03586388540411e-11,TRUE
+"Endocytosis",233,37,8.10298796105697e-05,"hsa04144","Endocytosis","Upregulated genes",1373,0.0005495299108135,TRUE
+"Phagocytosis",242,59,1.618538450104e-14,"hsa04145","Phagocytosis","Upregulated genes",1373,2.01238280629598e-12,TRUE
+"Peroxisome",79,7,0.477529108166493,"hsa04146","Peroxisome","Upregulated genes",1373,0.718223612094933,FALSE
+"Efferocytosis",155,35,2.9745568981789e-08,"hsa04148","Efferocytosis","Upregulated genes",1373,6.52652778247488e-07,TRUE
+"mTOR signaling pathway",146,25,0.000348122731990196,"hsa04150","mTOR signaling pathway","Upregulated genes",1373,0.00206110760368798,TRUE
+"PI3K-Akt signaling pathway",347,49,0.000136392326625031,"hsa04151","PI3K-Akt signaling pathway","Upregulated genes",1373,0.000877143755709248,TRUE
+"AMPK signaling pathway",119,17,0.0177023820162259,"hsa04152","AMPK signaling pathway","Upregulated genes",1373,0.0546543219748328,FALSE
+"Integrated stress response (ISR) signaling pathway",48,6,0.199857092385757,"hsa04156","Integrated stress response (ISR) signaling pathway","Upregulated genes",1373,0.400788685268211,FALSE
+"Apoptosis",128,25,3.92974646018203e-05,"hsa04210","Apoptosis","Upregulated genes",1373,0.000298952246482395,TRUE
+"Longevity regulating pathway",87,9,0.286913586597016,"hsa04211","Longevity regulating pathway","Upregulated genes",1373,0.519508581556733,FALSE
+"Longevity regulating pathway - multiple species",60,6,0.372737422283379,"hsa04213","Longevity regulating pathway - multiple species","Upregulated genes",1373,0.609785344349563,FALSE
+"Apoptosis - multiple species",30,6,0.0329695872060313,"hsa04215","Apoptosis - multiple species","Upregulated genes",1373,0.0904239413812477,FALSE
+"Ferroptosis",39,10,0.000959635362031169,"hsa04216","Ferroptosis","Upregulated genes",1373,0.00477258653383502,TRUE
+"Necroptosis",125,31,1.79859586107666e-08,"hsa04217","Necroptosis","Upregulated genes",1373,4.47250837454396e-07,TRUE
+"Cellular senescence",150,18,0.0676895634338575,"hsa04218","Cellular senescence","Upregulated genes",1373,0.169451054770663,FALSE
+"Cardiac muscle contraction",80,1,0.998981571575803,"hsa04260","Cardiac muscle contraction","Upregulated genes",1373,1,FALSE
+"Adrenergic signaling in cardiomyocytes",151,16,0.178408913938779,"hsa04261","Adrenergic signaling in cardiomyocytes","Upregulated genes",1373,0.365640246698705,FALSE
+"Vascular smooth muscle contraction",124,14,0.140906341890123,"hsa04270","Vascular smooth muscle contraction","Upregulated genes",1373,0.310994470562224,FALSE
+"Wnt signaling pathway",170,13,0.650483268516312,"hsa04310","Wnt signaling pathway","Upregulated genes",1373,0.872770716390591,FALSE
+"Notch signaling pathway",58,11,0.00701539778457371,"hsa04330","Notch signaling pathway","Upregulated genes",1373,0.0251609939773653,TRUE
+"Hedgehog signaling pathway",53,3,0.822996825115311,"hsa04340","Hedgehog signaling pathway","Upregulated genes",1373,1,FALSE
+"TGF-beta signaling pathway",107,9,0.523820652226677,"hsa04350","TGF-beta signaling pathway","Upregulated genes",1373,0.76322305968965,FALSE
+"Axon guidance",178,31,5.20612120336186e-05,"hsa04360","Axon guidance","Upregulated genes",1373,0.000366393058274335,TRUE
+"VEGF signaling pathway",55,12,0.00145099274120037,"hsa04370","VEGF signaling pathway","Upregulated genes",1373,0.00685088977807261,TRUE
+"Apelin signaling pathway",131,18,0.0215694436287899,"hsa04371","Apelin signaling pathway","Upregulated genes",1373,0.0633496257758947,FALSE
+"Osteoclast differentiation",129,41,1.22569205867908e-14,"hsa04380","Osteoclast differentiation","Upregulated genes",1373,2.01238280629598e-12,TRUE
+"Cornified envelope formation",201,12,0.908866916964479,"hsa04382","Cornified envelope formation","Upregulated genes",1373,1,FALSE
+"Hippo signaling pathway",153,12,0.612686329382746,"hsa04390","Hippo signaling pathway","Upregulated genes",1373,0.843291516087691,FALSE
+"Hippo signaling pathway - multiple species",28,4,0.195160944779544,"hsa04392","Hippo signaling pathway - multiple species","Upregulated genes",1373,0.393486661636593,FALSE
+"Focal adhesion",192,34,1.6099141712709e-05,"hsa04510","Focal adhesion","Upregulated genes",1373,0.000139650694391638,TRUE
+"ECM-receptor interaction",82,7,0.517671767179946,"hsa04512","ECM-receptor interaction","Upregulated genes",1373,0.757835398004982,FALSE
+"Cell adhesion molecule (CAM) interaction",146,12,0.546045505534838,"hsa04514","Cell adhesion molecule (CAM) interaction","Upregulated genes",1373,0.783365282940363,FALSE
+"IgSF CAM signaling",284,38,0.00199492829522275,"hsa04517","IgSF CAM signaling","Upregulated genes",1373,0.00913266469117191,TRUE
+"Integrin signaling",147,20,0.0177296862170369,"hsa04518","Integrin signaling","Upregulated genes",1373,0.0546543219748328,FALSE
+"Cadherin signaling",382,34,0.34164594899945,"hsa04519","Cadherin signaling","Upregulated genes",1373,0.57662415826604,FALSE
+"Adherens junction",88,15,0.00521131543193665,"hsa04520","Adherens junction","Upregulated genes",1373,0.0194382065611237,TRUE
+"Tight junction",154,18,0.0825455718642496,"hsa04530","Tight junction","Upregulated genes",1373,0.197368578880545,FALSE
+"Gap junction",83,11,0.0775971353570254,"hsa04540","Gap junction","Upregulated genes",1373,0.188661413601106,FALSE
+"Signaling pathways regulating pluripotency of stem cells",134,13,0.309454772355375,"hsa04550","Signaling pathways regulating pluripotency of stem cells","Upregulated genes",1373,0.535271378181597,FALSE
+"Complement and coagulation cascades",83,14,0.00749228218015062,"hsa04610","Complement and coagulation cascades","Upregulated genes",1373,0.026364351445247,TRUE
+"Platelet activation",116,25,6.62116600670261e-06,"hsa04611","Platelet activation","Upregulated genes",1373,7.2638085897061e-05,TRUE
+"Antigen processing and presentation",73,7,0.395129675210659,"hsa04612","Antigen processing and presentation","Upregulated genes",1373,0.63254664744024,FALSE
+"Neutrophil extracellular trap formation",105,37,5.9709314775118e-15,"hsa04613","Neutrophil extracellular trap formation","Upregulated genes",1373,2.01238280629598e-12,TRUE
+"Renin-angiotensin system",23,4,0.115667528699182,"hsa04614","Renin-angiotensin system","Upregulated genes",1373,0.266320914844413,FALSE
+"Toll-like receptor signaling pathway",102,26,1.38528062568276e-07,"hsa04620","Toll-like receptor signaling pathway","Upregulated genes",1373,2.46052225418891e-06,TRUE
+"NOD-like receptor signaling pathway",174,43,3.71543547891229e-11,"hsa04621","NOD-like receptor signaling pathway","Upregulated genes",1373,2.30976238939047e-09,TRUE
+"RIG-I-like receptor signaling pathway",68,12,0.00895892046034831,"hsa04622","RIG-I-like receptor signaling pathway","Upregulated genes",1373,0.0303788848337265,TRUE
+"Cytosolic DNA-sensing pathway",72,11,0.0326906388320268,"hsa04623","Cytosolic DNA-sensing pathway","Upregulated genes",1373,0.0903230243284888,FALSE
+"C-type lectin receptor signaling pathway",103,26,1.70969059633025e-07,"hsa04625","C-type lectin receptor signaling pathway","Upregulated genes",1373,2.77267214100515e-06,TRUE
+"JAK-STAT signaling pathway",163,24,0.00377833995967033,"hsa04630","JAK-STAT signaling pathway","Upregulated genes",1373,0.0153187044017069,TRUE
+"Hematopoietic cell lineage",91,20,4.00740276786053e-05,"hsa04640","Hematopoietic cell lineage","Upregulated genes",1373,0.000298952246482395,TRUE
+"Natural killer cell mediated cytotoxicity",124,22,0.000465778609042986,"hsa04650","Natural killer cell mediated cytotoxicity","Upregulated genes",1373,0.00255493266430932,TRUE
+"IL-17 signaling pathway",88,13,0.0275367044345052,"hsa04657","IL-17 signaling pathway","Upregulated genes",1373,0.0778120511672004,FALSE
+"Th1 and Th2 cell differentiation",90,16,0.00257968754040249,"hsa04658","Th1 and Th2 cell differentiation","Upregulated genes",1373,0.0111886447973271,TRUE
+"Th17 cell differentiation",106,20,0.00036368098276909,"hsa04659","Th17 cell differentiation","Upregulated genes",1373,0.00211492050327459,TRUE
+"T cell receptor signaling pathway",115,21,0.000416581667066478,"hsa04660","T cell receptor signaling pathway","Upregulated genes",1373,0.00231917853456412,TRUE
+"B cell receptor signaling pathway",79,22,2.37062773062971e-07,"hsa04662","B cell receptor signaling pathway","Upregulated genes",1373,3.68435059802034e-06,TRUE
+"Fc epsilon RI signaling pathway",63,17,8.72071307130923e-06,"hsa04664","Fc epsilon RI signaling pathway","Upregulated genes",1373,8.7914215556712e-05,TRUE
+"Fc gamma R-mediated phagosome formation",92,26,1.38946798570826e-08,"hsa04666","Fc gamma R-mediated phagosome formation","Upregulated genes",1373,3.70193970477987e-07,TRUE
+"TNF signaling pathway",113,22,0.000117483609517645,"hsa04668","TNF signaling pathway","Upregulated genes",1373,0.00076879625175582,TRUE
+"Leukocyte transendothelial migration",108,25,1.68284366280554e-06,"hsa04670","Leukocyte transendothelial migration","Upregulated genes",1373,2.02484092331118e-05,TRUE
+"Intestinal immune network for IgA production",44,2,0.887401212574408,"hsa04672","Intestinal immune network for IgA production","Upregulated genes",1373,1,FALSE
+"Circadian rhythm",31,4,0.24906155984362,"hsa04710","Circadian rhythm","Upregulated genes",1373,0.466833979003367,FALSE
+"Circadian entrainment",94,13,0.0440204735883229,"hsa04713","Circadian entrainment","Upregulated genes",1373,0.11728311891746,FALSE
+"Thermogenesis",192,15,0.622583059258578,"hsa04714","Thermogenesis","Upregulated genes",1373,0.853762798174447,FALSE
+"Long-term potentiation",65,9,0.0839707907132558,"hsa04720","Long-term potentiation","Upregulated genes",1373,0.198869279261943,FALSE
+"Synaptic vesicle cycle",76,12,0.0208817112158152,"hsa04721","Synaptic vesicle cycle","Upregulated genes",1373,0.0618164943134846,FALSE
+"Neurotrophin signaling pathway",114,21,0.000368551830329353,"hsa04722","Neurotrophin signaling pathway","Upregulated genes",1373,0.00211492050327459,TRUE
+"Retrograde endocannabinoid signaling",134,14,0.212715847096698,"hsa04723","Retrograde endocannabinoid signaling","Upregulated genes",1373,0.419804290831049,FALSE
+"Glutamatergic synapse",111,13,0.124264218098931,"hsa04724","Glutamatergic synapse","Upregulated genes",1373,0.280912444550916,FALSE
+"Cholinergic synapse",111,17,0.00917654422570908,"hsa04725","Cholinergic synapse","Upregulated genes",1373,0.0308364954611665,TRUE
+"Serotonergic synapse",111,16,0.0193978243206091,"hsa04726","Serotonergic synapse","Upregulated genes",1373,0.0588242965169692,FALSE
+"GABAergic synapse",87,12,0.0525034901984698,"hsa04727","GABAergic synapse","Upregulated genes",1373,0.13694966324496,FALSE
+"Dopaminergic synapse",131,19,0.0108552375197719,"hsa04728","Dopaminergic synapse","Upregulated genes",1373,0.0358318902201319,TRUE
+"Long-term depression",54,8,0.0730430343626351,"hsa04730","Long-term depression","Upregulated genes",1373,0.18043080673684,FALSE
+"Olfactory transduction",394,7,0.99999999529729,"hsa04740","Olfactory transduction","Upregulated genes",1373,1,FALSE
+"Taste transduction",81,0,1,"hsa04742","Taste transduction","Upregulated genes",1373,1,FALSE
+"Phototransduction",28,2,0.683372222779672,"hsa04744","Phototransduction","Upregulated genes",1373,0.907109747675507,FALSE
+"Inflammatory mediator regulation of TRP channels",95,11,0.157047958234795,"hsa04750","Inflammatory mediator regulation of TRP channels","Upregulated genes",1373,0.336660278284935,FALSE
+"Regulation of actin cytoskeleton",217,38,6.86191914395293e-06,"hsa04810","Regulation of actin cytoskeleton","Upregulated genes",1373,7.30873309720494e-05,TRUE
+"Motor proteins",170,11,0.836570439812439,"hsa04814","Motor proteins","Upregulated genes",1373,1,FALSE
+"Cytoskeleton in muscle cells",220,24,0.0951044879333878,"hsa04820","Cytoskeleton in muscle cells","Upregulated genes",1373,0.22171233749471,FALSE
+"Neuroendocrine signaling pathway of hypothalamus-pituitary axis",341,28,0.534726849730676,"hsa04900","Neuroendocrine signaling pathway of hypothalamus-pituitary axis","Upregulated genes",1373,0.770089246909429,FALSE
+"Insulin signaling pathway",134,19,0.0136556878950728,"hsa04910","Insulin signaling pathway","Upregulated genes",1373,0.0439100998695013,TRUE
+"Insulin secretion",83,3,0.971591412228542,"hsa04911","Insulin secretion","Upregulated genes",1373,1,FALSE
+"GnRH signaling pathway",89,13,0.0299081724762927,"hsa04912","GnRH signaling pathway","Upregulated genes",1373,0.0838778070199788,FALSE
+"Ovarian steroidogenesis",48,4,0.565327710738455,"hsa04913","Ovarian steroidogenesis","Upregulated genes",1373,0.795725419265826,FALSE
+"Progesterone-mediated oocyte maturation",92,9,0.345255002678618,"hsa04914","Progesterone-mediated oocyte maturation","Upregulated genes",1373,0.580090612608669,FALSE
+"Estrogen signaling pathway",132,22,0.00111138614616767,"hsa04915","Estrogen signaling pathway","Upregulated genes",1373,0.00538372769507197,TRUE
+"Melanogenesis",99,10,0.296946405893771,"hsa04916","Melanogenesis","Upregulated genes",1373,0.524933693831168,FALSE
+"Prolactin signaling pathway",68,13,0.00328732415561882,"hsa04917","Prolactin signaling pathway","Upregulated genes",1373,0.0137772124724249,TRUE
+"Thyroid hormone synthesis",75,7,0.422772926494765,"hsa04918","Thyroid hormone synthesis","Upregulated genes",1373,0.668196193146386,FALSE
+"Thyroid hormone signaling pathway",119,19,0.00385075180357091,"hsa04919","Thyroid hormone signaling pathway","Upregulated genes",1373,0.0154444131476554,TRUE
+"Adipocytokine signaling pathway",68,13,0.00328732415561882,"hsa04920","Adipocytokine signaling pathway","Upregulated genes",1373,0.0137772124724249,TRUE
+"Oxytocin signaling pathway",146,20,0.0165546443444446,"hsa04921","Oxytocin signaling pathway","Upregulated genes",1373,0.0523295113599818,FALSE
+"Glucagon signaling pathway",102,10,0.329852151165043,"hsa04922","Glucagon signaling pathway","Upregulated genes",1373,0.561802978924937,FALSE
+"Regulation of lipolysis in adipocytes",55,5,0.477532053081886,"hsa04923","Regulation of lipolysis in adipocytes","Upregulated genes",1373,0.718223612094933,FALSE
+"Renin secretion",67,8,0.183902645852387,"hsa04924","Renin secretion","Upregulated genes",1373,0.37483981914175,FALSE
+"Aldosterone synthesis and secretion",98,7,0.706190846715085,"hsa04925","Aldosterone synthesis and secretion","Upregulated genes",1373,0.917802041201138,FALSE
+"Relaxin signaling pathway",124,17,0.0255308389550075,"hsa04926","Relaxin signaling pathway","Upregulated genes",1373,0.0732538686939831,FALSE
+"Cortisol synthesis and secretion",65,5,0.628617652477269,"hsa04927","Cortisol synthesis and secretion","Upregulated genes",1373,0.85407333394414,FALSE
+"Parathyroid hormone synthesis, secretion and action",113,19,0.00211562663535754,"hsa04928","Parathyroid hormone synthesis, secretion and action","Upregulated genes",1373,0.00950757512034174,TRUE
+"GnRH secretion",63,7,0.259741033221338,"hsa04929","GnRH secretion","Upregulated genes",1373,0.479620818770095,FALSE
+"Type II diabetes mellitus",46,9,0.0115352963530197,"hsa04930","Type II diabetes mellitus","Upregulated genes",1373,0.0377426801725994,TRUE
+"Insulin resistance",104,16,0.0108048687227725,"hsa04931","Insulin resistance","Upregulated genes",1373,0.0358318902201319,TRUE
+"Non-alcoholic fatty liver disease",142,16,0.123471260759474,"hsa04932","Non-alcoholic fatty liver disease","Upregulated genes",1373,0.280821830873681,FALSE
+"AGE-RAGE signaling pathway in diabetic complications",98,16,0.00612985038164602,"hsa04933","AGE-RAGE signaling pathway in diabetic complications","Upregulated genes",1373,0.0224160214936663,TRUE
+"Cushing syndrome",152,13,0.485149035734398,"hsa04934","Cushing syndrome","Upregulated genes",1373,0.726749358750724,FALSE
+"Growth hormone synthesis, secretion and action",117,22,0.000199105520385433,"hsa04935","Growth hormone synthesis, secretion and action","Upregulated genes",1373,0.00123777265172944,TRUE
+"Alcoholic liver disease",135,21,0.00338360956139436,"hsa04936","Alcoholic liver disease","Upregulated genes",1373,0.01402318184889,TRUE
+"Type I diabetes mellitus",40,2,0.852651369361918,"hsa04940","Type I diabetes mellitus","Upregulated genes",1373,1,FALSE
+"Maturity onset diabetes of the young",26,1,0.893039287904463,"hsa04950","Maturity onset diabetes of the young","Upregulated genes",1373,1,FALSE
+"Aldosterone-regulated sodium reabsorption",36,5,0.170790310331893,"hsa04960","Aldosterone-regulated sodium reabsorption","Upregulated genes",1373,0.355892657842436,FALSE
+"Endocrine and other factor-regulated calcium reabsorption",52,3,0.812908864087482,"hsa04961","Endocrine and other factor-regulated calcium reabsorption","Upregulated genes",1373,1,FALSE
+"Vasopressin-regulated water reabsorption",44,5,0.294350200158403,"hsa04962","Vasopressin-regulated water reabsorption","Upregulated genes",1373,0.522941629812688,FALSE
+"Proximal tubule bicarbonate reclamation",23,3,0.293005586668173,"hsa04964","Proximal tubule bicarbonate reclamation","Upregulated genes",1373,0.522941629812688,FALSE
+"Collecting duct acid secretion",26,7,0.00411079492871668,"hsa04966","Collecting duct acid secretion","Upregulated genes",1373,0.0159749506790339,TRUE
+"Salivary secretion",85,7,0.556641991320028,"hsa04970","Salivary secretion","Upregulated genes",1373,0.792471231917445,FALSE
+"Gastric acid secretion",75,11,0.0424236226632826,"hsa04971","Gastric acid secretion","Upregulated genes",1373,0.113841807578449,FALSE
+"Pancreatic secretion",99,9,0.429183404418411,"hsa04972","Pancreatic secretion","Upregulated genes",1373,0.672627772470871,FALSE
+"Carbohydrate digestion and absorption",43,4,0.477001969190594,"hsa04973","Carbohydrate digestion and absorption","Upregulated genes",1373,0.718223612094933,FALSE
+"Protein digestion and absorption",97,4,0.963448036744945,"hsa04974","Protein digestion and absorption","Upregulated genes",1373,1,FALSE
+"Fat digestion and absorption",42,3,0.683323125504939,"hsa04975","Fat digestion and absorption","Upregulated genes",1373,0.907109747675507,FALSE
+"Bile secretion",86,6,0.721146683796738,"hsa04976","Bile secretion","Upregulated genes",1373,0.930753332374337,FALSE
+"Vitamin digestion and absorption",23,2,0.575467767986711,"hsa04977","Vitamin digestion and absorption","Upregulated genes",1373,0.806952922778358,FALSE
+"Mineral absorption",55,3,0.841783023265959,"hsa04978","Mineral absorption","Upregulated genes",1373,1,FALSE
+"Cholesterol metabolism",52,7,0.13266514238689,"hsa04979","Cholesterol metabolism","Upregulated genes",1373,0.295513614167787,FALSE
+"Cobalamin transport and metabolism",16,5,0.00759114919115789,"hsa04980","Cobalamin transport and metabolism","Upregulated genes",1373,0.0264626041897373,TRUE
+"Folate transport and metabolism",24,2,0.599032491817893,"hsa04981","Folate transport and metabolism","Upregulated genes",1373,0.830628696832989,FALSE
+"Alzheimer disease",339,34,0.133099965630531,"hsa05010","Alzheimer disease","Upregulated genes",1373,0.295513614167787,FALSE
+"Parkinson disease",226,18,0.593994935255501,"hsa05012","Parkinson disease","Upregulated genes",1373,0.826716831530977,FALSE
+"Amyotrophic lateral sclerosis",313,28,0.350457982919868,"hsa05014","Amyotrophic lateral sclerosis","Upregulated genes",1373,0.583346796877267,FALSE
+"Huntington disease",256,17,0.853827808906538,"hsa05016","Huntington disease","Upregulated genes",1373,1,FALSE
+"Spinocerebellar ataxia",131,10,0.645054265904269,"hsa05017","Spinocerebellar ataxia","Upregulated genes",1373,0.868610978997445,FALSE
+"Prion disease",233,23,0.209199863793598,"hsa05020","Prion disease","Upregulated genes",1373,0.415061431888363,FALSE
+"Pathways of neurodegeneration - multiple diseases",419,43,0.0778923798782044,"hsa05022","Pathways of neurodegeneration - multiple diseases","Upregulated genes",1373,0.188661413601106,FALSE
+"Cocaine addiction",48,4,0.565327710738455,"hsa05030","Cocaine addiction","Upregulated genes",1373,0.795725419265826,FALSE
+"Amphetamine addiction",69,6,0.506791696722417,"hsa05031","Amphetamine addiction","Upregulated genes",1373,0.747167205049255,FALSE
+"Morphine addiction",89,9,0.309969484416153,"hsa05032","Morphine addiction","Upregulated genes",1373,0.535271378181597,FALSE
+"Nicotine addiction",39,1,0.965066448005789,"hsa05033","Nicotine addiction","Upregulated genes",1373,1,FALSE
+"Alcoholism",105,14,0.0489357910777715,"hsa05034","Alcoholism","Upregulated genes",1373,0.128542606140907,FALSE
+"Bacterial invasion of epithelial cells",67,15,0.000289258448595825,"hsa05100","Bacterial invasion of epithelial cells","Upregulated genes",1373,0.00174021615042327,TRUE
+"Vibrio cholerae infection",49,11,0.00177287277438059,"hsa05110","Vibrio cholerae infection","Upregulated genes",1373,0.00826601931054948,TRUE
+"Epithelial cell signaling in Helicobacter pylori infection",68,19,1.47117876371413e-06,"hsa05120","Epithelial cell signaling in Helicobacter pylori infection","Upregulated genes",1373,1.89224027194956e-05,TRUE
+"Pathogenic Escherichia coli infection",185,39,3.67527016152904e-08,"hsa05130","Pathogenic Escherichia coli infection","Upregulated genes",1373,7.61597650139074e-07,TRUE
+"Shigellosis",211,50,5.16166168071183e-12,"hsa05131","Shigellosis","Upregulated genes",1373,3.85059961381103e-10,TRUE
+"Salmonella infection",238,45,1.05567426674622e-07,"hsa05132","Salmonella infection","Upregulated genes",1373,2.07245527103337e-06,TRUE
+"Pertussis",74,19,5.83507323645143e-06,"hsa05133","Pertussis","Upregulated genes",1373,6.59540096120117e-05,TRUE
+"Legionellosis",53,14,6.91982009898421e-05,"hsa05134","Legionellosis","Upregulated genes",1373,0.000477980166096502,TRUE
+"Yersinia infection",129,34,6.63536056476619e-10,"hsa05135","Yersinia infection","Upregulated genes",1373,2.47498949065779e-08,TRUE
+"Leishmaniasis",71,22,2.8512844363181e-08,"hsa05140","Leishmaniasis","Upregulated genes",1373,6.52652778247488e-07,TRUE
+"Chagas disease",101,19,0.00052477634900462,"hsa05142","Chagas disease","Upregulated genes",1373,0.00275692363632004,TRUE
+"African trypanosomiasis",34,4,0.305628014909148,"hsa05143","African trypanosomiasis","Upregulated genes",1373,0.532706773650058,FALSE
+"Malaria",47,8,0.0364169710491167,"hsa05144","Malaria","Upregulated genes",1373,0.0991498554840914,FALSE
+"Toxoplasmosis",106,23,1.36029918444343e-05,"hsa05145","Toxoplasmosis","Upregulated genes",1373,0.000123154170121402,TRUE
+"Amoebiasis",99,14,0.0318633843657605,"hsa05146","Amoebiasis","Upregulated genes",1373,0.0886943460330498,FALSE
+"Staphylococcus aureus infection",88,11,0.106824090923107,"hsa05150","Staphylococcus aureus infection","Upregulated genes",1373,0.247486869033037,FALSE
+"Tuberculosis",176,43,5.53945945820024e-11,"hsa05152","Tuberculosis","Upregulated genes",1373,2.95174053986955e-09,TRUE
+"Hepatitis C",147,28,2.2500998044402e-05,"hsa05160","Hepatitis C","Upregulated genes",1373,0.000182453745012216,TRUE
+"Hepatitis B",156,33,3.71998903374158e-07,"hsa05161","Hepatitis B","Upregulated genes",1373,5.55022363834243e-06,TRUE
+"Measles",128,26,1.34840205899398e-05,"hsa05162","Measles","Upregulated genes",1373,0.000123154170121402,TRUE
+"Human cytomegalovirus infection",218,42,1.62696165352105e-07,"hsa05163","Human cytomegalovirus infection","Upregulated genes",1373,2.7584395307425e-06,TRUE
+"Influenza A",159,37,5.0757814670691e-09,"hsa05164","Influenza A","Upregulated genes",1373,1.4563588363206e-07,TRUE
+"Human papillomavirus infection",317,48,2.73911862869344e-05,"hsa05165","Human papillomavirus infection","Upregulated genes",1373,0.000217381116702692,TRUE
+"Human T-cell leukemia virus 1 infection",213,24,0.071849418141761,"hsa05166","Human T-cell leukemia virus 1 infection","Upregulated genes",1373,0.178665553112512,FALSE
+"Kaposi sarcoma-associated herpesvirus infection",189,44,1.80377599618647e-10,"hsa05167","Kaposi sarcoma-associated herpesvirus infection","Upregulated genes",1373,7.47564940641725e-09,TRUE
+"Herpes simplex virus 1 infection",169,34,8.55508091051594e-07,"hsa05168","Herpes simplex virus 1 infection","Upregulated genes",1373,1.1396589927223e-05,TRUE
+"Epstein-Barr virus infection",196,35,1.00663515397751e-05,"hsa05169","Epstein-Barr virus infection","Upregulated genes",1373,9.8809187482529e-05,TRUE
+"Human immunodeficiency virus 1 infection",201,36,7.05400513403157e-06,"hsa05170","Human immunodeficiency virus 1 infection","Upregulated genes",1373,7.30873309720494e-05,TRUE
+"Coronavirus disease",218,37,1.86068866485967e-05,"hsa05171","Coronavirus disease","Upregulated genes",1373,0.000154230415998368,TRUE
+"Pathways in cancer",516,76,4.23820799712163e-07,"hsa05200","Pathways in cancer","Upregulated genes",1373,6.08019839587065e-06,TRUE
+"Transcriptional misregulation in cancer",174,29,0.000198039645454169,"hsa05202","Transcriptional misregulation in cancer","Upregulated genes",1373,0.00123777265172944,TRUE
+"Viral carcinogenesis",163,35,1.12926881985808e-07,"hsa05203","Viral carcinogenesis","Upregulated genes",1373,2.10608634903531e-06,TRUE
+"Chemical carcinogenesis - DNA adducts",64,4,0.783343820775966,"hsa05204","Chemical carcinogenesis - DNA adducts","Upregulated genes",1373,0.988563695524266,FALSE
+"Proteoglycans in cancer",196,36,3.89689628350771e-06,"hsa05205","Proteoglycans in cancer","Upregulated genes",1373,4.54231973046368e-05,TRUE
+"MicroRNAs in cancer",157,30,1.09042729141139e-05,"hsa05206","MicroRNAs in cancer","Upregulated genes",1373,0.000104289584537551,TRUE
+"Chemical carcinogenesis - receptor activation",192,27,0.00425283457923033,"hsa05207","Chemical carcinogenesis - receptor activation","Upregulated genes",1373,0.0161868091638052,TRUE
+"Chemical carcinogenesis - reactive oxygen species",187,24,0.0196405661598123,"hsa05208","Chemical carcinogenesis - reactive oxygen species","Upregulated genes",1373,0.059080090142016,FALSE
+"Colorectal cancer",85,12,0.0451881746763294,"hsa05210","Colorectal cancer","Upregulated genes",1373,0.11954034861185,FALSE
+"Renal cell carcinoma",65,14,0.000691071938927952,"hsa05211","Renal cell carcinoma","Upregulated genes",1373,0.0034833761245963,TRUE
+"Pancreatic cancer",76,16,0.000387299927361837,"hsa05212","Pancreatic cancer","Upregulated genes",1373,0.00218883140766614,TRUE
+"Endometrial cancer",57,12,0.0020077171707134,"hsa05213","Endometrial cancer","Upregulated genes",1373,0.00913266469117191,TRUE
+"Glioma",73,12,0.0155081568488004,"hsa05214","Glioma","Upregulated genes",1373,0.0494405342273722,TRUE
+"Prostate cancer",100,18,0.00124171488499659,"hsa05215","Prostate cancer","Upregulated genes",1373,0.0059379442577401,TRUE
+"Thyroid cancer",36,7,0.0254201428246688,"hsa05216","Thyroid cancer","Upregulated genes",1373,0.0732538686939831,FALSE
+"Basal cell carcinoma",62,3,0.894537114128322,"hsa05217","Basal cell carcinoma","Upregulated genes",1373,1,FALSE
+"Melanoma",71,8,0.227701010971631,"hsa05218","Melanoma","Upregulated genes",1373,0.442356651523013,FALSE
+"Bladder cancer",40,9,0.0044637573014398,"hsa05219","Bladder cancer","Upregulated genes",1373,0.0168179946811823,TRUE
+"Chronic myeloid leukemia",73,14,0.00225795232196384,"hsa05220","Chronic myeloid leukemia","Upregulated genes",1373,0.0100263835249109,TRUE
+"Acute myeloid leukemia",66,17,1.70910728724341e-05,"hsa05221","Acute myeloid leukemia","Upregulated genes",1373,0.000144885685941316,TRUE
+"Small cell lung cancer",90,12,0.0649131352706342,"hsa05222","Small cell lung cancer","Upregulated genes",1373,0.164711560924806,FALSE
+"Non-small cell lung cancer",71,17,4.74364276271577e-05,"hsa05223","Non-small cell lung cancer","Upregulated genes",1373,0.000340265144325573,TRUE
+"Breast cancer",143,16,0.129022573960814,"hsa05224","Breast cancer","Upregulated genes",1373,0.289912169201106,FALSE
+"Hepatocellular carcinoma",161,20,0.0418696679757862,"hsa05225","Hepatocellular carcinoma","Upregulated genes",1373,0.113169464891074,FALSE
+"Gastric cancer",144,12,0.526267244859544,"hsa05226","Gastric cancer","Upregulated genes",1373,0.763804211410934,FALSE
+"Central carbon metabolism in cancer",68,12,0.00895892046034831,"hsa05230","Central carbon metabolism in cancer","Upregulated genes",1373,0.0303788848337265,TRUE
+"Choline metabolism in cancer",94,18,0.000583908613735955,"hsa05231","Choline metabolism in cancer","Upregulated genes",1373,0.00302497101282654,TRUE
+"PD-L1 expression and PD-1 checkpoint pathway in cancer",85,20,1.38672255900775e-05,"hsa05235","PD-L1 expression and PD-1 checkpoint pathway in cancer","Upregulated genes",1373,0.000123154170121402,TRUE
+"Asthma",28,0,1,"hsa05310","Asthma","Upregulated genes",1373,1,FALSE
+"Autoimmune thyroid disease",49,1,0.985238145607234,"hsa05320","Autoimmune thyroid disease","Upregulated genes",1373,1,FALSE
+"Inflammatory bowel disease",64,9,0.0777285917984736,"hsa05321","Inflammatory bowel disease","Upregulated genes",1373,0.188661413601106,FALSE
+"Systemic lupus erythematosus",50,6,0.226672406775546,"hsa05322","Systemic lupus erythematosus","Upregulated genes",1373,0.442356651523013,FALSE
+"Rheumatoid arthritis",88,13,0.0275367044345052,"hsa05323","Rheumatoid arthritis","Upregulated genes",1373,0.0778120511672004,FALSE
+"Allograft rejection",34,1,0.946271387124287,"hsa05330","Allograft rejection","Upregulated genes",1373,1,FALSE
+"Graft-versus-host disease",38,2,0.83182311625948,"hsa05332","Graft-versus-host disease","Upregulated genes",1373,1,FALSE
+"Primary immunodeficiency",36,3,0.578212881123953,"hsa05340","Primary immunodeficiency","Upregulated genes",1373,0.807765560521478,FALSE
+"Hypertrophic cardiomyopathy",95,7,0.674864884118322,"hsa05410","Hypertrophic cardiomyopathy","Upregulated genes",1373,0.902238716043491,FALSE
+"Arrhythmogenic right ventricular cardiomyopathy",83,7,0.530807195488931,"hsa05412","Arrhythmogenic right ventricular cardiomyopathy","Upregulated genes",1373,0.767407302005315,FALSE
+"Dilated cardiomyopathy",100,6,0.84138917769929,"hsa05414","Dilated cardiomyopathy","Upregulated genes",1373,1,FALSE
+"Diabetic cardiomyopathy",170,17,0.235001353072673,"hsa05415","Diabetic cardiomyopathy","Upregulated genes",1373,0.449515408697985,FALSE
+"Viral myocarditis",65,6,0.448002303060247,"hsa05416","Viral myocarditis","Upregulated genes",1373,0.693381157848432,FALSE
+"Lipid and atherosclerosis",209,47,1.53376754848613e-10,"hsa05417","Lipid and atherosclerosis","Upregulated genes",1373,7.15119119481658e-09,TRUE
+"Fluid shear stress and atherosclerosis",137,26,4.64755643764327e-05,"hsa05418","Fluid shear stress and atherosclerosis","Upregulated genes",1373,0.000339909519851165,TRUE

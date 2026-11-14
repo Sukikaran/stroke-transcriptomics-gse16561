@@ -1,0 +1,374 @@
+"Pathway","N","DE","P.DE","KEGG_ID","Term","Analysis","Input_Genes","FDR","Significant"
+"Glycolysis / Gluconeogenesis",63,11,0.412758663272103,"hsa00010","Glycolysis / Gluconeogenesis","All significant DEGs",2640,0.681234430975638,FALSE
+"Citrate cycle (TCA cycle)",30,3,0.874947137663132,"hsa00020","Citrate cycle (TCA cycle)","All significant DEGs",2640,1,FALSE
+"Pentose phosphate pathway",30,7,0.186067116742665,"hsa00030","Pentose phosphate pathway","All significant DEGs",2640,0.392107539802338,FALSE
+"Pentose and glucuronate interconversions",31,4,0.745705941199596,"hsa00040","Pentose and glucuronate interconversions","All significant DEGs",2640,0.962238228069117,FALSE
+"Fructose and mannose metabolism",34,7,0.286286606402119,"hsa00051","Fructose and mannose metabolism","All significant DEGs",2640,0.528638139544507,FALSE
+"Galactose metabolism",30,11,0.00447821716905249,"hsa00052","Galactose metabolism","All significant DEGs",2640,0.0245643382949497,TRUE
+"Ascorbate and aldarate metabolism",28,1,0.992005348443154,"hsa00053","Ascorbate and aldarate metabolism","All significant DEGs",2640,1,FALSE
+"Fatty acid biosynthesis",17,5,0.118005991218744,"hsa00061","Fatty acid biosynthesis","All significant DEGs",2640,0.283975707900591,FALSE
+"Fatty acid elongation",28,8,0.063398589277947,"hsa00062","Fatty acid elongation","All significant DEGs",2640,0.174172770231656,FALSE
+"Fatty acid degradation",42,8,0.343811135721059,"hsa00071","Fatty acid degradation","All significant DEGs",2640,0.596472342437,FALSE
+"Steroid biosynthesis",19,4,0.353994898096755,"hsa00100","Steroid biosynthesis","All significant DEGs",2640,0.608479709631749,FALSE
+"Primary bile acid biosynthesis",16,1,0.936602713162172,"hsa00120","Primary bile acid biosynthesis","All significant DEGs",2640,1,FALSE
+"Ubiquinone and other terpenoid-quinone biosynthesis",11,2,0.539004736816022,"hsa00130","Ubiquinone and other terpenoid-quinone biosynthesis","All significant DEGs",2640,0.810680511420872,FALSE
+"Steroid hormone biosynthesis",60,4,0.990308892909979,"hsa00140","Steroid hormone biosynthesis","All significant DEGs",2640,1,FALSE
+"Oxidative phosphorylation",99,30,0.000218398172738986,"hsa00190","Oxidative phosphorylation","All significant DEGs",2640,0.00208878252388825,TRUE
+"Arginine biosynthesis",22,4,0.468460881374021,"hsa00220","Arginine biosynthesis","All significant DEGs",2640,0.737282315411433,FALSE
+"Purine metabolism",118,29,0.00892505974630148,"hsa00230","Purine metabolism","All significant DEGs",2640,0.0432343803294864,TRUE
+"Caffeine metabolism",6,0,1,"hsa00232","Caffeine metabolism","All significant DEGs",2640,1,FALSE
+"Pyrimidine metabolism",57,18,0.0022732494281925,"hsa00240","Pyrimidine metabolism","All significant DEGs",2640,0.0141320339452634,TRUE
+"Alanine, aspartate and glutamate metabolism",34,5,0.643262956053251,"hsa00250","Alanine, aspartate and glutamate metabolism","All significant DEGs",2640,0.896913708121288,FALSE
+"Glycine, serine and threonine metabolism",38,3,0.952872255421161,"hsa00260","Glycine, serine and threonine metabolism","All significant DEGs",2640,1,FALSE
+"Cysteine and methionine metabolism",50,16,0.00336301958973854,"hsa00270","Cysteine and methionine metabolism","All significant DEGs",2640,0.0192041694513762,TRUE
+"Valine, leucine and isoleucine degradation",47,10,0.200383696441906,"hsa00280","Valine, leucine and isoleucine degradation","All significant DEGs",2640,0.410676476773797,FALSE
+"Valine, leucine and isoleucine biosynthesis",4,2,0.120458364075384,"hsa00290","Valine, leucine and isoleucine biosynthesis","All significant DEGs",2640,0.28777310340929,FALSE
+"Lysine degradation",56,8,0.67986597768404,"hsa00310","Lysine degradation","All significant DEGs",2640,0.917273862937455,FALSE
+"Arginine and proline metabolism",48,8,0.497172062624198,"hsa00330","Arginine and proline metabolism","All significant DEGs",2640,0.769482072028324,FALSE
+"Histidine metabolism",21,3,0.668236339685164,"hsa00340","Histidine metabolism","All significant DEGs",2640,0.913179069443513,FALSE
+"Tyrosine metabolism",35,2,0.981862521321042,"hsa00350","Tyrosine metabolism","All significant DEGs",2640,1,FALSE
+"Phenylalanine metabolism",16,2,0.745651387147492,"hsa00360","Phenylalanine metabolism","All significant DEGs",2640,0.962238228069117,FALSE
+"Tryptophan metabolism",41,5,0.799284658130583,"hsa00380","Tryptophan metabolism","All significant DEGs",2640,0.993208937469937,FALSE
+"Phenylalanine, tyrosine and tryptophan biosynthesis",6,1,0.64443129698795,"hsa00400","Phenylalanine, tyrosine and tryptophan biosynthesis","All significant DEGs",2640,0.896913708121288,FALSE
+"beta-Alanine metabolism",30,4,0.72138328668387,"hsa00410","beta-Alanine metabolism","All significant DEGs",2640,0.944126196256434,FALSE
+"Taurine and hypotaurine metabolism",15,0,1,"hsa00430","Taurine and hypotaurine metabolism","All significant DEGs",2640,1,FALSE
+"Phosphonate and phosphinate metabolism",5,0,1,"hsa00440","Phosphonate and phosphinate metabolism","All significant DEGs",2640,1,FALSE
+"Selenocompound metabolism",14,2,0.674614960507394,"hsa00450","Selenocompound metabolism","All significant DEGs",2640,0.91502320097912,FALSE
+"D-Amino acid metabolism",5,1,0.577543640157979,"hsa00470","D-Amino acid metabolism","All significant DEGs",2640,0.84544561285081,FALSE
+"Glutathione metabolism",55,11,0.245903885190955,"hsa00480","Glutathione metabolism","All significant DEGs",2640,0.472794583382609,FALSE
+"Starch and sucrose metabolism",33,9,0.0657823203101924,"hsa00500","Starch and sucrose metabolism","All significant DEGs",2640,0.179100769895633,FALSE
+"N-Glycan biosynthesis",52,14,0.0282368954102689,"hsa00510","N-Glycan biosynthesis","All significant DEGs",2640,0.102356076880988,FALSE
+"Other glycan degradation",15,2,0.711966858447442,"hsa00511","Other glycan degradation","All significant DEGs",2640,0.938387414137441,FALSE
+"Mucin type O-glycan biosynthesis",32,5,0.587052047529114,"hsa00512","Mucin type O-glycan biosynthesis","All significant DEGs",2640,0.84544561285081,FALSE
+"Various types of N-glycan biosynthesis",40,12,0.0178340842515087,"hsa00513","Various types of N-glycan biosynthesis","All significant DEGs",2640,0.072155028587111,FALSE
+"Other types of O-glycan biosynthesis",45,7,0.582942713147886,"hsa00514","Other types of O-glycan biosynthesis","All significant DEGs",2640,0.84544561285081,FALSE
+"Mannose type O-glycan biosynthesis",21,2,0.867421901985971,"hsa00515","Mannose type O-glycan biosynthesis","All significant DEGs",2640,1,FALSE
+"Amino sugar and nucleotide sugar metabolism",36,5,0.694423870658818,"hsa00520","Amino sugar and nucleotide sugar metabolism","All significant DEGs",2640,0.929507575974991,FALSE
+"Neomycin, kanamycin and gentamicin biosynthesis",5,2,0.180220950459747,"hsa00524","Neomycin, kanamycin and gentamicin biosynthesis","All significant DEGs",2640,0.382014060154075,FALSE
+"Glycosaminoglycan degradation",18,6,0.0525716568142048,"hsa00531","Glycosaminoglycan degradation","All significant DEGs",2640,0.157927973265605,FALSE
+"Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate",21,10,0.00063337152681883,"hsa00532","Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate","All significant DEGs",2640,0.00482137917353926,TRUE
+"Glycosaminoglycan biosynthesis - keratan sulfate",14,1,0.910488162163667,"hsa00533","Glycosaminoglycan biosynthesis - keratan sulfate","All significant DEGs",2640,1,FALSE
+"Glycosaminoglycan biosynthesis - heparan sulfate / heparin",24,6,0.1678792825225,"hsa00534","Glycosaminoglycan biosynthesis - heparan sulfate / heparin","All significant DEGs",2640,0.370526463792263,FALSE
+"Biosynthesis of various nucleotide sugars",18,6,0.0525716568142048,"hsa00541","Biosynthesis of various nucleotide sugars","All significant DEGs",2640,0.157927973265605,FALSE
+"Glycerolipid metabolism",62,11,0.391147129581848,"hsa00561","Glycerolipid metabolism","All significant DEGs",2640,0.654250579973226,FALSE
+"Inositol phosphate metabolism",76,17,0.0837257154929998,"hsa00562","Inositol phosphate metabolism","All significant DEGs",2640,0.218389453698524,FALSE
+"Glycosylphosphatidylinositol (GPI)-anchor biosynthesis",28,5,0.46195670963378,"hsa00563","Glycosylphosphatidylinositol (GPI)-anchor biosynthesis","All significant DEGs",2640,0.733233415716595,FALSE
+"Glycerophospholipid metabolism",94,17,0.314062138336403,"hsa00564","Glycerophospholipid metabolism","All significant DEGs",2640,0.55862569626673,FALSE
+"Ether lipid metabolism",43,4,0.925726847901784,"hsa00565","Ether lipid metabolism","All significant DEGs",2640,1,FALSE
+"Arachidonic acid metabolism",54,7,0.772246121115921,"hsa00590","Arachidonic acid metabolism","All significant DEGs",2640,0.979754432572239,FALSE
+"Linoleic acid metabolism",25,1,0.986582128736868,"hsa00591","Linoleic acid metabolism","All significant DEGs",2640,1,FALSE
+"alpha-Linolenic acid metabolism",21,2,0.867421901985971,"hsa00592","alpha-Linolenic acid metabolism","All significant DEGs",2640,1,FALSE
+"Sphingolipid metabolism",53,8,0.616182563340016,"hsa00600","Sphingolipid metabolism","All significant DEGs",2640,0.867306023116325,FALSE
+"Glycosphingolipid biosynthesis - lacto and neolacto series",27,3,0.823860256216914,"hsa00601","Glycosphingolipid biosynthesis - lacto and neolacto series","All significant DEGs",2640,1,FALSE
+"Glycosphingolipid biosynthesis - globo and isoglobo series",15,2,0.711966858447442,"hsa00603","Glycosphingolipid biosynthesis - globo and isoglobo series","All significant DEGs",2640,0.938387414137441,FALSE
+"Glycosphingolipid biosynthesis - ganglio series",15,5,0.0747792163866803,"hsa00604","Glycosphingolipid biosynthesis - ganglio series","All significant DEGs",2640,0.200666530303826,FALSE
+"Pyruvate metabolism",48,11,0.127094137094894,"hsa00620","Pyruvate metabolism","All significant DEGs",2640,0.292630328002442,FALSE
+"Glyoxylate and dicarboxylate metabolism",30,5,0.526321689847496,"hsa00630","Glyoxylate and dicarboxylate metabolism","All significant DEGs",2640,0.798040611028927,FALSE
+"Propanoate metabolism",31,7,0.209713368254904,"hsa00640","Propanoate metabolism","All significant DEGs",2640,0.427448559339231,FALSE
+"Butanoate metabolism",24,2,0.911972708015729,"hsa00650","Butanoate metabolism","All significant DEGs",2640,1,FALSE
+"C5-Branched dibasic acid metabolism",1,1,0.1582828706757,"hsa00660","C5-Branched dibasic acid metabolism","All significant DEGs",2640,0.353959276482841,FALSE
+"One carbon pool by folate",33,7,0.259972465485269,"hsa00670","One carbon pool by folate","All significant DEGs",2640,0.489746109222249,FALSE
+"Thiamine metabolism",14,2,0.674614960507394,"hsa00730","Thiamine metabolism","All significant DEGs",2640,0.91502320097912,FALSE
+"Riboflavin metabolism",8,1,0.748120874370091,"hsa00740","Riboflavin metabolism","All significant DEGs",2640,0.962238228069117,FALSE
+"Vitamin B6 metabolism",6,2,0.243105356008124,"hsa00750","Vitamin B6 metabolism","All significant DEGs",2640,0.469835739849897,FALSE
+"Nicotinate and nicotinamide metabolism",34,8,0.158475064805991,"hsa00760","Nicotinate and nicotinamide metabolism","All significant DEGs",2640,0.353959276482841,FALSE
+"Pantothenate and CoA biosynthesis",21,7,0.0373282132147436,"hsa00770","Pantothenate and CoA biosynthesis","All significant DEGs",2640,0.122135294114907,FALSE
+"Biotin metabolism",3,0,1,"hsa00780","Biotin metabolism","All significant DEGs",2640,1,FALSE
+"Lipoic acid metabolism",18,2,0.80293799934494,"hsa00785","Lipoic acid metabolism","All significant DEGs",2640,0.993208937469937,FALSE
+"Folate biosynthesis",26,4,0.607248179780189,"hsa00790","Folate biosynthesis","All significant DEGs",2640,0.859005479308755,FALSE
+"Retinol metabolism",64,2,0.999792196856304,"hsa00830","Retinol metabolism","All significant DEGs",2640,1,FALSE
+"Porphyrin metabolism",40,4,0.89690566801102,"hsa00860","Porphyrin metabolism","All significant DEGs",2640,1,FALSE
+"Terpenoid backbone biosynthesis",21,6,0.101650210675353,"hsa00900","Terpenoid backbone biosynthesis","All significant DEGs",2640,0.252770190546044,FALSE
+"Nitrogen metabolism",17,3,0.518837240826568,"hsa00910","Nitrogen metabolism","All significant DEGs",2640,0.789903227870652,FALSE
+"Sulfur metabolism",8,1,0.748120874370091,"hsa00920","Sulfur metabolism","All significant DEGs",2640,0.962238228069117,FALSE
+"Aminoacyl-tRNA biosynthesis",24,3,0.755906674523442,"hsa00970","Aminoacyl-tRNA biosynthesis","All significant DEGs",2640,0.964674249709297,FALSE
+"Metabolism of xenobiotics by cytochrome P450",72,4,0.997980375850323,"hsa00980","Metabolism of xenobiotics by cytochrome P450","All significant DEGs",2640,1,FALSE
+"Drug metabolism - cytochrome P450",67,2,0.999870971765086,"hsa00982","Drug metabolism - cytochrome P450","All significant DEGs",2640,1,FALSE
+"Drug metabolism - other enzymes",78,14,0.34860432587712,"hsa00983","Drug metabolism - other enzymes","All significant DEGs",2640,0.601988025704471,FALSE
+"Biosynthesis of unsaturated fatty acids",27,7,0.12267003603774,"hsa01040","Biosynthesis of unsaturated fatty acids","All significant DEGs",2640,0.28777310340929,FALSE
+"Metabolic pathways",1444,276,0.000263880221060869,"hsa01100","Metabolic pathways","All significant DEGs",2640,0.00240066640135864,TRUE
+"Carbon metabolism",112,20,0.314507764654191,"hsa01200","Carbon metabolism","All significant DEGs",2640,0.55862569626673,FALSE
+"2-Oxocarboxylic acid metabolism",32,5,0.587052047529114,"hsa01210","2-Oxocarboxylic acid metabolism","All significant DEGs",2640,0.84544561285081,FALSE
+"Fatty acid metabolism",56,13,0.0952485246244519,"hsa01212","Fatty acid metabolism","All significant DEGs",2640,0.240052024898112,FALSE
+"Biosynthesis of amino acids",69,14,0.193987609137712,"hsa01230","Biosynthesis of amino acids","All significant DEGs",2640,0.406502124766103,FALSE
+"Nucleotide metabolism",79,26,0.000128742141772764,"hsa01232","Nucleotide metabolism","All significant DEGs",2640,0.00145517632973457,TRUE
+"Biosynthesis of cofactors",142,24,0.397166682823618,"hsa01240","Biosynthesis of cofactors","All significant DEGs",2640,0.658414100858709,FALSE
+"Biosynthesis of nucleotide sugars",35,6,0.485868097508771,"hsa01250","Biosynthesis of nucleotide sugars","All significant DEGs",2640,0.755120001544882,FALSE
+"Sulfur cycle",2,0,1,"hsa01320","Sulfur cycle","All significant DEGs",2640,1,FALSE
+"EGFR tyrosine kinase inhibitor resistance",75,16,0.126638943952186,"hsa01521","EGFR tyrosine kinase inhibitor resistance","All significant DEGs",2640,0.292630328002442,FALSE
+"Endocrine resistance",94,13,0.744097117017063,"hsa01522","Endocrine resistance","All significant DEGs",2640,0.962238228069117,FALSE
+"Antifolate resistance",27,7,0.12267003603774,"hsa01523","Antifolate resistance","All significant DEGs",2640,0.28777310340929,FALSE
+"Platinum drug resistance",71,11,0.581126700213195,"hsa01524","Platinum drug resistance","All significant DEGs",2640,0.84544561285081,FALSE
+"ABC transporters",41,2,0.992605593297688,"hsa02010","ABC transporters","All significant DEGs",2640,1,FALSE
+"Ribosome biogenesis in eukaryotes",71,19,0.0126272818903985,"hsa03008","Ribosome biogenesis in eukaryotes","All significant DEGs",2640,0.0560711445847458,FALSE
+"Ribosome",167,52,5.33886702977751e-07,"hsa03010","Ribosome","All significant DEGs",2640,2.2126637801189e-05,TRUE
+"Nucleocytoplasmic transport",98,24,0.0170071752840042,"hsa03013","Nucleocytoplasmic transport","All significant DEGs",2640,0.0704852931214841,FALSE
+"mRNA surveillance pathway",90,18,0.171757437820664,"hsa03015","mRNA surveillance pathway","All significant DEGs",2640,0.372473978529695,FALSE
+"RNA degradation",68,18,0.0167069042761082,"hsa03018","RNA degradation","All significant DEGs",2640,0.0704852931214841,FALSE
+"RNA polymerase",27,9,0.0192113868472713,"hsa03020","RNA polymerase","All significant DEGs",2640,0.0746442426461688,FALSE
+"Basal transcription factors",39,7,0.423578840906971,"hsa03022","Basal transcription factors","All significant DEGs",2640,0.686934381123044,FALSE
+"DNA replication",35,7,0.313185004131841,"hsa03030","DNA replication","All significant DEGs",2640,0.55862569626673,FALSE
+"Spliceosome",138,38,0.00031292326000893,"hsa03040","Spliceosome","All significant DEGs",2640,0.00259378613296291,TRUE
+"Proteasome",43,5,0.832365317226324,"hsa03050","Proteasome","All significant DEGs",2640,1,FALSE
+"Protein export",28,3,0.842602923724566,"hsa03060","Protein export","All significant DEGs",2640,1,FALSE
+"ATP-dependent chromatin remodeling",81,24,0.00126879579623885,"hsa03082","ATP-dependent chromatin remodeling","All significant DEGs",2640,0.00845108628566236,TRUE
+"Polycomb repressive complex",73,15,0.170604261391714,"hsa03083","Polycomb repressive complex","All significant DEGs",2640,0.372473978529695,FALSE
+"Viral life cycle - HIV-1",61,16,0.0252119211272686,"hsa03250","Viral life cycle - HIV-1","All significant DEGs",2640,0.095386537152614,FALSE
+"Virion - Human immunodeficiency virus",5,0,1,"hsa03260","Virion - Human immunodeficiency virus","All significant DEGs",2640,1,FALSE
+"Virion - Flavivirus and Alphavirus",5,0,1,"hsa03264","Virion - Flavivirus and Alphavirus","All significant DEGs",2640,1,FALSE
+"Virion - Ebolavirus, Lyssavirus and Morbillivirus",11,2,0.539004736816022,"hsa03265","Virion - Ebolavirus, Lyssavirus and Morbillivirus","All significant DEGs",2640,0.810680511420872,FALSE
+"Virion - Herpesvirus",9,4,0.0405085798226721,"hsa03266","Virion - Herpesvirus","All significant DEGs",2640,0.130256036843592,FALSE
+"Virion - Adenovirus",3,0,1,"hsa03267","Virion - Adenovirus","All significant DEGs",2640,1,FALSE
+"Virion - Rotavirus",2,0,1,"hsa03271","Virion - Rotavirus","All significant DEGs",2640,1,FALSE
+"Virion - Hepatitis viruses",43,9,0.231923773765135,"hsa03272","Virion - Hepatitis viruses","All significant DEGs",2640,0.452919202169609,FALSE
+"Virion - Lassa virus and SFTS virus",17,2,0.775893273323615,"hsa03273","Virion - Lassa virus and SFTS virus","All significant DEGs",2640,0.981044715083757,FALSE
+"PPAR signaling pathway",73,9,0.836924202082202,"hsa03320","PPAR signaling pathway","All significant DEGs",2640,1,FALSE
+"Base excision repair",41,7,0.478473392488513,"hsa03410","Base excision repair","All significant DEGs",2640,0.749876367219392,FALSE
+"Nucleotide excision repair",57,15,0.0288133728485356,"hsa03420","Nucleotide excision repair","All significant DEGs",2640,0.102356076880988,FALSE
+"Mismatch repair",22,4,0.468460881374021,"hsa03430","Mismatch repair","All significant DEGs",2640,0.737282315411433,FALSE
+"Homologous recombination",92,16,0.382690306491661,"hsa03440","Homologous recombination","All significant DEGs",2640,0.642988668114368,FALSE
+"Non-homologous end-joining",12,1,0.873622239410425,"hsa03450","Non-homologous end-joining","All significant DEGs",2640,1,FALSE
+"Fanconi anemia pathway",50,8,0.54638631940169,"hsa03460","Fanconi anemia pathway","All significant DEGs",2640,0.818482317818596,FALSE
+"MAPK signaling pathway",286,64,0.00211774626029907,"hsa04010","MAPK signaling pathway","All significant DEGs",2640,0.0136192992257164,TRUE
+"ErbB signaling pathway",82,16,0.217970061035673,"hsa04012","ErbB signaling pathway","All significant DEGs",2640,0.431370577015246,FALSE
+"Ras signaling pathway",221,46,0.028604670475897,"hsa04014","Ras signaling pathway","All significant DEGs",2640,0.102356076880988,FALSE
+"Rap1 signaling pathway",201,37,0.180102240374196,"hsa04015","Rap1 signaling pathway","All significant DEGs",2640,0.382014060154075,FALSE
+"Calcium signaling pathway",242,29,0.9629214986487,"hsa04020","Calcium signaling pathway","All significant DEGs",2640,1,FALSE
+"cGMP-PKG signaling pathway",158,23,0.702589645269705,"hsa04022","cGMP-PKG signaling pathway","All significant DEGs",2640,0.93261899532242,FALSE
+"cAMP signaling pathway",218,25,0.973199487987711,"hsa04024","cAMP signaling pathway","All significant DEGs",2640,1,FALSE
+"Cytokine-cytokine receptor interaction",285,56,0.0474121787926975,"hsa04060","Cytokine-cytokine receptor interaction","All significant DEGs",2640,0.146154898261787,FALSE
+"Viral protein interaction with cytokine and cytokine receptor",94,26,0.00242718868483863,"hsa04061","Viral protein interaction with cytokine and cytokine receptor","All significant DEGs",2640,0.0148416619581116,TRUE
+"Chemokine signaling pathway",184,48,0.000228604620586362,"hsa04062","Chemokine signaling pathway","All significant DEGs",2640,0.00213173808696782,TRUE
+"NF-kappa B signaling pathway",97,36,2.74460472410937e-07,"hsa04064","NF-kappa B signaling pathway","All significant DEGs",2640,1.70622927015466e-05,TRUE
+"HIF-1 signaling pathway",104,25,0.0189274241494947,"hsa04066","HIF-1 signaling pathway","All significant DEGs",2640,0.0746442426461688,FALSE
+"FoxO signaling pathway",125,32,0.00322850279739595,"hsa04068","FoxO signaling pathway","All significant DEGs",2640,0.01911478640363,TRUE
+"Phosphatidylinositol signaling system",93,21,0.0545896771648409,"hsa04070","Phosphatidylinositol signaling system","All significant DEGs",2640,0.161602774464172,FALSE
+"Sphingolipid signaling pathway",119,31,0.00278475946571174,"hsa04071","Sphingolipid signaling pathway","All significant DEGs",2640,0.0167534722695238,TRUE
+"Phospholipase D signaling pathway",138,20,0.701891244985081,"hsa04072","Phospholipase D signaling pathway","All significant DEGs",2640,0.93261899532242,FALSE
+"Neuroactive ligand-receptor interaction",351,26,0.999999402534806,"hsa04080","Neuroactive ligand-receptor interaction","All significant DEGs",2640,1,FALSE
+"Hormone signaling",213,22,0.992220852727459,"hsa04081","Hormone signaling","All significant DEGs",2640,1,FALSE
+"Neuroactive ligand signaling",190,16,0.999138189415873,"hsa04082","Neuroactive ligand signaling","All significant DEGs",2640,1,FALSE
+"Cell cycle",155,27,0.324722363900014,"hsa04110","Cell cycle","All significant DEGs",2640,0.574035268884859,FALSE
+"Oocyte meiosis",122,18,0.665602722923562,"hsa04114","Oocyte meiosis","All significant DEGs",2640,0.913179069443513,FALSE
+"p53 signaling pathway",74,20,0.00953464759764253,"hsa04115","p53 signaling pathway","All significant DEGs",2640,0.0450180196698818,TRUE
+"Ubiquitin mediated proteolysis",135,21,0.571306247447249,"hsa04120","Ubiquitin mediated proteolysis","All significant DEGs",2640,0.842281542679145,FALSE
+"Sulfur relay system",8,2,0.369009761677411,"hsa04122","Sulfur relay system","All significant DEGs",2640,0.625331418083503,FALSE
+"SNARE interactions in vesicular transport",32,11,0.00781161941071429,"hsa04130","SNARE interactions in vesicular transport","All significant DEGs",2640,0.0383386057920583,TRUE
+"Autophagy - other",31,5,0.557205368702723,"hsa04136","Autophagy - other","All significant DEGs",2640,0.828038257076159,FALSE
+"Mitophagy - animal",97,28,0.000825976784747953,"hsa04137","Mitophagy - animal","All significant DEGs",2640,0.0060409674649213,TRUE
+"Autophagy - animal",158,42,0.000356226302456121,"hsa04140","Autophagy - animal","All significant DEGs",2640,0.00288853066991594,TRUE
+"Protein processing in endoplasmic reticulum",153,40,0.000695206235123642,"hsa04141","Protein processing in endoplasmic reticulum","All significant DEGs",2640,0.00518623851402237,TRUE
+"Lysosome biogenesis",241,67,1.4383914832074e-06,"hsa04142","Lysosome biogenesis","All significant DEGs",2640,3.83228588025971e-05,TRUE
+"Endocytosis",233,49,0.0206007016027572,"hsa04144","Endocytosis","All significant DEGs",2640,0.0792171309054476,FALSE
+"Phagocytosis",242,69,3.64049572324884e-07,"hsa04145","Phagocytosis","All significant DEGs",2640,1.93986414967403e-05,TRUE
+"Peroxisome",79,19,0.0371207780903733,"hsa04146","Peroxisome","All significant DEGs",2640,0.122135294114907,FALSE
+"Efferocytosis",155,40,0.000914331545210487,"hsa04148","Efferocytosis","All significant DEGs",2640,0.00643482389365117,TRUE
+"mTOR signaling pathway",146,32,0.0318557024324706,"hsa04150","mTOR signaling pathway","All significant DEGs",2640,0.111048383245902,FALSE
+"PI3K-Akt signaling pathway",347,68,0.0333953316830006,"hsa04151","PI3K-Akt signaling pathway","All significant DEGs",2640,0.112435991221015,FALSE
+"AMPK signaling pathway",119,24,0.121558767854079,"hsa04152","AMPK signaling pathway","All significant DEGs",2640,0.28777310340929,FALSE
+"Integrated stress response (ISR) signaling pathway",48,11,0.127094137094894,"hsa04156","Integrated stress response (ISR) signaling pathway","All significant DEGs",2640,0.292630328002442,FALSE
+"Apoptosis",128,36,0.000284820671234559,"hsa04210","Apoptosis","All significant DEGs",2640,0.00252947881834501,TRUE
+"Longevity regulating pathway",87,11,0.831957674647232,"hsa04211","Longevity regulating pathway","All significant DEGs",2640,1,FALSE
+"Longevity regulating pathway - multiple species",60,10,0.4833662591594,"hsa04213","Longevity regulating pathway - multiple species","All significant DEGs",2640,0.754374956763416,FALSE
+"Apoptosis - multiple species",30,8,0.0897641711880469,"hsa04215","Apoptosis - multiple species","All significant DEGs",2640,0.232514137869038,FALSE
+"Ferroptosis",39,10,0.0778192791291492,"hsa04216","Ferroptosis","All significant DEGs",2640,0.207332793679805,FALSE
+"Necroptosis",125,41,1.89138656382654e-06,"hsa04217","Necroptosis","All significant DEGs",2640,4.70324792204866e-05,TRUE
+"Cellular senescence",150,28,0.197129180544808,"hsa04218","Cellular senescence","All significant DEGs",2640,0.410676476773797,FALSE
+"Cardiac muscle contraction",80,5,0.997312453900549,"hsa04260","Cardiac muscle contraction","All significant DEGs",2640,1,FALSE
+"Adrenergic signaling in cardiomyocytes",151,20,0.837865080340182,"hsa04261","Adrenergic signaling in cardiomyocytes","All significant DEGs",2640,1,FALSE
+"Vascular smooth muscle contraction",124,19,0.599558307089986,"hsa04270","Vascular smooth muscle contraction","All significant DEGs",2640,0.856840032737797,FALSE
+"Wnt signaling pathway",170,21,0.915690220476227,"hsa04310","Wnt signaling pathway","All significant DEGs",2640,1,FALSE
+"Notch signaling pathway",58,15,0.0333597585945603,"hsa04330","Notch signaling pathway","All significant DEGs",2640,0.112435991221015,FALSE
+"Hedgehog signaling pathway",53,4,0.976865252232407,"hsa04340","Hedgehog signaling pathway","All significant DEGs",2640,1,FALSE
+"TGF-beta signaling pathway",107,16,0.63883390077813,"hsa04350","TGF-beta signaling pathway","All significant DEGs",2640,0.895808439812941,FALSE
+"Axon guidance",178,41,0.0073318486965973,"hsa04360","Axon guidance","All significant DEGs",2640,0.0364637275177439,TRUE
+"VEGF signaling pathway",55,16,0.00933834445413411,"hsa04370","VEGF signaling pathway","All significant DEGs",2640,0.0446564420691285,TRUE
+"Apelin signaling pathway",131,22,0.416914429109272,"hsa04371","Apelin signaling pathway","All significant DEGs",2640,0.683854596380392,FALSE
+"Osteoclast differentiation",129,46,2.69889283944126e-08,"hsa04380","Osteoclast differentiation","All significant DEGs",2640,3.35562343037196e-06,TRUE
+"Cornified envelope formation",201,18,0.998520102907701,"hsa04382","Cornified envelope formation","All significant DEGs",2640,1,FALSE
+"Hippo signaling pathway",153,17,0.962142239567977,"hsa04390","Hippo signaling pathway","All significant DEGs",2640,1,FALSE
+"Hippo signaling pathway - multiple species",28,5,0.46195670963378,"hsa04392","Hippo signaling pathway - multiple species","All significant DEGs",2640,0.733233415716595,FALSE
+"Focal adhesion",192,41,0.0254063217587689,"hsa04510","Focal adhesion","All significant DEGs",2640,0.095386537152614,FALSE
+"ECM-receptor interaction",82,9,0.918588755138706,"hsa04512","ECM-receptor interaction","All significant DEGs",2640,1,FALSE
+"Cell adhesion molecule (CAM) interaction",146,27,0.216918886401042,"hsa04514","Cell adhesion molecule (CAM) interaction","All significant DEGs",2640,0.431370577015246,FALSE
+"IgSF CAM signaling",284,55,0.0614947796241579,"hsa04517","IgSF CAM signaling","All significant DEGs",2640,0.172462803006097,FALSE
+"Integrin signaling",147,26,0.299663473165416,"hsa04518","Integrin signaling","All significant DEGs",2640,0.539973311549277,FALSE
+"Cadherin signaling",382,43,0.995938774298548,"hsa04519","Cadherin signaling","All significant DEGs",2640,1,FALSE
+"Adherens junction",88,19,0.0938051909000023,"hsa04520","Adherens junction","All significant DEGs",2640,0.238022695276877,FALSE
+"Tight junction",154,24,0.56748465547824,"hsa04530","Tight junction","All significant DEGs",2640,0.839967367037237,FALSE
+"Gap junction",83,14,0.443149509467018,"hsa04540","Gap junction","All significant DEGs",2640,0.715561762039817,FALSE
+"Signaling pathways regulating pluripotency of stem cells",134,18,0.809478597830726,"hsa04550","Signaling pathways regulating pluripotency of stem cells","All significant DEGs",2640,0.993208937469937,FALSE
+"Complement and coagulation cascades",83,15,0.33043037263104,"hsa04610","Complement and coagulation cascades","All significant DEGs",2640,0.575937051361579,FALSE
+"Platelet activation",116,29,0.00696841720616978,"hsa04611","Platelet activation","All significant DEGs",2640,0.0355057481002313,TRUE
+"Antigen processing and presentation",73,16,0.105469605475953,"hsa04612","Antigen processing and presentation","All significant DEGs",2640,0.258816860806122,FALSE
+"Neutrophil extracellular trap formation",105,41,7.58917083612455e-09,"hsa04613","Neutrophil extracellular trap formation","All significant DEGs",2640,2.09471527971931e-06,TRUE
+"Renin-angiotensin system",23,4,0.505081405820713,"hsa04614","Renin-angiotensin system","All significant DEGs",2640,0.772112149061992,FALSE
+"Toll-like receptor signaling pathway",102,29,0.000879980258940005,"hsa04620","Toll-like receptor signaling pathway","All significant DEGs",2640,0.0063121660881658,TRUE
+"NOD-like receptor signaling pathway",174,51,4.94299778896501e-06,"hsa04621","NOD-like receptor signaling pathway","All significant DEGs",2640,8.77970559659023e-05,TRUE
+"RIG-I-like receptor signaling pathway",68,17,0.0334595040898999,"hsa04622","RIG-I-like receptor signaling pathway","All significant DEGs",2640,0.112435991221015,FALSE
+"Cytosolic DNA-sensing pathway",72,20,0.00691587385147573,"hsa04623","Cytosolic DNA-sensing pathway","All significant DEGs",2640,0.0355057481002313,TRUE
+"C-type lectin receptor signaling pathway",103,31,0.000198244026619635,"hsa04625","C-type lectin receptor signaling pathway","All significant DEGs",2640,0.00199851410619254,TRUE
+"JAK-STAT signaling pathway",163,34,0.0521514912135593,"hsa04630","JAK-STAT signaling pathway","All significant DEGs",2640,0.157927973265605,FALSE
+"Hematopoietic cell lineage",91,37,1.12317173175298e-08,"hsa04640","Hematopoietic cell lineage","All significant DEGs",2640,2.09471527971931e-06,TRUE
+"Natural killer cell mediated cytotoxicity",124,36,0.000142976394770093,"hsa04650","Natural killer cell mediated cytotoxicity","All significant DEGs",2640,0.00156853515438955,TRUE
+"IL-17 signaling pathway",88,18,0.148104295745293,"hsa04657","IL-17 signaling pathway","All significant DEGs",2640,0.334805468563601,FALSE
+"Th1 and Th2 cell differentiation",90,32,3.64402079765244e-06,"hsa04658","Th1 and Th2 cell differentiation","All significant DEGs",2640,7.3115499926927e-05,TRUE
+"Th17 cell differentiation",106,36,3.17649155116112e-06,"hsa04659","Th17 cell differentiation","All significant DEGs",2640,6.96959616813588e-05,TRUE
+"T cell receptor signaling pathway",115,39,1.30957473587076e-06,"hsa04660","T cell receptor signaling pathway","All significant DEGs",2640,3.79436147701978e-05,TRUE
+"B cell receptor signaling pathway",79,32,1.20155699499253e-07,"hsa04662","B cell receptor signaling pathway","All significant DEGs",2640,8.96361518264427e-06,TRUE
+"Fc epsilon RI signaling pathway",63,23,5.11369190699991e-05,"hsa04664","Fc epsilon RI signaling pathway","All significant DEGs",2640,0.000615292606874505,TRUE
+"Fc gamma R-mediated phagosome formation",92,32,6.22075804261636e-06,"hsa04666","Fc gamma R-mediated phagosome formation","All significant DEGs",2640,0.000100884467386778,TRUE
+"TNF signaling pathway",113,26,0.0286750509378853,"hsa04668","TNF signaling pathway","All significant DEGs",2640,0.102356076880988,FALSE
+"Leukocyte transendothelial migration",108,31,0.000498071087791701,"hsa04670","Leukocyte transendothelial migration","All significant DEGs",2640,0.00395277693077244,TRUE
+"Intestinal immune network for IgA production",44,9,0.253671728418938,"hsa04672","Intestinal immune network for IgA production","All significant DEGs",2640,0.480302308123168,FALSE
+"Circadian rhythm",31,6,0.365726559800313,"hsa04710","Circadian rhythm","All significant DEGs",2640,0.625331418083503,FALSE
+"Circadian entrainment",94,16,0.418012997251285,"hsa04713","Circadian entrainment","All significant DEGs",2640,0.683854596380392,FALSE
+"Thermogenesis",192,38,0.0815349463531657,"hsa04714","Thermogenesis","All significant DEGs",2640,0.215691737515821,FALSE
+"Long-term potentiation",65,12,0.328475262459958,"hsa04720","Long-term potentiation","All significant DEGs",2640,0.575217243650536,FALSE
+"Synaptic vesicle cycle",76,15,0.214008463639897,"hsa04721","Synaptic vesicle cycle","All significant DEGs",2640,0.431370577015246,FALSE
+"Neurotrophin signaling pathway",114,24,0.0835650908641268,"hsa04722","Neurotrophin signaling pathway","All significant DEGs",2640,0.218389453698524,FALSE
+"Retrograde endocannabinoid signaling",134,31,0.0168784861688365,"hsa04723","Retrograde endocannabinoid signaling","All significant DEGs",2640,0.0704852931214841,FALSE
+"Glutamatergic synapse",111,21,0.21857651221416,"hsa04724","Glutamatergic synapse","All significant DEGs",2640,0.431370577015246,FALSE
+"Cholinergic synapse",111,21,0.21857651221416,"hsa04725","Cholinergic synapse","All significant DEGs",2640,0.431370577015246,FALSE
+"Serotonergic synapse",111,21,0.21857651221416,"hsa04726","Serotonergic synapse","All significant DEGs",2640,0.431370577015246,FALSE
+"GABAergic synapse",87,16,0.296805527410517,"hsa04727","GABAergic synapse","All significant DEGs",2640,0.539973311549277,FALSE
+"Dopaminergic synapse",131,24,0.248425244943416,"hsa04728","Dopaminergic synapse","All significant DEGs",2640,0.475192904430227,FALSE
+"Long-term depression",54,11,0.226831950218248,"hsa04730","Long-term depression","All significant DEGs",2640,0.445306933849508,FALSE
+"Olfactory transduction",394,9,1,"hsa04740","Olfactory transduction","All significant DEGs",2640,1,FALSE
+"Taste transduction",81,1,0.99999916335966,"hsa04742","Taste transduction","All significant DEGs",2640,1,FALSE
+"Phototransduction",28,3,0.842602923724566,"hsa04744","Phototransduction","All significant DEGs",2640,1,FALSE
+"Inflammatory mediator regulation of TRP channels",95,19,0.163780151176737,"hsa04750","Inflammatory mediator regulation of TRP channels","All significant DEGs",2640,0.363630930886447,FALSE
+"Regulation of actin cytoskeleton",217,44,0.0466302473156073,"hsa04810","Regulation of actin cytoskeleton","All significant DEGs",2640,0.144942352072679,FALSE
+"Motor proteins",170,18,0.980881787123673,"hsa04814","Motor proteins","All significant DEGs",2640,1,FALSE
+"Cytoskeleton in muscle cells",220,31,0.787098902006756,"hsa04820","Cytoskeleton in muscle cells","All significant DEGs",2640,0.98189929915893,FALSE
+"Neuroendocrine signaling pathway of hypothalamus-pituitary axis",341,44,0.94489003435702,"hsa04900","Neuroendocrine signaling pathway of hypothalamus-pituitary axis","All significant DEGs",2640,1,FALSE
+"Insulin signaling pathway",134,23,0.370504673985132,"hsa04910","Insulin signaling pathway","All significant DEGs",2640,0.625331418083503,FALSE
+"Insulin secretion",83,6,0.994021891701571,"hsa04911","Insulin secretion","All significant DEGs",2640,1,FALSE
+"GnRH signaling pathway",89,17,0.235989190627934,"hsa04912","GnRH signaling pathway","All significant DEGs",2640,0.458458167209476,FALSE
+"Ovarian steroidogenesis",48,7,0.654009705021534,"hsa04913","Ovarian steroidogenesis","All significant DEGs",2640,0.906861040791941,FALSE
+"Progesterone-mediated oocyte maturation",92,14,0.607982430395473,"hsa04914","Progesterone-mediated oocyte maturation","All significant DEGs",2640,0.859005479308755,FALSE
+"Estrogen signaling pathway",132,27,0.0926875699122481,"hsa04915","Estrogen signaling pathway","All significant DEGs",2640,0.236797695734716,FALSE
+"Melanogenesis",99,12,0.877965014772993,"hsa04916","Melanogenesis","All significant DEGs",2640,1,FALSE
+"Prolactin signaling pathway",68,16,0.0626552506403839,"hsa04917","Prolactin signaling pathway","All significant DEGs",2640,0.174172770231656,FALSE
+"Thyroid hormone synthesis",75,11,0.657092407486039,"hsa04918","Thyroid hormone synthesis","All significant DEGs",2640,0.907760992564047,FALSE
+"Thyroid hormone signaling pathway",119,28,0.0179903958675639,"hsa04919","Thyroid hormone signaling pathway","All significant DEGs",2640,0.072155028587111,FALSE
+"Adipocytokine signaling pathway",68,18,0.0167069042761082,"hsa04920","Adipocytokine signaling pathway","All significant DEGs",2640,0.0704852931214841,FALSE
+"Oxytocin signaling pathway",146,29,0.111786927065979,"hsa04921","Oxytocin signaling pathway","All significant DEGs",2640,0.270756648023444,FALSE
+"Glucagon signaling pathway",102,17,0.449450666996452,"hsa04922","Glucagon signaling pathway","All significant DEGs",2640,0.722608184438261,FALSE
+"Regulation of lipolysis in adipocytes",55,5,0.949357571941564,"hsa04923","Regulation of lipolysis in adipocytes","All significant DEGs",2640,1,FALSE
+"Renin secretion",67,12,0.369025946637294,"hsa04924","Renin secretion","All significant DEGs",2640,0.625331418083503,FALSE
+"Aldosterone synthesis and secretion",98,12,0.869418710926049,"hsa04925","Aldosterone synthesis and secretion","All significant DEGs",2640,1,FALSE
+"Relaxin signaling pathway",124,20,0.50137958399702,"hsa04926","Relaxin signaling pathway","All significant DEGs",2640,0.76960734498308,FALSE
+"Cortisol synthesis and secretion",65,7,0.907217141533286,"hsa04927","Cortisol synthesis and secretion","All significant DEGs",2640,1,FALSE
+"Parathyroid hormone synthesis, secretion and action",113,22,0.173820310589115,"hsa04928","Parathyroid hormone synthesis, secretion and action","All significant DEGs",2640,0.374768646530288,FALSE
+"GnRH secretion",63,10,0.549380177503482,"hsa04929","GnRH secretion","All significant DEGs",2640,0.819675224835196,FALSE
+"Type II diabetes mellitus",46,11,0.100456462225688,"hsa04930","Type II diabetes mellitus","All significant DEGs",2640,0.251478257786455,FALSE
+"Insulin resistance",104,22,0.0906094162947733,"hsa04931","Insulin resistance","All significant DEGs",2640,0.233084912261727,FALSE
+"Non-alcoholic fatty liver disease",142,36,0.00223209703422738,"hsa04932","Non-alcoholic fatty liver disease","All significant DEGs",2640,0.0141113931146918,TRUE
+"AGE-RAGE signaling pathway in diabetic complications",98,22,0.0529249240166236,"hsa04933","AGE-RAGE signaling pathway in diabetic complications","All significant DEGs",2640,0.157927973265605,FALSE
+"Cushing syndrome",152,21,0.783853865167595,"hsa04934","Cushing syndrome","All significant DEGs",2640,0.981655983274355,FALSE
+"Growth hormone synthesis, secretion and action",117,26,0.0423882367338616,"hsa04935","Growth hormone synthesis, secretion and action","All significant DEGs",2640,0.133989934760427,FALSE
+"Alcoholic liver disease",135,30,0.0310596010516727,"hsa04936","Alcoholic liver disease","All significant DEGs",2640,0.109294633889377,FALSE
+"Type I diabetes mellitus",40,8,0.293554097974535,"hsa04940","Type I diabetes mellitus","All significant DEGs",2640,0.537146661503519,FALSE
+"Maturity onset diabetes of the young",26,1,0.988709136070522,"hsa04950","Maturity onset diabetes of the young","All significant DEGs",2640,1,FALSE
+"Aldosterone-regulated sodium reabsorption",36,8,0.199968995182326,"hsa04960","Aldosterone-regulated sodium reabsorption","All significant DEGs",2640,0.410676476773797,FALSE
+"Endocrine and other factor-regulated calcium reabsorption",52,5,0.930549027254618,"hsa04961","Endocrine and other factor-regulated calcium reabsorption","All significant DEGs",2640,1,FALSE
+"Vasopressin-regulated water reabsorption",44,6,0.716977738486723,"hsa04962","Vasopressin-regulated water reabsorption","All significant DEGs",2640,0.941664424139252,FALSE
+"Proximal tubule bicarbonate reclamation",23,6,0.14408063236432,"hsa04964","Proximal tubule bicarbonate reclamation","All significant DEGs",2640,0.327695584584704,FALSE
+"Collecting duct acid secretion",26,9,0.0148448766257552,"hsa04966","Collecting duct acid secretion","All significant DEGs",2640,0.0643853369931009,FALSE
+"Salivary secretion",85,10,0.883975197493805,"hsa04970","Salivary secretion","All significant DEGs",2640,1,FALSE
+"Gastric acid secretion",75,14,0.29377458162659,"hsa04971","Gastric acid secretion","All significant DEGs",2640,0.537146661503519,FALSE
+"Pancreatic secretion",99,13,0.807458008035708,"hsa04972","Pancreatic secretion","All significant DEGs",2640,0.993208937469937,FALSE
+"Carbohydrate digestion and absorption",43,6,0.695261698919631,"hsa04973","Carbohydrate digestion and absorption","All significant DEGs",2640,0.929507575974991,FALSE
+"Protein digestion and absorption",97,6,0.998889883046667,"hsa04974","Protein digestion and absorption","All significant DEGs",2640,1,FALSE
+"Fat digestion and absorption",42,4,0.917042054350579,"hsa04975","Fat digestion and absorption","All significant DEGs",2640,1,FALSE
+"Bile secretion",86,7,0.988258468728719,"hsa04976","Bile secretion","All significant DEGs",2640,1,FALSE
+"Vitamin digestion and absorption",23,2,0.898967205224705,"hsa04977","Vitamin digestion and absorption","All significant DEGs",2640,1,FALSE
+"Mineral absorption",55,6,0.886836581158326,"hsa04978","Mineral absorption","All significant DEGs",2640,1,FALSE
+"Cholesterol metabolism",52,8,0.593535861519471,"hsa04979","Cholesterol metabolism","All significant DEGs",2640,0.85149567825678,FALSE
+"Cobalamin transport and metabolism",16,8,0.00151339374828575,"hsa04980","Cobalamin transport and metabolism","All significant DEGs",2640,0.00990343628264181,TRUE
+"Folate transport and metabolism",24,3,0.755906674523442,"hsa04981","Folate transport and metabolism","All significant DEGs",2640,0.964674249709297,FALSE
+"Alzheimer disease",339,64,0.0718544954420862,"hsa05010","Alzheimer disease","All significant DEGs",2640,0.194215411593465,FALSE
+"Parkinson disease",226,45,0.0577786605109433,"hsa05012","Parkinson disease","All significant DEGs",2640,0.167986810829621,FALSE
+"Amyotrophic lateral sclerosis",313,68,0.00339805679300491,"hsa05014","Amyotrophic lateral sclerosis","All significant DEGs",2640,0.0192041694513762,TRUE
+"Huntington disease",256,50,0.0635053532211937,"hsa05016","Huntington disease","All significant DEGs",2640,0.174172770231656,FALSE
+"Spinocerebellar ataxia",131,20,0.607068540859433,"hsa05017","Spinocerebellar ataxia","All significant DEGs",2640,0.859005479308755,FALSE
+"Prion disease",233,53,0.00339382439345786,"hsa05020","Prion disease","All significant DEGs",2640,0.0192041694513762,TRUE
+"Pathways of neurodegeneration - multiple diseases",419,84,0.0115647971534864,"hsa05022","Pathways of neurodegeneration - multiple diseases","All significant DEGs",2640,0.0526057236372002,FALSE
+"Cocaine addiction",48,4,0.95801339358675,"hsa05030","Cocaine addiction","All significant DEGs",2640,1,FALSE
+"Amphetamine addiction",69,9,0.784272072428305,"hsa05031","Amphetamine addiction","All significant DEGs",2640,0.981655983274355,FALSE
+"Morphine addiction",89,13,0.668358943587343,"hsa05032","Morphine addiction","All significant DEGs",2640,0.913179069443513,FALSE
+"Nicotine addiction",39,1,0.998803683608626,"hsa05033","Nicotine addiction","All significant DEGs",2640,1,FALSE
+"Alcoholism",105,17,0.500664542222229,"hsa05034","Alcoholism","All significant DEGs",2640,0.76960734498308,FALSE
+"Bacterial invasion of epithelial cells",67,16,0.0557856632167406,"hsa05100","Bacterial invasion of epithelial cells","All significant DEGs",2640,0.163842932124758,FALSE
+"Vibrio cholerae infection",49,15,0.00704403581613169,"hsa05110","Vibrio cholerae infection","All significant DEGs",2640,0.0355057481002313,TRUE
+"Epithelial cell signaling in Helicobacter pylori infection",68,23,0.000195537693746899,"hsa05120","Epithelial cell signaling in Helicobacter pylori infection","All significant DEGs",2640,0.00199851410619254,TRUE
+"Pathogenic Escherichia coli infection",185,51,3.16719366740738e-05,"hsa05130","Pathogenic Escherichia coli infection","All significant DEGs",2640,0.000421915442122483,TRUE
+"Shigellosis",211,62,4.50579935661583e-07,"hsa05131","Shigellosis","All significant DEGs",2640,2.10082895002213e-05,TRUE
+"Salmonella infection",238,60,0.000116103768039388,"hsa05132","Salmonella infection","All significant DEGs",2640,0.00135333454620912,TRUE
+"Pertussis",74,21,0.0043760106390789,"hsa05133","Pertussis","All significant DEGs",2640,0.0243619696772601,TRUE
+"Legionellosis",53,19,0.000295727945680891,"hsa05134","Legionellosis","All significant DEGs",2640,0.00256526799392959,TRUE
+"Yersinia infection",129,41,4.63407979017402e-06,"hsa05135","Yersinia infection","All significant DEGs",2640,8.64255880867455e-05,TRUE
+"Leishmaniasis",71,26,1.59159692408018e-05,"hsa05140","Leishmaniasis","All significant DEGs",2640,0.000237466261072763,TRUE
+"Chagas disease",101,26,0.00688686340238383,"hsa05142","Chagas disease","All significant DEGs",2640,0.0355057481002313,TRUE
+"African trypanosomiasis",34,7,0.286286606402119,"hsa05143","African trypanosomiasis","All significant DEGs",2640,0.528638139544507,FALSE
+"Malaria",47,12,0.0583309829584707,"hsa05144","Malaria","All significant DEGs",2640,0.167986810829621,FALSE
+"Toxoplasmosis",106,32,0.000148079739863558,"hsa05145","Toxoplasmosis","All significant DEGs",2640,0.00157810694197449,TRUE
+"Amoebiasis",99,18,0.298652135005457,"hsa05146","Amoebiasis","All significant DEGs",2640,0.539973311549277,FALSE
+"Staphylococcus aureus infection",88,15,0.42101497100678,"hsa05150","Staphylococcus aureus infection","All significant DEGs",2640,0.685758009543794,FALSE
+"Tuberculosis",176,53,1.32243161397472e-06,"hsa05152","Tuberculosis","All significant DEGs",2640,3.79436147701978e-05,TRUE
+"Hepatitis C",147,38,0.00116988995750399,"hsa05160","Hepatitis C","All significant DEGs",2640,0.00808090655831458,TRUE
+"Hepatitis B",156,41,0.000534990997452071,"hsa05161","Hepatitis B","All significant DEGs",2640,0.0041573258760338,TRUE
+"Measles",128,41,3.7243820338113e-06,"hsa05162","Measles","All significant DEGs",2640,7.3115499926927e-05,TRUE
+"Human cytomegalovirus infection",218,55,0.00021399052851525,"hsa05163","Human cytomegalovirus infection","All significant DEGs",2640,0.00208878252388825,TRUE
+"Influenza A",159,52,9.33365495925691e-08,"hsa05164","Influenza A","All significant DEGs",2640,8.70363324950707e-06,TRUE
+"Human papillomavirus infection",317,66,0.0103976025741677,"hsa05165","Human papillomavirus infection","All significant DEGs",2640,0.0478803180267229,TRUE
+"Human T-cell leukemia virus 1 infection",213,47,0.00990146362364568,"hsa05166","Human T-cell leukemia virus 1 infection","All significant DEGs",2640,0.046165574145248,TRUE
+"Kaposi sarcoma-associated herpesvirus infection",189,54,6.09824395788679e-06,"hsa05167","Kaposi sarcoma-associated herpesvirus infection","All significant DEGs",2640,0.000100884467386778,TRUE
+"Herpes simplex virus 1 infection",169,47,5.00577282928357e-05,"hsa05168","Herpes simplex virus 1 infection","All significant DEGs",2640,0.000615292606874505,TRUE
+"Epstein-Barr virus infection",196,54,1.91754469388351e-05,"hsa05169","Epstein-Barr virus infection","All significant DEGs",2640,0.000264905248451314,TRUE
+"Human immunodeficiency virus 1 infection",201,51,0.000307688067738059,"hsa05170","Human immunodeficiency virus 1 infection","All significant DEGs",2640,0.00259378613296291,TRUE
+"Coronavirus disease",218,63,6.93289797065863e-07,"hsa05171","Coronavirus disease","All significant DEGs",2640,2.42869788206194e-05,TRUE
+"Pathways in cancer",516,104,0.00462417654080365,"hsa05200","Pathways in cancer","All significant DEGs",2640,0.0249973601408661,TRUE
+"Transcriptional misregulation in cancer",174,37,0.0343096369490012,"hsa05202","Transcriptional misregulation in cancer","All significant DEGs",2640,0.114263344481942,FALSE
+"Viral carcinogenesis",163,47,1.83046496060884e-05,"hsa05203","Viral carcinogenesis","All significant DEGs",2640,0.000262601319348883,TRUE
+"Chemical carcinogenesis - DNA adducts",64,5,0.981390653160456,"hsa05204","Chemical carcinogenesis - DNA adducts","All significant DEGs",2640,1,FALSE
+"Proteoglycans in cancer",196,43,0.0145075784060358,"hsa05205","Proteoglycans in cancer","All significant DEGs",2640,0.0636626675935452,FALSE
+"MicroRNAs in cancer",157,40,0.0011921036330045,"hsa05206","MicroRNAs in cancer","All significant DEGs",2640,0.00808463009292142,TRUE
+"Chemical carcinogenesis - receptor activation",192,34,0.26369711764218,"hsa05207","Chemical carcinogenesis - receptor activation","All significant DEGs",2640,0.494266456686097,FALSE
+"Chemical carcinogenesis - reactive oxygen species",187,43,0.0063428431730765,"hsa05208","Chemical carcinogenesis - reactive oxygen species","All significant DEGs",2640,0.0337982929079648,TRUE
+"Colorectal cancer",85,17,0.180253283075381,"hsa05210","Colorectal cancer","All significant DEGs",2640,0.382014060154075,FALSE
+"Renal cell carcinoma",65,14,0.138038554599541,"hsa05211","Renal cell carcinoma","All significant DEGs",2640,0.315879637212446,FALSE
+"Pancreatic cancer",76,19,0.0255727981642397,"hsa05212","Pancreatic cancer","All significant DEGs",2640,0.095386537152614,FALSE
+"Endometrial cancer",57,15,0.0288133728485356,"hsa05213","Endometrial cancer","All significant DEGs",2640,0.102356076880988,FALSE
+"Glioma",73,17,0.0611414006269745,"hsa05214","Glioma","All significant DEGs",2640,0.172462803006097,FALSE
+"Prostate cancer",100,21,0.102448756436421,"hsa05215","Prostate cancer","All significant DEGs",2640,0.25306878245553,FALSE
+"Thyroid cancer",36,8,0.199968995182326,"hsa05216","Thyroid cancer","All significant DEGs",2640,0.410676476773797,FALSE
+"Basal cell carcinoma",62,5,0.976606685059944,"hsa05217","Basal cell carcinoma","All significant DEGs",2640,1,FALSE
+"Melanoma",71,11,0.581126700213195,"hsa05218","Melanoma","All significant DEGs",2640,0.84544561285081,FALSE
+"Bladder cancer",40,11,0.0421695996621284,"hsa05219","Bladder cancer","All significant DEGs",2640,0.133989934760427,FALSE
+"Chronic myeloid leukemia",73,18,0.0332500496047161,"hsa05220","Chronic myeloid leukemia","All significant DEGs",2640,0.112435991221015,FALSE
+"Acute myeloid leukemia",66,18,0.0122633790888657,"hsa05221","Acute myeloid leukemia","All significant DEGs",2640,0.0551113301222519,FALSE
+"Small cell lung cancer",90,18,0.171757437820664,"hsa05222","Small cell lung cancer","All significant DEGs",2640,0.372473978529695,FALSE
+"Non-small cell lung cancer",71,25,4.94263306139813e-05,"hsa05223","Non-small cell lung cancer","All significant DEGs",2640,0.000615292606874505,TRUE
+"Breast cancer",143,21,0.681192654245777,"hsa05224","Breast cancer","All significant DEGs",2640,0.917273862937455,FALSE
+"Hepatocellular carcinoma",161,29,0.251981878859157,"hsa05225","Hepatocellular carcinoma","All significant DEGs",2640,0.479536942930946,FALSE
+"Gastric cancer",144,18,0.890361639499692,"hsa05226","Gastric cancer","All significant DEGs",2640,1,FALSE
+"Central carbon metabolism in cancer",68,15,0.109618589450992,"hsa05230","Central carbon metabolism in cancer","All significant DEGs",2640,0.267240090622354,FALSE
+"Choline metabolism in cancer",94,21,0.0602131038835496,"hsa05231","Choline metabolism in cancer","All significant DEGs",2640,0.171446471363084,FALSE
+"PD-L1 expression and PD-1 checkpoint pathway in cancer",85,31,2.78592917784861e-06,"hsa05235","PD-L1 expression and PD-1 checkpoint pathway in cancer","All significant DEGs",2640,6.49469739585958e-05,TRUE
+"Asthma",28,5,0.46195670963378,"hsa05310","Asthma","All significant DEGs",2640,0.733233415716595,FALSE
+"Autoimmune thyroid disease",49,6,0.809238303772015,"hsa05320","Autoimmune thyroid disease","All significant DEGs",2640,0.993208937469937,FALSE
+"Inflammatory bowel disease",64,17,0.0190311542600126,"hsa05321","Inflammatory bowel disease","All significant DEGs",2640,0.0746442426461688,FALSE
+"Systemic lupus erythematosus",50,13,0.0438732054286523,"hsa05322","Systemic lupus erythematosus","All significant DEGs",2640,0.137518534662918,FALSE
+"Rheumatoid arthritis",88,22,0.0172010568869249,"hsa05323","Rheumatoid arthritis","All significant DEGs",2640,0.0705054309760769,FALSE
+"Allograft rejection",34,7,0.286286606402119,"hsa05330","Allograft rejection","All significant DEGs",2640,0.528638139544507,FALSE
+"Graft-versus-host disease",38,7,0.39585409145611,"hsa05332","Graft-versus-host disease","All significant DEGs",2640,0.658414100858709,FALSE
+"Primary immunodeficiency",36,17,9.65274705346024e-06,"hsa05340","Primary immunodeficiency","All significant DEGs",2640,0.000150019777122528,TRUE
+"Hypertrophic cardiomyopathy",95,13,0.757773606340011,"hsa05410","Hypertrophic cardiomyopathy","All significant DEGs",2640,0.964674249709297,FALSE
+"Arrhythmogenic right ventricular cardiomyopathy",83,11,0.78303153315803,"hsa05412","Arrhythmogenic right ventricular cardiomyopathy","All significant DEGs",2640,0.981655983274355,FALSE
+"Dilated cardiomyopathy",100,11,0.934295679850004,"hsa05414","Dilated cardiomyopathy","All significant DEGs",2640,1,FALSE
+"Diabetic cardiomyopathy",170,36,0.0384803537285916,"hsa05415","Diabetic cardiomyopathy","All significant DEGs",2640,0.124810190789258,FALSE
+"Viral myocarditis",65,12,0.328475262459958,"hsa05416","Viral myocarditis","All significant DEGs",2640,0.575217243650536,FALSE
+"Lipid and atherosclerosis",209,61,7.1623798130513e-07,"hsa05417","Lipid and atherosclerosis","All significant DEGs",2640,2.42869788206194e-05,TRUE
+"Fluid shear stress and atherosclerosis",137,29,0.0585476820585809,"hsa05418","Fluid shear stress and atherosclerosis","All significant DEGs",2640,0.167986810829621,FALSE
