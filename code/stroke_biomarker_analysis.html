@@ -526,7 +526,9 @@ of Differentially Expressed Genes</a></li>
 Gene ID Annotation and Enrichment Background Preparation</a></li>
 </ul></li>
 <li><a href="#functional-and-pathway-enrichment-analysis" id="toc-functional-and-pathway-enrichment-analysis">5.6 Functional and
-Pathway Enrichment Analysis</a>
+Pathway Enrichment Analysis</a></li>
+<li><a href="#machine-learning-model-development" id="toc-machine-learning-model-development">5.7 Machine Learning Model
+Development</a>
 <ul>
 <li><a href="#reproducibility-information" id="toc-reproducibility-information">6. Reproducibility
 Information</a></li>
@@ -1312,18 +1314,28 @@ cat(&quot;Cleaned data exported successfully.\n&quot;)</code></pre>
 ##  [8] &quot;GSE16561_enrichment_gene_sets.csv&quot;             
 ##  [9] &quot;GSE16561_enrichment_gene_sets.rds&quot;             
 ## [10] &quot;GSE16561_enrichment_mapping_summary.csv&quot;       
-## [11] &quot;GSE16561_gene_expression_matrix.csv&quot;           
-## [12] &quot;GSE16561_gene_id_mapping.csv&quot;                  
-## [13] &quot;GSE16561_limma_contrast_matrix.csv&quot;            
-## [14] &quot;GSE16561_limma_design_matrix.csv&quot;              
-## [15] &quot;GSE16561_limma_ebayes_fit.rds&quot;                 
-## [16] &quot;GSE16561_limma_model_summary.csv&quot;              
-## [17] &quot;GSE16561_PCA_scores.csv&quot;                       
-## [18] &quot;GSE16561_QC_summary.csv&quot;                       
-## [19] &quot;GSE16561_raw_eSet.rds&quot;                         
-## [20] &quot;GSE16561_sample_correlation.csv&quot;               
-## [21] &quot;GSE16561_series_matrix.txt&quot;                    
-## [22] &quot;GSE16561_significant_DEGs.csv&quot;</code></pre>
+## [11] &quot;GSE16561_enrichment_summary.csv&quot;               
+## [12] &quot;GSE16561_functional_enrichment_results.rds&quot;    
+## [13] &quot;GSE16561_gene_expression_matrix.csv&quot;           
+## [14] &quot;GSE16561_gene_id_mapping.csv&quot;                  
+## [15] &quot;GSE16561_go_bp_all_enrichment.csv&quot;             
+## [16] &quot;GSE16561_go_bp_downregulated_enrichment.csv&quot;   
+## [17] &quot;GSE16561_go_bp_upregulated_enrichment.csv&quot;     
+## [18] &quot;GSE16561_go_cc_all_enrichment.csv&quot;             
+## [19] &quot;GSE16561_go_mf_all_enrichment.csv&quot;             
+## [20] &quot;GSE16561_kegg_all_enrichment.csv&quot;              
+## [21] &quot;GSE16561_kegg_downregulated_enrichment.csv&quot;    
+## [22] &quot;GSE16561_kegg_upregulated_enrichment.csv&quot;      
+## [23] &quot;GSE16561_limma_contrast_matrix.csv&quot;            
+## [24] &quot;GSE16561_limma_design_matrix.csv&quot;              
+## [25] &quot;GSE16561_limma_ebayes_fit.rds&quot;                 
+## [26] &quot;GSE16561_limma_model_summary.csv&quot;              
+## [27] &quot;GSE16561_PCA_scores.csv&quot;                       
+## [28] &quot;GSE16561_QC_summary.csv&quot;                       
+## [29] &quot;GSE16561_raw_eSet.rds&quot;                         
+## [30] &quot;GSE16561_sample_correlation.csv&quot;               
+## [31] &quot;GSE16561_series_matrix.txt&quot;                    
+## [32] &quot;GSE16561_significant_DEGs.csv&quot;</code></pre>
 </div>
 </div>
 <div id="exploratory-data-analysis-eda" class="section level1">
@@ -3656,6 +3668,1277 @@ cat(&quot;\nFunctional Enrichment Summary\n&quot;)</code></pre>
 <pre class="r"><code>cat(&quot;\nAll enrichment output files verified.\n&quot;)</code></pre>
 <pre><code>## 
 ## All enrichment output files verified.</code></pre>
+</div>
+<div id="machine-learning-model-development" class="section level1">
+<h1>5.7 Machine Learning Model Development</h1>
+<p>Machine learning is used to investigate whether gene expression
+profiles can distinguish acute ischemic stroke samples from healthy
+control samples.</p>
+<p>Three supervised classification algorithms are compared:</p>
+<ol style="list-style-type: decimal">
+<li>Elastic Net Logistic Regression</li>
+<li>Support Vector Machine (SVM) with a radial basis function
+kernel</li>
+<li>Random Forest</li>
+</ol>
+<p>Because the dataset contains many genes but only 63 samples, a nested
+cross-validation strategy is used. Gene selection and model tuning are
+performed only within the training data to reduce information
+leakage.</p>
+<p>The outer validation uses repeated stratified five-fold
+cross-validation. Three-fold stratified cross-validation within each
+outer training set is used to select model parameters.</p>
+<p>The out-of-fold predictions, tuning results and selected genes are
+saved for subsequent model evaluation.</p>
+<pre class="r"><code># Verify required packages
+ml_packages &lt;- c(
+  &quot;glmnet&quot;,
+  &quot;e1071&quot;,
+  &quot;randomForest&quot;,
+  &quot;limma&quot;
+)
+
+ml_package_status &lt;- vapply(
+  ml_packages,
+  requireNamespace,
+  quietly = TRUE,
+  FUN.VALUE = logical(1)
+)
+
+if (!all(ml_package_status)) {
+  stop(&quot;One or more required machine learning packages are missing.&quot;)
+}
+
+# Verify expression matrix and clinical metadata
+stopifnot(
+  is.matrix(expr_gene),
+  is.numeric(expr_gene),
+  ncol(expr_gene) == 63,
+  nrow(metadata) == 63,
+  identical(colnames(expr_gene), metadata$Sample_ID),
+  !anyNA(expr_gene),
+  !anyNA(metadata$Group),
+  sum(metadata$Group == &quot;Control&quot;) == 24,
+  sum(metadata$Group == &quot;Stroke&quot;) == 39
+)
+
+# Set factor levels for classification
+metadata$Group &lt;- factor(
+  metadata$Group,
+  levels = c(&quot;Control&quot;, &quot;Stroke&quot;)
+)
+
+# Machine learning settings
+ml_seed &lt;- 2026
+
+number_outer_folds &lt;- 5
+number_outer_repeats &lt;- 2
+number_inner_folds &lt;- 3
+
+candidate_gene_counts &lt;- c(10L, 20L)
+
+# --------------------------------------------------
+# Function 1: Create stratified cross-validation folds
+# --------------------------------------------------
+
+make_stratified_folds &lt;- function(group, k, seed) {
+
+  group &lt;- factor(
+    group,
+    levels = c(&quot;Control&quot;, &quot;Stroke&quot;)
+  )
+
+  if (any(table(group) &lt; k)) {
+    stop(&quot;Each class must contain at least k samples.&quot;)
+  }
+
+  set.seed(seed)
+
+  fold_assignment &lt;- integer(length(group))
+
+  for (class_name in levels(group)) {
+
+    class_indices &lt;- which(group == class_name)
+
+    fold_assignment[class_indices] &lt;- sample(
+      rep(
+        seq_len(k),
+        length.out = length(class_indices)
+      )
+    )
+
+  }
+
+  lapply(
+    seq_len(k),
+    function(fold_number) {
+      which(fold_assignment == fold_number)
+    }
+  )
+
+}
+
+# --------------------------------------------------
+# Function 2: Calculate ROC-AUC
+# --------------------------------------------------
+
+calculate_auc &lt;- function(actual, predicted_probability) {
+
+  actual &lt;- as.character(actual)
+
+  positive &lt;- actual == &quot;Stroke&quot;
+
+  n_positive &lt;- sum(positive)
+  n_negative &lt;- sum(!positive)
+
+  if (
+    n_positive == 0 ||
+    n_negative == 0 ||
+    any(!is.finite(predicted_probability))
+  ) {
+    return(NA_real_)
+  }
+
+  probability_ranks &lt;- rank(
+    predicted_probability,
+    ties.method = &quot;average&quot;
+  )
+
+  auc_value &lt;- (
+    sum(probability_ranks[positive]) -
+      n_positive * (n_positive + 1) / 2
+  ) / (n_positive * n_negative)
+
+  as.numeric(auc_value)
+
+}
+
+# --------------------------------------------------
+# Function 3: Select genes using training data only
+# --------------------------------------------------
+
+select_top_genes &lt;- function(sample_indices) {
+
+  training_metadata &lt;- metadata[
+    sample_indices,
+    ,
+    drop = FALSE
+  ]
+
+  training_expression &lt;- expr_gene[
+    ,
+    sample_indices,
+    drop = FALSE
+  ]
+
+  # Create design matrix using training samples only
+  training_design &lt;- model.matrix(
+    ~ Group,
+    data = training_metadata
+  )
+
+  # Fit Limma model using training samples only
+  training_fit &lt;- limma::lmFit(
+    training_expression,
+    training_design
+  )
+
+  training_fit &lt;- limma::eBayes(
+    training_fit,
+    robust = TRUE
+  )
+
+  # Rank genes by differential expression p-value
+  ranked_results &lt;- limma::topTable(
+    training_fit,
+    coef = &quot;GroupStroke&quot;,
+    number = 20,
+    adjust.method = &quot;BH&quot;,
+    sort.by = &quot;P&quot;
+  )
+
+  selected_genes &lt;- rownames(ranked_results)
+
+  if (
+    length(selected_genes) &lt; max(candidate_gene_counts)
+  ) {
+    stop(&quot;Insufficient genes available for feature selection.&quot;)
+  }
+
+  selected_genes
+
+}
+
+# --------------------------------------------------
+# Function 4: Fit classifier and obtain probabilities
+# --------------------------------------------------
+
+predict_classifier_probability &lt;- function(
+  model_name,
+  training_x,
+  training_y,
+  validation_x,
+  parameters
+) {
+
+  training_y &lt;- factor(
+    as.character(training_y),
+    levels = c(&quot;Control&quot;, &quot;Stroke&quot;)
+  )
+
+  validation_x &lt;- as.matrix(validation_x)
+  training_x &lt;- as.matrix(training_x)
+
+  # Elastic Net Logistic Regression
+  if (model_name == &quot;Elastic Net&quot;) {
+
+    fitted_model &lt;- glmnet::glmnet(
+
+      x = training_x,
+
+      y = as.integer(training_y == &quot;Stroke&quot;),
+
+      family = &quot;binomial&quot;,
+
+      alpha = parameters$alpha,
+
+      lambda = parameters$lambda,
+
+      standardize = TRUE
+
+    )
+
+    predicted_probability &lt;- predict(
+
+      fitted_model,
+
+      newx = validation_x,
+
+      s = parameters$lambda,
+
+      type = &quot;response&quot;
+
+    )
+
+    return(as.numeric(predicted_probability[, 1]))
+
+  }
+
+  # Scale data using training data only
+  training_center &lt;- colMeans(training_x)
+
+  training_scale &lt;- apply(
+    training_x,
+    2,
+    sd
+  )
+
+  training_scale[
+    !is.finite(training_scale) |
+      training_scale == 0
+  ] &lt;- 1
+
+  scaled_training_x &lt;- scale(
+    training_x,
+    center = training_center,
+    scale = training_scale
+  )
+
+  scaled_validation_x &lt;- scale(
+    validation_x,
+    center = training_center,
+    scale = training_scale
+  )
+
+  # Support Vector Machine
+  if (model_name == &quot;SVM&quot;) {
+
+    fitted_model &lt;- e1071::svm(
+
+      x = scaled_training_x,
+
+      y = training_y,
+
+      kernel = &quot;radial&quot;,
+
+      cost = parameters$cost,
+
+      gamma = parameters$gamma,
+
+      probability = TRUE,
+
+      scale = FALSE
+
+    )
+
+    svm_prediction &lt;- predict(
+
+      fitted_model,
+
+      newdata = scaled_validation_x,
+
+      probability = TRUE
+
+    )
+
+    svm_probabilities &lt;- attr(
+      svm_prediction,
+      &quot;probabilities&quot;
+    )
+
+    if (
+      is.null(svm_probabilities) ||
+      !&quot;Stroke&quot; %in% colnames(svm_probabilities)
+    ) {
+      stop(&quot;SVM probability predictions are unavailable.&quot;)
+    }
+
+    return(
+      as.numeric(svm_probabilities[, &quot;Stroke&quot;])
+    )
+
+  }
+
+  # Random Forest
+  if (model_name == &quot;Random Forest&quot;) {
+
+    selected_mtry &lt;- max(
+      1,
+      min(
+        ncol(training_x),
+        round(
+          ncol(training_x) *
+            parameters$mtry_fraction
+        )
+      )
+    )
+
+    fitted_model &lt;- randomForest::randomForest(
+
+      x = training_x,
+
+      y = training_y,
+
+      ntree = 300,
+
+      mtry = selected_mtry,
+
+      nodesize = parameters$nodesize,
+
+      importance = FALSE
+
+    )
+
+    rf_probabilities &lt;- predict(
+
+      fitted_model,
+
+      newdata = validation_x,
+
+      type = &quot;prob&quot;
+
+    )
+
+    return(
+      as.numeric(rf_probabilities[, &quot;Stroke&quot;])
+    )
+
+  }
+
+  stop(&quot;Unknown machine learning model.&quot;)
+
+}
+
+# --------------------------------------------------
+# Function 5: Tune model using inner cross-validation
+# --------------------------------------------------
+
+tune_classifier &lt;- function(
+  model_name,
+  parameter_grid,
+  inner_cache,
+  seed_base
+) {
+
+  candidate_results &lt;- vector(
+    &quot;list&quot;,
+    nrow(parameter_grid)
+  )
+
+  for (candidate in seq_len(nrow(parameter_grid))) {
+
+    parameters &lt;- as.list(
+      parameter_grid[candidate, , drop = FALSE]
+    )
+
+    inner_auc &lt;- rep(
+      NA_real_,
+      length(inner_cache)
+    )
+
+    for (fold_index in seq_along(inner_cache)) {
+
+      fold_data &lt;- inner_cache[[fold_index]]
+
+      selected_genes &lt;- fold_data$ranked_genes[
+        seq_len(parameters$n_features)
+      ]
+
+      training_x &lt;- t(
+        expr_gene[
+          selected_genes,
+          fold_data$training_indices,
+          drop = FALSE
+        ]
+      )
+
+      validation_x &lt;- t(
+        expr_gene[
+          selected_genes,
+          fold_data$validation_indices,
+          drop = FALSE
+        ]
+      )
+
+      training_y &lt;- metadata$Group[
+        fold_data$training_indices
+      ]
+
+      validation_y &lt;- metadata$Group[
+        fold_data$validation_indices
+      ]
+
+      # Fit and predict within this inner fold
+      inner_auc[fold_index] &lt;- tryCatch({
+
+        set.seed(
+          seed_base +
+            candidate * 100 +
+            fold_index
+        )
+
+        probability &lt;- predict_classifier_probability(
+
+          model_name = model_name,
+
+          training_x = training_x,
+
+          training_y = training_y,
+
+          validation_x = validation_x,
+
+          parameters = parameters
+
+        )
+
+        calculate_auc(
+          validation_y,
+          probability
+        )
+
+      }, error = function(e) {
+
+        NA_real_
+
+      })
+
+    }
+
+    # Require successful results from every inner fold
+    mean_auc &lt;- if (all(is.finite(inner_auc))) {
+      mean(inner_auc)
+    } else {
+      NA_real_
+    }
+
+    sd_auc &lt;- if (all(is.finite(inner_auc))) {
+      sd(inner_auc)
+    } else {
+      NA_real_
+    }
+
+    candidate_results[[candidate]] &lt;- data.frame(
+
+      Model = model_name,
+
+      parameter_grid[candidate, , drop = FALSE],
+
+      Mean_Inner_AUC = mean_auc,
+
+      SD_Inner_AUC = sd_auc,
+
+      Successful_Inner_Folds = sum(
+        is.finite(inner_auc)
+      ),
+
+      stringsAsFactors = FALSE
+
+    )
+
+  }
+
+  tuning_scores &lt;- do.call(
+    rbind,
+    candidate_results
+  )
+
+  valid_candidates &lt;- which(
+    is.finite(tuning_scores$Mean_Inner_AUC)
+  )
+
+  if (length(valid_candidates) == 0) {
+    stop(
+      paste(
+        &quot;No valid tuning configuration for&quot;,
+        model_name
+      )
+    )
+  }
+
+  # Select the configuration with the highest mean inner AUC
+  best_index &lt;- valid_candidates[
+    which.max(
+      tuning_scores$Mean_Inner_AUC[valid_candidates]
+    )
+  ]
+
+  best_parameters &lt;- as.list(
+    tuning_scores[
+      best_index,
+      names(parameter_grid),
+      drop = FALSE
+    ]
+  )
+
+  list(
+
+    best_parameters = best_parameters,
+
+    best_inner_auc = tuning_scores$Mean_Inner_AUC[
+      best_index
+    ],
+
+    tuning_scores = tuning_scores
+
+  )
+
+}
+
+# --------------------------------------------------
+# Define candidate parameter grids
+# --------------------------------------------------
+
+elastic_net_grid &lt;- expand.grid(
+
+  n_features = candidate_gene_counts,
+
+  alpha = c(0.5, 1.0),
+
+  lambda = c(0.001, 0.01, 0.1),
+
+  KEEP.OUT.ATTRS = FALSE
+
+)
+
+svm_grid &lt;- expand.grid(
+
+  n_features = candidate_gene_counts,
+
+  cost = c(0.1, 1, 10),
+
+  gamma = c(0.01, 0.1),
+
+  KEEP.OUT.ATTRS = FALSE
+
+)
+
+random_forest_grid &lt;- expand.grid(
+
+  n_features = candidate_gene_counts,
+
+  mtry_fraction = c(0.2, 0.5),
+
+  nodesize = c(1, 3),
+
+  KEEP.OUT.ATTRS = FALSE
+
+)
+
+# Store parameter grids
+model_grids &lt;- list(
+
+  &quot;Elastic Net&quot; = elastic_net_grid,
+
+  &quot;SVM&quot; = svm_grid,
+
+  &quot;Random Forest&quot; = random_forest_grid
+
+)
+
+# --------------------------------------------------
+# Nested repeated cross-validation
+# --------------------------------------------------
+
+outer_prediction_results &lt;- list()
+
+tuning_results_list &lt;- list()
+
+selected_features_list &lt;- list()
+
+prediction_index &lt;- 1
+tuning_index &lt;- 1
+feature_index &lt;- 1
+
+number_samples &lt;- nrow(metadata)
+
+for (repeat_id in seq_len(number_outer_repeats)) {
+
+  cat(
+    &quot;\nOuter cross-validation repeat:&quot;,
+    repeat_id,
+    &quot;\n&quot;
+  )
+
+  # Create outer stratified folds
+  outer_folds &lt;- make_stratified_folds(
+
+    group = metadata$Group,
+
+    k = number_outer_folds,
+
+    seed = ml_seed + repeat_id
+
+  )
+
+  for (outer_fold in seq_len(number_outer_folds)) {
+
+    cat(
+      &quot;\nRepeat&quot;,
+      repeat_id,
+      &quot;- Outer fold&quot;,
+      outer_fold,
+      &quot;\n&quot;
+    )
+
+    # Split outer training and validation samples
+    outer_validation_indices &lt;- outer_folds[[outer_fold]]
+
+    outer_training_indices &lt;- setdiff(
+      seq_len(number_samples),
+      outer_validation_indices
+    )
+
+    # Create inner stratified folds within outer training data
+    inner_folds &lt;- make_stratified_folds(
+
+      group = metadata$Group[
+        outer_training_indices
+      ],
+
+      k = number_inner_folds,
+
+      seed = ml_seed +
+        repeat_id * 100 +
+        outer_fold
+
+    )
+
+    # Precalculate gene rankings using each inner training fold
+    inner_cache &lt;- lapply(
+
+      seq_along(inner_folds),
+
+      function(inner_fold) {
+
+        inner_validation_local &lt;- inner_folds[[inner_fold]]
+
+        inner_training_local &lt;- setdiff(
+
+          seq_along(outer_training_indices),
+
+          inner_validation_local
+
+        )
+
+        inner_training_indices &lt;- outer_training_indices[
+          inner_training_local
+        ]
+
+        inner_validation_indices &lt;- outer_training_indices[
+          inner_validation_local
+        ]
+
+        list(
+
+          training_indices = inner_training_indices,
+
+          validation_indices = inner_validation_indices,
+
+          ranked_genes = select_top_genes(
+            inner_training_indices
+          )
+
+        )
+
+      }
+
+    )
+
+    # Tune and evaluate each model
+    for (model_name in names(model_grids)) {
+
+      cat(
+        &quot;Tuning model:&quot;,
+        model_name,
+        &quot;\n&quot;
+      )
+
+      tuning_output &lt;- tune_classifier(
+
+        model_name = model_name,
+
+        parameter_grid = model_grids[[model_name]],
+
+        inner_cache = inner_cache,
+
+        seed_base = ml_seed +
+          repeat_id * 10000 +
+          outer_fold * 1000
+
+      )
+
+
+# Save inner tuning scores using a common table structure
+tuning_table &lt;- tuning_output$tuning_scores
+
+tuning_results_list[[tuning_index]] &lt;- data.frame(
+
+  Model = as.character(tuning_table$Model),
+
+  Repeat = repeat_id,
+
+  Outer_Fold = outer_fold,
+
+  N_Features = as.integer(tuning_table$n_features),
+
+  Alpha = if (&quot;alpha&quot; %in% names(tuning_table)) {
+    as.numeric(tuning_table$alpha)
+  } else {
+    rep(NA_real_, nrow(tuning_table))
+  },
+
+  Lambda = if (&quot;lambda&quot; %in% names(tuning_table)) {
+    as.numeric(tuning_table$lambda)
+  } else {
+    rep(NA_real_, nrow(tuning_table))
+  },
+
+  Cost = if (&quot;cost&quot; %in% names(tuning_table)) {
+    as.numeric(tuning_table$cost)
+  } else {
+    rep(NA_real_, nrow(tuning_table))
+  },
+
+  Gamma = if (&quot;gamma&quot; %in% names(tuning_table)) {
+    as.numeric(tuning_table$gamma)
+  } else {
+    rep(NA_real_, nrow(tuning_table))
+  },
+
+  Mtry_Fraction = if (&quot;mtry_fraction&quot; %in% names(tuning_table)) {
+    as.numeric(tuning_table$mtry_fraction)
+  } else {
+    rep(NA_real_, nrow(tuning_table))
+  },
+
+  Nodesize = if (&quot;nodesize&quot; %in% names(tuning_table)) {
+    as.numeric(tuning_table$nodesize)
+  } else {
+    rep(NA_real_, nrow(tuning_table))
+  },
+
+  Mean_Inner_AUC = as.numeric(
+    tuning_table$Mean_Inner_AUC
+  ),
+
+  SD_Inner_AUC = as.numeric(
+    tuning_table$SD_Inner_AUC
+  ),
+
+  Successful_Inner_Folds = as.integer(
+    tuning_table$Successful_Inner_Folds
+  ),
+
+  stringsAsFactors = FALSE
+
+)
+
+tuning_index &lt;- tuning_index + 1
+
+      best_parameters &lt;- tuning_output$best_parameters
+
+      # Perform gene selection again using the complete outer training set
+      outer_ranked_genes &lt;- select_top_genes(
+        outer_training_indices
+      )
+
+      final_genes &lt;- outer_ranked_genes[
+        seq_len(best_parameters$n_features)
+      ]
+
+      # Construct outer training and validation expression matrices
+      outer_training_x &lt;- t(
+
+        expr_gene[
+          final_genes,
+          outer_training_indices,
+          drop = FALSE
+        ]
+
+      )
+
+      outer_validation_x &lt;- t(
+
+        expr_gene[
+          final_genes,
+          outer_validation_indices,
+          drop = FALSE
+        ]
+
+      )
+
+      outer_training_y &lt;- metadata$Group[
+        outer_training_indices
+      ]
+
+      outer_validation_y &lt;- metadata$Group[
+        outer_validation_indices
+      ]
+
+      # Fit the selected model and predict outer validation samples
+      set.seed(
+
+        ml_seed +
+          repeat_id * 100000 +
+          outer_fold * 1000 +
+          match(model_name, names(model_grids))
+
+      )
+
+      outer_probabilities &lt;- predict_classifier_probability(
+
+        model_name = model_name,
+
+        training_x = outer_training_x,
+
+        training_y = outer_training_y,
+
+        validation_x = outer_validation_x,
+
+        parameters = best_parameters
+
+      )
+
+      if (
+        length(outer_probabilities) !=
+          length(outer_validation_indices) ||
+        any(!is.finite(outer_probabilities))
+      ) {
+
+        stop(
+          paste(
+            &quot;Invalid outer predictions generated by&quot;,
+            model_name
+          )
+        )
+
+      }
+
+      # Save out-of-fold predictions
+      outer_prediction_results[[prediction_index]] &lt;- data.frame(
+
+        Repeat = repeat_id,
+
+        Outer_Fold = outer_fold,
+
+        Sample_ID = metadata$Sample_ID[
+          outer_validation_indices
+        ],
+
+        Actual = as.character(
+          outer_validation_y
+        ),
+
+        Model = model_name,
+
+        Probability_Stroke = as.numeric(
+          outer_probabilities
+        ),
+
+        Predicted_Class = ifelse(
+          outer_probabilities &gt;= 0.5,
+          &quot;Stroke&quot;,
+          &quot;Control&quot;
+        ),
+
+        stringsAsFactors = FALSE
+
+      )
+
+      prediction_index &lt;- prediction_index + 1
+
+      # Save selected genes for reproducibility
+      selected_features_list[[feature_index]] &lt;- data.frame(
+
+        Repeat = repeat_id,
+
+        Outer_Fold = outer_fold,
+
+        Model = model_name,
+
+        Feature_Rank = seq_along(final_genes),
+
+        Gene_Symbol = final_genes,
+
+        stringsAsFactors = FALSE
+
+      )
+
+      feature_index &lt;- feature_index + 1
+
+      cat(
+        &quot;Best inner AUC:&quot;,
+        round(tuning_output$best_inner_auc, 4),
+        &quot;\n&quot;
+      )
+
+    }
+
+  }
+
+}</code></pre>
+<pre><code>## 
+## Outer cross-validation repeat: 1 
+## 
+## Repeat 1 - Outer fold 1 
+## Tuning model: Elastic Net 
+## Best inner AUC: 0.9889 
+## Tuning model: SVM 
+## Best inner AUC: 0.9889 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.9889 
+## 
+## Repeat 1 - Outer fold 2 
+## Tuning model: Elastic Net 
+## Best inner AUC: 0.987 
+## Tuning model: SVM 
+## Best inner AUC: 0.9957 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.9802 
+## 
+## Repeat 1 - Outer fold 3 
+## Tuning model: Elastic Net 
+## Best inner AUC: 0.9889 
+## Tuning model: SVM 
+## Best inner AUC: 0.9944 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.9944 
+## 
+## Repeat 1 - Outer fold 4 
+## Tuning model: Elastic Net 
+## Best inner AUC: 0.9889 
+## Tuning model: SVM 
+## Best inner AUC: 0.9778 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.9722 
+## 
+## Repeat 1 - Outer fold 5 
+## Tuning model: Elastic Net 
+## Best inner AUC: 1 
+## Tuning model: SVM 
+## Best inner AUC: 0.9913 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.9913 
+## 
+## Outer cross-validation repeat: 2 
+## 
+## Repeat 2 - Outer fold 1 
+## Tuning model: Elastic Net 
+## Best inner AUC: 0.9722 
+## Tuning model: SVM 
+## Best inner AUC: 1 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.9957 
+## 
+## Repeat 2 - Outer fold 2 
+## Tuning model: Elastic Net 
+## Best inner AUC: 0.9833 
+## Tuning model: SVM 
+## Best inner AUC: 1 
+## Tuning model: Random Forest 
+## Best inner AUC: 1 
+## 
+## Repeat 2 - Outer fold 3 
+## Tuning model: Elastic Net 
+## Best inner AUC: 1 
+## Tuning model: SVM 
+## Best inner AUC: 1 
+## Tuning model: Random Forest 
+## Best inner AUC: 1 
+## 
+## Repeat 2 - Outer fold 4 
+## Tuning model: Elastic Net 
+## Best inner AUC: 0.9944 
+## Tuning model: SVM 
+## Best inner AUC: 1 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.9833 
+## 
+## Repeat 2 - Outer fold 5 
+## Tuning model: Elastic Net 
+## Best inner AUC: 1 
+## Tuning model: SVM 
+## Best inner AUC: 0.9913 
+## Tuning model: Random Forest 
+## Best inner AUC: 0.987</code></pre>
+<pre class="r"><code># --------------------------------------------------
+# Combine and export results
+# --------------------------------------------------
+
+ml_outer_predictions &lt;- do.call(
+  rbind,
+  outer_prediction_results
+)
+
+ml_tuning_results &lt;- do.call(
+  rbind,
+  tuning_results_list
+)
+
+ml_selected_features &lt;- do.call(
+  rbind,
+  selected_features_list
+)
+
+rownames(ml_outer_predictions) &lt;- NULL
+rownames(ml_tuning_results) &lt;- NULL
+rownames(ml_selected_features) &lt;- NULL
+
+# Verify prediction structure
+expected_prediction_rows &lt;- (
+  number_samples *
+    number_outer_repeats *
+    length(model_grids)
+)
+
+stopifnot(
+
+  nrow(ml_outer_predictions) ==
+    expected_prediction_rows,
+
+  !anyNA(ml_outer_predictions$Probability_Stroke),
+
+  all(
+    ml_outer_predictions$Probability_Stroke &gt;= 0 &amp;
+      ml_outer_predictions$Probability_Stroke &lt;= 1
+  ),
+
+  length(unique(ml_outer_predictions$Model)) == 3
+
+)
+
+# Define output files
+ml_prediction_file &lt;- file.path(
+  data_dir,
+  &quot;GSE16561_ml_outer_cv_predictions.csv&quot;
+)
+
+ml_tuning_file &lt;- file.path(
+  data_dir,
+  &quot;GSE16561_ml_tuning_results.csv&quot;
+)
+
+ml_features_file &lt;- file.path(
+  data_dir,
+  &quot;GSE16561_ml_selected_features.csv&quot;
+)
+
+ml_settings_file &lt;- file.path(
+  data_dir,
+  &quot;GSE16561_ml_model_settings.csv&quot;
+)
+
+# Export out-of-fold predictions
+write.csv(
+  ml_outer_predictions,
+  ml_prediction_file,
+  row.names = FALSE
+)
+
+# Export tuning results
+write.csv(
+  ml_tuning_results,
+  ml_tuning_file,
+  row.names = FALSE
+)
+
+# Export selected genes
+write.csv(
+  ml_selected_features,
+  ml_features_file,
+  row.names = FALSE
+)
+
+# Record model development settings
+ml_model_settings &lt;- data.frame(
+
+  Setting = c(
+    &quot;Dataset&quot;,
+    &quot;Number of samples&quot;,
+    &quot;Control samples&quot;,
+    &quot;Stroke samples&quot;,
+    &quot;Number of genes available&quot;,
+    &quot;Outer cross-validation folds&quot;,
+    &quot;Outer cross-validation repeats&quot;,
+    &quot;Inner cross-validation folds&quot;,
+    &quot;Candidate gene counts&quot;,
+    &quot;Gene selection method&quot;,
+    &quot;Model selection metric&quot;,
+    &quot;Elastic Net&quot;,
+    &quot;Support Vector Machine&quot;,
+    &quot;Random Forest&quot;
+  ),
+
+  Value = c(
+    &quot;GSE16561&quot;,
+    nrow(metadata),
+    sum(metadata$Group == &quot;Control&quot;),
+    sum(metadata$Group == &quot;Stroke&quot;),
+    nrow(expr_gene),
+    number_outer_folds,
+    number_outer_repeats,
+    number_inner_folds,
+    paste(candidate_gene_counts, collapse = &quot;, &quot;),
+    &quot;Limma training-fold differential expression ranking&quot;,
+    &quot;Mean inner-fold ROC-AUC&quot;,
+    &quot;Binomial Elastic Net Logistic Regression&quot;,
+    &quot;Radial Basis Function Kernel&quot;,
+    &quot;300 trees&quot;
+  ),
+
+  stringsAsFactors = FALSE
+
+)
+
+write.csv(
+  ml_model_settings,
+  ml_settings_file,
+  row.names = FALSE
+)
+
+# Save complete development results for later evaluation
+ml_results_rds &lt;- file.path(
+  data_dir,
+  &quot;GSE16561_ml_development_results.rds&quot;
+)
+
+saveRDS(
+
+  list(
+
+    predictions = ml_outer_predictions,
+
+    tuning_results = ml_tuning_results,
+
+    selected_features = ml_selected_features,
+
+    model_settings = ml_model_settings
+
+  ),
+
+  ml_results_rds
+
+)
+
+# Verify all output files
+ml_output_files &lt;- c(
+
+  ml_prediction_file,
+
+  ml_tuning_file,
+
+  ml_features_file,
+
+  ml_settings_file,
+
+  ml_results_rds
+
+)
+
+stopifnot(
+
+  all(file.exists(ml_output_files)),
+
+  all(file.info(ml_output_files)$size &gt; 0)
+
+)
+
+# Display model development summary
+cat(&quot;\nMachine Learning Development Summary\n&quot;)</code></pre>
+<pre><code>## 
+## Machine Learning Development Summary</code></pre>
+<pre class="r"><code>cat(&quot;------------------------------------\n&quot;)</code></pre>
+<pre><code>## ------------------------------------</code></pre>
+<pre class="r"><code>cat(
+  &quot;Samples:&quot;,
+  number_samples,
+  &quot;\n&quot;
+)</code></pre>
+<pre><code>## Samples: 63</code></pre>
+<pre class="r"><code>cat(
+  &quot;Outer validation predictions:&quot;,
+  nrow(ml_outer_predictions),
+  &quot;\n&quot;
+)</code></pre>
+<pre><code>## Outer validation predictions: 378</code></pre>
+<pre class="r"><code>cat(
+  &quot;Models developed:&quot;,
+  length(model_grids),
+  &quot;\n&quot;
+)</code></pre>
+<pre><code>## Models developed: 3</code></pre>
+<pre class="r"><code>cat(
+  &quot;Repeated outer folds:&quot;,
+  number_outer_repeats * number_outer_folds,
+  &quot;\n&quot;
+)</code></pre>
+<pre><code>## Repeated outer folds: 10</code></pre>
+<pre class="r"><code>cat(&quot;\nPrediction counts by model:\n&quot;)</code></pre>
+<pre><code>## 
+## Prediction counts by model:</code></pre>
+<pre class="r"><code>print(
+  table(ml_outer_predictions$Model)
+)</code></pre>
+<pre><code>## 
+##   Elastic Net Random Forest           SVM 
+##           126           126           126</code></pre>
+<pre class="r"><code>cat(&quot;\nSelected model features:\n&quot;)</code></pre>
+<pre><code>## 
+## Selected model features:</code></pre>
+<pre class="r"><code>print(
+  aggregate(
+    Feature_Rank ~ Model,
+    data = ml_selected_features,
+    FUN = max
+  )
+)</code></pre>
+<pre><code>##           Model Feature_Rank
+## 1   Elastic Net           20
+## 2 Random Forest           20
+## 3           SVM           20</code></pre>
+<pre class="r"><code>cat(&quot;\nAll machine learning output files verified.\n&quot;)</code></pre>
+<pre><code>## 
+## All machine learning output files verified.</code></pre>
 <div id="reproducibility-information" class="section level2">
 <h2>6. Reproducibility Information</h2>
 <p>The R session and package versions are recorded to support
@@ -3694,41 +4977,47 @@ reproducibility of the analysis.</p>
 ##  [5] Biostrings_2.74.1           S7_0.2.2                   
 ##  [7] fastmap_1.2.0               XML_3.99-0.23              
 ##  [9] digest_0.6.39               lifecycle_1.0.4            
-## [11] statmod_1.5.1               KEGGREST_1.46.0            
-## [13] RSQLite_2.4.6               magrittr_2.0.3             
-## [15] compiler_4.4.2              rlang_1.1.4                
-## [17] sass_0.4.10                 tools_4.4.2                
-## [19] yaml_2.3.12                 data.table_1.16.2          
-## [21] knitr_1.52                  S4Arrays_1.6.0             
-## [23] labeling_0.4.3              bit_4.5.0                  
-## [25] DelayedArray_0.32.0         xml2_1.5.2                 
-## [27] RColorBrewer_1.1-3          abind_1.4-8                
-## [29] withr_3.0.2                 purrr_1.0.2                
-## [31] grid_4.4.2                  GO.db_3.20.0               
-## [33] scales_1.4.0                SummarizedExperiment_1.36.0
-## [35] cli_3.6.3                   rmarkdown_2.32             
-## [37] crayon_1.5.3                ragg_1.5.2                 
-## [39] generics_0.1.3              otel_0.3.0                 
-## [41] rstudioapi_0.17.1           httr_1.4.7                 
-## [43] tzdb_0.5.0                  DBI_1.3.0                  
-## [45] cachem_1.1.0                zlibbioc_1.52.0            
-## [47] BiocManager_1.30.27         XVector_0.46.0             
-## [49] matrixStats_1.5.0           vctrs_0.6.5                
-## [51] Matrix_1.7-1                jsonlite_1.8.9             
-## [53] hms_1.1.3                   bit64_4.5.2                
-## [55] systemfonts_1.3.2           tidyr_1.3.1                
-## [57] jquerylib_0.1.4             glue_1.8.0                 
-## [59] gtable_0.3.6                GenomeInfoDb_1.42.3        
-## [61] GenomicRanges_1.58.0        UCSC.utils_1.2.0           
-## [63] tibble_3.2.1                pillar_1.11.1              
-## [65] htmltools_0.5.9             GenomeInfoDbData_1.2.13    
-## [67] R6_2.6.1                    textshaping_1.0.5          
-## [69] evaluate_1.0.5              lattice_0.22-6             
-## [71] readr_2.1.5                 rentrez_1.2.4              
-## [73] png_0.1-9                   memoise_2.0.1              
-## [75] bslib_0.12.0                SparseArray_1.6.2          
-## [77] xfun_0.57                   MatrixGenerics_1.18.1      
-## [79] pkgconfig_2.0.3</code></pre>
+## [11] survival_3.7-0              statmod_1.5.1              
+## [13] KEGGREST_1.46.0             RSQLite_2.4.6              
+## [15] magrittr_2.0.3              compiler_4.4.2             
+## [17] rlang_1.1.4                 sass_0.4.10                
+## [19] tools_4.4.2                 yaml_2.3.12                
+## [21] data.table_1.16.2           knitr_1.52                 
+## [23] S4Arrays_1.6.0              labeling_0.4.3             
+## [25] bit_4.5.0                   DelayedArray_0.32.0        
+## [27] xml2_1.5.2                  RColorBrewer_1.1-3         
+## [29] abind_1.4-8                 withr_3.0.2                
+## [31] purrr_1.0.2                 grid_4.4.2                 
+## [33] e1071_1.7-17                GO.db_3.20.0               
+## [35] iterators_1.0.14            scales_1.4.0               
+## [37] SummarizedExperiment_1.36.0 cli_3.6.3                  
+## [39] rmarkdown_2.32              crayon_1.5.3               
+## [41] ragg_1.5.2                  generics_0.1.3             
+## [43] otel_0.3.0                  rstudioapi_0.17.1          
+## [45] httr_1.4.7                  tzdb_0.5.0                 
+## [47] proxy_0.4-27                DBI_1.3.0                  
+## [49] cachem_1.1.0                splines_4.4.2              
+## [51] zlibbioc_1.52.0             BiocManager_1.30.27        
+## [53] XVector_0.46.0              matrixStats_1.5.0          
+## [55] vctrs_0.6.5                 glmnet_4.1-10              
+## [57] Matrix_1.7-1                jsonlite_1.8.9             
+## [59] hms_1.1.3                   bit64_4.5.2                
+## [61] systemfonts_1.3.2           foreach_1.5.2              
+## [63] tidyr_1.3.1                 jquerylib_0.1.4            
+## [65] glue_1.8.0                  codetools_0.2-20           
+## [67] shape_1.4.6.1               gtable_0.3.6               
+## [69] GenomeInfoDb_1.42.3         GenomicRanges_1.58.0       
+## [71] UCSC.utils_1.2.0            tibble_3.2.1               
+## [73] pillar_1.11.1               htmltools_0.5.9            
+## [75] randomForest_4.7-1.2        GenomeInfoDbData_1.2.13    
+## [77] R6_2.6.1                    textshaping_1.0.5          
+## [79] evaluate_1.0.5              lattice_0.22-6             
+## [81] readr_2.1.5                 rentrez_1.2.4              
+## [83] png_0.1-9                   memoise_2.0.1              
+## [85] bslib_0.12.0                class_7.3-22               
+## [87] Rcpp_1.0.13-1               SparseArray_1.6.2          
+## [89] xfun_0.57                   MatrixGenerics_1.18.1      
+## [91] pkgconfig_2.0.3</code></pre>
 </div>
 </div>
 
